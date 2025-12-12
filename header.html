@@ -1,0 +1,595 @@
+<!-- Header fragment: navbar with internal CSS and JS -->
+<style>
+    :root {
+        --primary: #ff6b35;
+        --dark: #0f172a;
+        --light: #f8f9fa;
+    }
+
+    .navbar {
+        background-color: var(--dark);
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-brand img {
+        height: 50px;
+        width: auto;
+    }
+
+    .navbar-nav .nav-link {
+        color: white !important;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: var(--primary) !important;
+    }
+
+    .dropdown-menu {
+        background-color: var(--dark);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 1rem;
+        min-width: 250px;
+    }
+
+    .dropdown-item {
+        color: white !important;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-item:hover {
+        background-color: var(--primary);
+        color: white !important;
+        transform: translateX(5px);
+    }
+
+    .navbar-toggler {
+        border: none;
+        background: transparent;
+        color: white;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+
+    .offcanvas {
+        background-color: var(--dark);
+        color: white;
+    }
+
+    .offcanvas-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+    }
+
+    .offcanvas-body {
+        padding: 1rem;
+    }
+
+    .offcanvas .nav-link {
+        color: white !important;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+<!-- <!DOCTYPE html>
+    .offcanvas .nav-link:hover {
+        color: var(--primary) !important;
+    }
+
+    .offcanvas .dropdown-menu {
+        background: transparent;
+        border: none;
+        padding: 0;
+        position: static;
+        display: block;
+        box-shadow: none;
+    }
+
+    .offcanvas .dropdown-item {
+        padding-left: 1rem;
+        border-bottom: none;
+    }
+
+    @media (max-width: 991px) {
+        .navbar-collapse {
+            display: none;
+        }
+
+        .offcanvas.show {
+            display: block;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .navbar-toggler {
+            display: none;
+        }
+
+        .offcanvas {
+            display: none !important;
+        }
+    }
+</style>
+
+<!-- Header Start -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a href="index.html" class="navbar-brand">
+            <img src="img/logo.png" alt="Niftel">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><h6 class="dropdown-header text-primary">BPO Services</h6></li>
+                        <li><a class="dropdown-item" href="services-page/bpo service/back-office.html">Back Office</a></li>
+                        <li><a class="dropdown-item" href="services-page/bpo service/front-office.html">Front Office</a></li>
+                        <li><a class="dropdown-item" href="services-page/bpo service/invoice.html">Invoice Management</a></li>
+                        <li><a class="dropdown-item" href="services-page/bpo service/finance.html">Finance & Accounting</a></li>
+                        <li><a class="dropdown-item" href="services-page/bpo service/ecommerce.html">E-commerce</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><h6 class="dropdown-header text-primary">Data Support</h6></li>
+                        <li><a class="dropdown-item" href="services-page/data support/lead.html">Lead Conversion</a></li>
+                        <li><a class="dropdown-item" href="services-page/data support/validation.html">Data Validation</a></li>
+                        <li><a class="dropdown-item" href="services-page/data support/migration.html">Data Migration</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><h6 class="dropdown-header text-primary">Call Center Services</h6></li>
+                        <li><a class="dropdown-item" href="services-page/tech support/inbound.html">Inbound Call</a></li>
+                        <li><a class="dropdown-item" href="services-page/tech support/outbound.html">Outbound Call</a></li>
+                        <li><a class="dropdown-item" href="services-page/tech support/answering.html">Answering Services</a></li>
+                        <li><a class="dropdown-item" href="services-page/tech support/tech.html">Tech Support</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">Our Team</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Resources
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                        <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                        <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.niftelresources.com/apply-for-job">Career</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Offcanvas Menu -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#mobileServices" aria-expanded="false">Services</a>
+                <div class="collapse" id="mobileServices">
+                    <ul class="dropdown-menu show">
+                        <li><h6 class="dropdown-header text-primary">BPO Services</h6></li>
+                        <li><a class="dropdown-item" href="services-page/bpo service/back-office.html">Back Office</a></li>
+                        <li><a class="dropdown-item" href="services-page/bpo service/front-office.html">Front Office</a></li>
+                        <li><a class="dropdown-item" href="services-page/bpo service/invoice.html">Invoice Management</a></li>
+                        <li><a class="dropdown-item" href="services-page/bpo service/finance.html">Finance & Accounting</a></li>
+                        <li><a class="dropdown-item" href="services-page/bpo service/ecommerce.html">E-commerce</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><h6 class="dropdown-header text-primary">Data Support</h6></li>
+                        <li><a class="dropdown-item" href="services-page/data support/lead.html">Lead Conversion</a></li>
+                        <li><a class="dropdown-item" href="services-page/data support/validation.html">Data Validation</a></li>
+                        <li><a class="dropdown-item" href="services-page/data support/migration.html">Data Migration</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><h6 class="dropdown-header text-primary">Call Center Services</h6></li>
+                        <li><a class="dropdown-item" href="services-page/tech support/inbound.html">Inbound Call</a></li>
+                        <li><a class="dropdown-item" href="services-page/tech support/outbound.html">Outbound Call</a></li>
+                        <li><a class="dropdown-item" href="services-page/tech support/answering.html">Answering Services</a></li>
+                        <li><a class="dropdown-item" href="services-page/tech support/tech.html">Tech Support</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="team.html">Our Team</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#mobileResources" aria-expanded="false">Resources</a>
+                <div class="collapse" id="mobileResources">
+                    <ul class="dropdown-menu show">
+                        <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                        <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.niftelresources.com/apply-for-job">Career</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Header End -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle functionality
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const offcanvas = document.getElementById('mobileMenu');
+
+    if (navbarToggler && offcanvas) {
+        navbarToggler.addEventListener('click', function() {
+            const bsOffcanvas = new bootstrap.Offcanvas(offcanvas);
+            bsOffcanvas.show();
+        });
+    }
+
+    // Handle dropdown toggles in mobile menu
+    const dropdownToggles = document.querySelectorAll('.offcanvas .nav-link[data-bs-toggle="collapse"]');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('data-bs-target'));
+            if (target) {
+                const bsCollapse = new bootstrap.Collapse(target, {
+                    toggle: true
+                });
+            }
+        });
+    });
+
+    // Close offcanvas when clicking on a nav link
+    const navLinks = document.querySelectorAll('.offcanvas .nav-link:not([data-bs-toggle])');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvas);
+            if (offcanvasInstance) {
+                offcanvasInstance.hide();
+            }
+        });
+    });
+
+    // Handle window resize to ensure proper display
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 992) {
+            // Close mobile menu on desktop
+            const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvas);
+            if (offcanvasInstance) {
+                offcanvasInstance.hide();
+            }
+        }
+    });
+});
+</script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niftel Header</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff6b35;
+            --dark: #0f172a;
+            --light: #f8f9fa;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: var(--dark);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            width: auto;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary) !important;
+        }
+
+        .dropdown-menu {
+            background-color: var(--dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            min-width: 250px;
+        }
+
+        .dropdown-item {
+            color: white !important;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--primary);
+            color: white !important;
+            transform: translateX(5px);
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            color: white;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .offcanvas {
+            background-color: var(--dark);
+            color: white;
+        }
+
+        .offcanvas-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+        }
+
+        .offcanvas-body {
+            padding: 1rem;
+        }
+
+        .offcanvas .nav-link {
+            color: white !important;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .offcanvas .nav-link:hover {
+            color: var(--primary) !important;
+        }
+
+        .offcanvas .dropdown-menu {
+            background: transparent;
+            border: none;
+            padding: 0;
+            position: static;
+            display: block;
+            box-shadow: none;
+        }
+
+        .offcanvas .dropdown-item {
+            padding-left: 1rem;
+            border-bottom: none;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                display: none;
+            }
+
+            .offcanvas.show {
+                display: block;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-toggler {
+                display: none;
+            }
+
+            .offcanvas {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Start -->
+    <!-- <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="img/logo.png" alt="Niftel">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><h6 class="dropdown-header text-primary">BPO Services</h6></li>
+                            <li><a class="dropdown-item" href="services-page/bpo service/back-office.html">Back Office</a></li>
+                            <li><a class="dropdown-item" href="services-page/bpo service/front-office.html">Front Office</a></li>
+                            <li><a class="dropdown-item" href="services-page/bpo service/invoice.html">Invoice Management</a></li>
+                            <li><a class="dropdown-item" href="services-page/bpo service/finance.html">Finance & Accounting</a></li>
+                            <li><a class="dropdown-item" href="services-page/bpo service/ecommerce.html">E-commerce</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header text-primary">Data Support</h6></li>
+                            <li><a class="dropdown-item" href="services-page/data support/lead.html">Lead Conversion</a></li>
+                            <li><a class="dropdown-item" href="services-page/data support/validation.html">Data Validation</a></li>
+                            <li><a class="dropdown-item" href="services-page/data support/migration.html">Data Migration</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header text-primary">Call Center Services</h6></li>
+                            <li><a class="dropdown-item" href="services-page/tech support/inbound.html">Inbound Call</a></li>
+                            <li><a class="dropdown-item" href="services-page/tech support/outbound.html">Outbound Call</a></li>
+                            <li><a class="dropdown-item" href="services-page/tech support/answering.html">Answering Services</a></li>
+                            <li><a class="dropdown-item" href="services-page/tech support/tech.html">Tech Support</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html">Our Team</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <!-- <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.niftelresources.com/apply-for-job">Career</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+Mobile Offcanvas Menu -->
+    <!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#mobileServices" aria-expanded="false">Services</a>
+                    <div class="collapse" id="mobileServices">
+                        <ul class="dropdown-menu show">
+                            <li><h6 class="dropdown-header text-primary">BPO Services</h6></li>
+                            <li><a class="dropdown-item" href="services-page/bpo service/back-office.html">Back Office</a></li>
+                            <li><a class="dropdown-item" href="services-page/bpo service/front-office.html">Front Office</a></li>
+                            <li><a class="dropdown-item" href="services-page/bpo service/invoice.html">Invoice Management</a></li>
+                            <li><a class="dropdown-item" href="services-page/bpo service/finance.html">Finance & Accounting</a></li>
+                            <li><a class="dropdown-item" href="services-page/bpo service/ecommerce.html">E-commerce</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header text-primary">Data Support</h6></li>
+                            <li><a class="dropdown-item" href="services-page/data support/lead.html">Lead Conversion</a></li>
+                            <li><a class="dropdown-item" href="services-page/data support/validation.html">Data Validation</a></li>
+                            <li><a class="dropdown-item" href="services-page/data support/migration.html">Data Migration</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header text-primary">Call Center Services</h6></li>
+                            <li><a class="dropdown-item" href="services-page/tech support/inbound.html">Inbound Call</a></li>
+                            <li><a class="dropdown-item" href="services-page/tech support/outbound.html">Outbound Call</a></li>
+                            <li><a class="dropdown-item" href="services-page/tech support/answering.html">Answering Services</a></li>
+                            <li><a class="dropdown-item" href="services-page/tech support/tech.html">Tech Support</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#mobileResources" aria-expanded="false">Resources</a>
+                    <div class="collapse" id="mobileResources">
+                        <ul class="dropdown-menu show">
+                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.niftelresources.com/apply-for-job">Career</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle functionality
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const offcanvas = document.getElementById('mobileMenu');
+
+            if (navbarToggler && offcanvas) {
+                navbarToggler.addEventListener('click', function() {
+                    const bsOffcanvas = new bootstrap.Offcanvas(offcanvas);
+                    bsOffcanvas.show();
+                });
+            }
+
+            // Handle dropdown toggles in mobile menu -->
+            <!-- const dropdownToggles = document.querySelectorAll('.offcanvas .nav-link[data-bs-toggle="collapse"]'); -->
+            <!-- dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('data-bs-target'));
+                    if (target) {
+                        const bsCollapse = new bootstrap.Collapse(target, {
+                            toggle: true
+                        });
+                    }
+                });
+            }); --> -->
+
+            <!-- // Close offcanvas when clicking on a nav link
+            const navLinks = document.querySelectorAll('.offcanvas .nav-link:not([data-bs-toggle])');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvas);
+                    if (offcanvasInstance) {
+                        offcanvasInstance.hide();
+                    }
+                }); -->
+            });
+
+            // Handle window resize to ensure proper display
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 992) {
+                    // Close mobile menu on desktop
+                    const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvas);
+                    if (offcanvasInstance) {
+                        offcanvasInstance.hide();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html> --> --> -->

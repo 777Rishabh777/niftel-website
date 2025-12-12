@@ -1,0 +1,1279 @@
+/********** Template CSS **********/
+
+:root {
+    --primary: #e87718; /* primary color */
+    --secondary: #34AD54;
+    --light: #EEF9FF;
+    --dark: #091E3E;
+}
+
+/* --------------------------------------------------------------------------
+   Header / Navbar: Mobile-friendly polish (overrides inline header styles)
+   Keeps the existing header HTML unchanged, improves spacing, sizing
+   and dropdown layout on small screens so the header looks like the index.
+   ----------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    /* Logo: reduce size on small screens (override inline height) */
+    .navbar-brand img {
+        height: 44px !important;
+        max-height: 44px !important;
+    }
+
+    /* Tighter nav links so the collapsed menu fits nicely */
+    .navbar-nav .nav-link {
+        font-size: 14px !important;
+        padding: 10px 0 !important;
+        margin-left: 0 !important;
+    }
+
+    /* Improve tappable area inside the collapsed navbar */
+    .navbar-collapse .navbar-nav .nav-link {
+        padding-top: .9rem !important;
+        padding-bottom: .9rem !important;
+    }
+
+    /* Make dropdown panels full width and stacked in the collapsed menu */
+    .box-menu,
+    .service-box,
+    .service-menu,
+    .resource-menu,
+    .custom-resource-menu {
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        min-width: auto !important;
+        position: static !important;
+        background-color: #111 !important;
+        border-radius: 0 !important;
+        padding: .6rem !important;
+        box-shadow: none !important;
+    }
+
+    /* Make each column flow as full-width block with spacing */
+    .box-menu .menu-column,
+    .service-box .menu-column,
+    .service-menu .menu-column {
+        width: 100% !important;
+        padding: .35rem 0 !important;
+        margin-bottom: .5rem !important;
+        border-left: none !important;
+    }
+
+    /* Bigger tap targets and centered text for dropdown items */
+    .box-menu .dropdown-item,
+    .service-box .dropdown-item,
+    .service-menu .dropdown-item,
+    .resource-menu .dropdown-item,
+    .custom-resource-menu .dropdown-item {
+        display: block !important;
+        width: 100% !important;
+        padding: .85rem 1rem !important;
+        text-align: center !important;
+        font-size: 15px !important;
+    }
+
+    /* Keep section headings compact on small screens */
+    .menu-header {
+        font-size: .82rem !important;
+        margin-bottom: .4rem !important;
+        padding-bottom: .25rem !important;
+    }
+
+    /* Preview item shown in compact mobile dropdowns (small text under header) */
+    .menu-column .preview-item {
+        padding: .4rem 0 .6rem 0;
+    }
+    .menu-column .preview-link {
+        color: rgba(255,255,255,0.8) !important;
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        padding-left: .4rem;
+        font-weight: 600;
+    }
+    /* Slightly smaller preview text on very small devices */
+    @media (max-width: 420px) {
+        .menu-column .preview-link { font-size: 0.94rem !important; }
+    }
+
+    /* Slightly reduce topbar spacing if present on mid-size screens */
+    .container-fluid.px-5.d-none.d-lg-block {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Ensure the custom resource menu inside the collapsed navbar stacks correctly */
+    .custom-resource-menu {
+        top: auto !important;
+    }
+}
+
+/* Additional tablet + mobile polish for index boxes: facts, services, and feature cards */
+@media (max-width: 991.98px) {
+    /* Facts boxes: reduce height and icon size on tablet */
+    .facts .shadow, .facts .bg-light {
+        height: 120px !important;
+        padding: .9rem !important;
+    }
+    .facts .bg-white, .facts .shadow .bg-white {
+        width: 52px !important;
+        height: 52px !important;
+    }
+    .facts h1 { font-size: 1.35rem !important; }
+    .facts h5 { font-size: .95rem !important; }
+
+    /* Service items: more compact grid, smaller icons and text */
+    .service-item { padding: 1.0rem !important; gap: .5rem; }
+    .service-item .service-icon { width: 48px; height: 48px; }
+    .service-item h4 { font-size: 1.05rem; margin-bottom: .5rem; }
+    .service-item p { font-size: .88rem; }
+    .service-item a.btn { width: 40px; height: 40px; padding: 0; font-size: .95rem; }
+
+    /* Reduce the big container paddings to make content feel less tall */
+    .container.py-5, .container-fluid.py-5 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+
+    /* Feature / section title spacing tighter */
+    .section-title.position-relative.pb-3.mb-5 { padding-bottom: .6rem !important; margin-bottom: .9rem !important; }
+}
+
+@media (max-width: 575.98px) {
+    /* Phone: make even more compact */
+    /* Facts */
+    .facts .shadow, .facts .bg-light { height: 100px !important; padding: .6rem !important; }
+    .facts .bg-white { width: 48px !important; height: 48px !important; }
+    .facts h1 { font-size: 1.05rem !important; }
+    .facts h5 { font-size: .9rem !important; }
+
+    /* Service cards stacked and tighter */
+    .service-item { padding: .75rem !important; gap: .45rem; }
+    .service-item .service-icon { width: 40px; height: 40px; }
+    .service-item h4 { font-size: 1rem; }
+    .service-item p { font-size: .82rem; line-height: 1.2; }
+    .service-item a.btn { width: 36px; height: 36px; }
+
+    /* Reduce large section H1 sizes on very small screens */
+    .section-title h1 { font-size: 1.35rem !important; }
+
+    /* Reduce image minimum heights so pages don't become tall on phones */
+    [style*="min-height: 500px;"] { min-height: 260px !important; }
+
+    /* Tighten margins site-wide for mobile readability */
+    .mb-5 { margin-bottom: .9rem !important; }
+    .py-5 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+
+    /* Remove extra gap between hero and following section on phones */
+    #header-carousel { margin-bottom: 0 !important; }
+    .facts { padding-top: 0 !important; margin-top: -20px !important; }
+    .facts .container { padding-top: 0 !important; }
+
+    /* Service page mobile and tablet optimizations */
+    .category-section { padding: 2rem 1rem !important; }
+    .category-section .section-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 2rem !important;
+    }
+    .service-item {
+        padding: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    .service-item img {
+        max-height: 120px !important;
+        margin-bottom: 1rem !important;
+    }
+    .service-text h4 {
+        font-size: 1.25rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .service-text p {
+        font-size: 0.9rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    .service-text a.btn {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.8rem !important;
+    }
+    /* Adjust animated line for section titles */
+    .section-title::before {
+        width: 120px !important;
+        height: 3px !important;
+        left: 50% !important;
+        margin-left: -60px !important;
+    }
+    .section-title.section-title-sm::before {
+        width: 90px !important;
+        height: 2px !important;
+        left: 50% !important;
+        margin-left: -45px !important;
+    }
+
+    /* Team page mobile optimizations to maintain same look but smaller */
+    .team-item {
+        margin-bottom: 1.5rem !important;
+        width: 50% !important;
+        left: 25% !important;
+    }
+    .team-img {
+        height: 180px !important;
+        width: 180px !important;
+        margin: 0 auto !important;
+    }
+    .team-img img {
+        object-fit: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .founder-card .team-img {
+        height: 200px !important;
+        width: 200px !important;
+        margin: 0 auto !important;
+    }
+    .founder-card .team-img img {
+        object-fit: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .team-text {
+        padding: 1rem !important;
+    }
+    .team-text h4 {
+        font-size: 1rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    .team-text span {
+        font-size: 0.75rem !important;
+    }
+    .team-social a {
+        width: 32px !important;
+        height: 32px !important;
+        margin: 0 3px !important;
+    }
+}
+
+/* Offcanvas menu styles (mobile right-side menu) */
+.offcanvas.offcanvas-end {
+    --bs-offcanvas-width: 320px; /* default width */
+}
+
+/* Style the injected mobile menu to match the site visual */
+#mobile-offcanvas-content .nav-link,
+#mobile-offcanvas-content .dropdown-item {
+    color: #ffffff !important;
+    display: block;
+    padding: .75rem 0.5rem;
+}
+
+#mobile-offcanvas-content {
+    background: linear-gradient(180deg, rgba(9,30,62,1) 0%, rgba(9,30,62,0.95) 100%);
+    min-height: 100%;
+    color: #fff;
+}
+
+#mobile-offcanvas-content .nav-link {
+    padding-left: 0 !important;
+}
+
+#mobile-offcanvas-content .offcanvas-section-header {
+    font-weight: 700;
+    color: #fff; /* keep section headers same color as outer menu */
+    padding: .65rem 0 .35rem 0;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+#mobile-offcanvas-content .offcanvas-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#mobile-offcanvas-content .section-link {
+    color: #fff !important;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 700;
+}
+
+#mobile-offcanvas-content .offcanvas-section-toggle {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: .15rem .25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#mobile-offcanvas-content .offcanvas-section-toggle[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+#mobile-offcanvas-content .offcanvas-subitems { display: none; }
+#mobile-offcanvas-content .offcanvas-section.expanded .offcanvas-subitems { display: block; }
+
+#mobile-offcanvas-content .dropdown-group .dropdown-item { display: none; }
+#mobile-offcanvas-content .dropdown-group.expanded .dropdown-item { display: block; }
+
+#mobile-offcanvas-content a.dropdown-item:hover { background: rgba(255,255,255,0.04); }
+
+/* Groups inside the offcanvas (used by Services) */
+#mobile-offcanvas-content .dropdown-group {
+    margin-bottom: .5rem;
+}
+
+#mobile-offcanvas-content .offcanvas-group-header {
+    font-weight: 700;
+    color: #fff;
+    padding: .45rem 0 .15rem 0;
+    font-size: 0.95rem;
+}
+
+#mobile-offcanvas-content .dropdown-group .dropdown-item {
+    padding-left: 1rem;
+    color: rgba(255,255,255,0.92) !important;
+    font-weight: 500;
+}
+
+
+/* Mobile compact dropdown behavior: when header menus open on mobile, show a compact view
+   (only first items) and let user expand a single column by tapping the section header.
+   This keeps dropdowns compact and without big white gaps.
+*/
+@media (max-width: 991.98px) {
+    /* Compact state applied dynamically by JS via .mobile-compact on the dropdown-menu */
+    .service-menu.mobile-compact .menu-column .dropdown-item,
+    .service-box.mobile-compact .menu-column .dropdown-item {
+        display: none !important; /* hide all items by default in compact */
+    }
+    /* but show the first item in each column so user sees a hint */
+    .service-menu.mobile-compact .menu-column .dropdown-item:first-of-type,
+    .service-box.mobile-compact .menu-column .dropdown-item:first-of-type {
+        display: block !important;
+    }
+
+    /* Expanded column shows all its items */
+    .service-menu .menu-column.expanded .dropdown-item,
+    .service-box .menu-column.expanded .dropdown-item {
+        display: block !important;
+    }
+
+    /* Remove extra vertical spacing when compact - keep things tight */
+    .service-menu.mobile-compact .menu-column,
+    .service-box.mobile-compact .menu-column { margin-bottom: .25rem !important; padding: .25rem 0 !important; }
+
+    /* Resources (flat list) compact state: show first 3 items only */
+    .resource-menu.mobile-compact .dropdown-item { display: none !important; }
+    .resource-menu.mobile-compact .dropdown-item:nth-child(-n+3) { display: inline-block !important; }
+
+    /* When menu expanded (a column is expanded) make sure layout doesn't get large empty gaps */
+    .service-menu .menu-column { display: block !important; }
+    .service-menu.mobile-compact { gap: 0 !important; }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*** Spinner ***/
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    margin: 100px auto;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+    animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+    0% {
+        -webkit-transform: perspective(120px)
+    }
+    50% {
+        -webkit-transform: perspective(120px) rotateY(180deg)
+    }
+    100% {
+        -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
+    }
+}
+
+@keyframes sk-rotateplane {
+    0% {
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    }
+    100% {
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+}
+
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+/*** Heading ***/
+
+h1,
+h2,
+.fw-bold {
+    font-weight: 800 !important;
+}
+
+h3,
+h4,
+.fw-semi-bold {
+    font-weight: 700 !important;
+}
+
+h5,
+h6,
+.fw-medium {
+    font-weight: 600 !important;
+}
+
+/*** Button ***/
+
+.btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn-primary,
+.btn-secondary {
+    color: #FFFFFF;
+    box-shadow: inset 0 0 0 50px transparent;
+}
+
+.btn-primary:hover {
+    box-shadow: inset 0 0 0 0 var(--primary);
+}
+
+.btn-secondary:hover {
+    box-shadow: inset 0 0 0 0 var(--primary);
+}
+
+.btn-square {
+    width: 36px;
+    height: 36px;
+}
+
+.btn-sm-square {
+    width: 30px;
+    height: 30px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+/*** Navbar ***/
+
+
+.navbar-dark .navbar-nav .nav-link {
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+    margin-left: 25px;
+    padding: 35px 0;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
+    outline: none;
+    transition: .5s;
+}
+
+.sticky-top.navbar-dark .navbar-nav .nav-link {
+    padding: 20px 0;
+    color: var(--dark);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--primary);
+}
+
+.navbar-dark .navbar-brand h1 {
+    color: #FFFFFF;
+}
+
+.navbar-dark .navbar-toggler {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+@media (max-width: 991.98px) {
+    .sticky-top.navbar-dark {
+        position: relative;
+        background: #FFFFFF;
+    }
+    .navbar-dark .navbar-nav .nav-link,
+    .navbar-dark .navbar-nav .nav-link.show,
+    .sticky-top.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        color: var(--dark);
+    }
+    .navbar-dark .navbar-brand h1 {
+        color: var(--primary);
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-dark {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-bottom: 1px solid rgba(256, 256, 256, .1);
+        z-index: 999;
+    }
+    .sticky-top.navbar-dark {
+        position: fixed;
+        background: #FFFFFF;
+    }
+    .navbar-dark .navbar-nav .nav-link::before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 2px;
+        bottom: -1px;
+        left: 50%;
+        background: var(--primary);
+        transition: .5s;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover::before,
+    .navbar-dark .navbar-nav .nav-link.active::before {
+        width: 100%;
+        left: 0;
+    }
+    .navbar-dark .navbar-nav .nav-link.nav-contact::before {
+        display: none;
+    }
+    .sticky-top.navbar-dark .navbar-brand h1 {
+        color: var(--primary);
+    }
+}
+
+/*** Carousel ***/
+
+.carousel-caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(9, 30, 62, .7);
+    z-index: 1;
+}
+
+/* Hero video styles: make the video fill the carousel hero and sit behind captions */
+#header-carousel {
+    height: 100vh; /* full viewport height */
+}
+#header-carousel .carousel-item {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+#header-carousel .carousel-item video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+/* Center captions over the hero and use a compact, readable layout */
+#header-carousel .carousel-caption {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center captions horizontally */
+    padding-right: 6%;
+    padding-left: 6%;
+    text-align: center; /* center text */
+}
+
+/* Make carousel hero text shorter and contained on the left */
+#header-carousel .carousel-caption .p-3 {
+    /* keep the caption text container narrow and centered for better readability */
+    max-width: 760px;
+    padding: .75rem 1rem;
+    background: rgba(9, 30, 62, 0.20);
+    border-radius: 6px;
+}
+
+/* paragraph style inside hero: smaller, tighter, readable text */
+#header-carousel .carousel-caption p {
+    font-size: 16px;
+    line-height: 1.45;
+    max-width: 700px;
+    margin: .25rem auto .9rem auto;
+    color: rgba(255,255,255,0.95);
+    opacity: 0.95;
+}
+
+/* h5: make it shorter (smaller/compact) */
+#header-carousel .carousel-caption h5 {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: .25rem;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: .95;
+}
+
+/* h1: make this larger and more prominent */
+#header-carousel .carousel-caption .display-1,
+#header-carousel .carousel-caption h1 {
+    /* toned-down headline size for a cleaner, standard look */
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.12;
+    margin-bottom: .5rem;
+    color: #fff;
+    text-shadow: 0 4px 14px rgba(0,0,0,0.42);
+}
+
+#header-carousel .carousel-caption a.btn {
+    font-size: 15px;
+    padding: .6rem 1.05rem;
+}
+
+@media (max-width: 991.98px) {
+    /* Keep captions left-aligned on smaller screens as well */
+    #header-carousel { height: 70vh; }
+    #header-carousel .carousel-item { height: 70vh; }
+    #header-carousel .carousel-caption {
+        /* center on medium/smaller devices too */
+        justify-content: center;
+        padding-left: 6%;
+        text-align: center;
+    }
+    #header-carousel .carousel-caption .p-3 {
+        max-width: 94%;
+        padding: .6rem .9rem;
+        background: rgba(9,30,62,0.35);
+    }
+    #header-carousel .carousel-caption h5 { font-size: 10px; }
+    #header-carousel .carousel-caption .display-1,
+    #header-carousel .carousel-caption h1 { font-size: 26px; }
+    #header-carousel .carousel-caption a.btn { font-size: 13px; padding: .45rem .9rem; }
+}
+
+@media (max-width: 576px) {
+    #header-carousel .carousel-caption p { font-size: 14px; max-width: 92%; }
+    #header-carousel .carousel-caption .p-3 { padding: .5rem .8rem; }
+    #header-carousel .carousel-caption h1 { font-size: 20px; }
+    #header-carousel .carousel-caption h5 { font-size: 11px; }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption h5 {
+        font-size: 12px;
+        font-weight: 600 !important;
+    }
+    .carousel-caption h1 {
+        font-size: 22px;
+        font-weight: 600 !important;
+    }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+/*** Section Title ***/
+
+/* .section-title::before {
+    position: absolute;
+    content: "";
+    width: 24px;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    top: 40px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.section-title.text-center::before {
+    left: 50%;
+    margin-left: -75px;
+}
+
+.section-title.section-title-sm::before {
+    width: 90px;
+    height: 3px;
+}
+
+.section-title::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 5px;
+    bottom: 0px;
+    background: #FFFFFF;
+    -webkit-animation: section-title-run 5s infinite linear ;
+    animation: section-title-run 5s infinite linear;
+}
+
+.section-title.section-title-sm::after {
+    width: 4px;
+    height: 3px;
+}
+
+.section-title.text-center::after {
+    -webkit-animation: section-title-run-center 5s infinite linear;
+    animation: section-title-run-center 5s infinite linear;
+}
+
+.section-title.section-title-sm::after {
+    -webkit-animation: section-title-run-sm 5s infinite linear;
+    animation: section-title-run-sm 5s infinite linear;
+} */
+
+@keyframes section-title-run {
+    0% { left: 0; }
+    50% { left: 145px; }
+    100% { left: 0; }
+}
+
+@keyframes section-title-run-center {
+    0% { left: 50%; margin-left: -75px; }
+    50% { left: 50%; margin-left: 45px; }
+    100% { left: 50%; margin-left: -75px; }
+}
+
+@keyframes section-title-run-sm {
+    0% { left: 0; }
+    50% { left: 85px; }
+    100% { left: 0; }
+}
+
+@-webkit-keyframes section-title-run {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: 145px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@-webkit-keyframes section-title-run-center {
+    0% {
+        left: 50%;
+        margin-left: -75px;
+    }
+    50% {
+        left: 50%;
+        margin-left: 45px;
+    }
+    100% {
+        left: 50%;
+        margin-left: -75px;
+    }
+}
+
+@-webkit-keyframes section-title-run-sm {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: 85px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+/*** Service ***/
+
+.service-item {
+    position: relative;
+    height: 300px;
+    padding: 0 30px;
+    transition: .5s;
+}
+
+.service-item .service-icon {
+    margin-bottom: 30px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    border-radius: 2px;
+    transform: rotate(-45deg);
+}
+
+.service-item .service-icon i {
+    transform: rotate(45deg);
+}
+
+.service-item a.btn {
+    position: absolute;
+    width: 60px;
+    bottom: -48px;
+    left: 50%;
+    margin-left: -30px;
+    opacity: 0;
+}
+
+.service-item:hover a.btn {
+    bottom: -24px;
+    opacity: 1;
+}
+
+/*** Testimonial ***/
+
+.testimonial-carousel .owl-dots {
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    background: #DDDDDD;
+    border-radius: 2px;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+    width: 30px;
+    background: var(--primary);
+}
+
+.testimonial-carousel .owl-item.center {
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-carousel .owl-item .testimonial-item {
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-item {
+    background: #FFFFFF !important;
+    box-shadow: 0 0 30px #DDDDDD;
+}
+
+/*** Team ***/
+
+.team-item {
+    transition: .5s;
+}
+
+.team-social {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+}
+
+.team-social a.btn {
+    position: relative;
+    margin: 0 3px;
+    margin-top: 100px;
+    opacity: 0;
+}
+
+.team-item:hover {
+    box-shadow: 0 0 30px #DDDDDD;
+}
+
+.team-item:hover .team-social {
+    background: rgba(9, 30, 62, .7);
+}
+
+.team-item:hover .team-social a.btn:first-child {
+    opacity: 1;
+    margin-top: 0;
+    transition: .3s 0s;
+}
+
+.team-item:hover .team-social a.btn:nth-child(2) {
+    opacity: 1;
+    margin-top: 0;
+    transition: .3s .05s;
+}
+
+.team-item:hover .team-social a.btn:nth-child(3) {
+    opacity: 1;
+    margin-top: 0;
+    transition: .3s .1s;
+}
+
+.team-item:hover .team-social a.btn:nth-child(4) {
+    opacity: 1;
+    margin-top: 0;
+    transition: .3s .15s;
+}
+
+.team-item .team-img img,
+.blog-item .blog-img img {
+    transition: .5s;
+}
+
+.team-img img {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+/* Fix full width sections for proper backgrounds */
+.container-fluid.bg-white, 
+.container-fluid.bg-lightgrey, 
+.container-fluid.bg-grey {
+    width: 100vw; /* full viewport width */
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* What we do section new styles */
+#explained-services .row.align-items-center {
+    margin-bottom: 3rem;
+}
+
+#explained-services h4 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Rubik', sans-serif;
+}
+
+#explained-services p.fs-5 {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #091E3E;
+}
+
+/* Remove gap above footer */
+#footer-placeholder > div.container-fluid {
+    margin-top: 0 !important;
+    padding-top: 2rem !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    #explained-services .row.align-items-center {
+        flex-direction: column !important;
+        margin-bottom: 2rem;
+    }
+    #explained-services .row.align-items-center .col-md-6 {
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+}
+
+.team-item:hover .team-img img,
+.blog-item:hover .blog-img img {
+    filter: grayscale(0%);
+    transform: scale(1.15);
+}
+
+/*** Miscellaneous ***/
+
+@media (min-width: 991.98px) {
+    .facts {
+        position: relative;
+        margin-top: -75px;
+        z-index: 1;
+    }
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+.bg-header {
+    background: linear-gradient(rgba(9, 30, 62, .7), rgba(9, 30, 62, .7)), url(../img/carousel-1.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.link-animated a {
+    transition: .5s;
+}
+
+.link-animated a:hover {
+    padding-left: 10px;
+}
+
+@media (min-width: 767.98px) {
+    .footer-about {
+        margin-bottom: -75px;
+    }
+}
+
+/* Resources dropdown: full-width blurred overlay on large screens; stacked on mobile */
+.resource-dropdown .dropdown-menu.resource-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 50px !important; /* fixed height as requested */
+    display: flex !important;
+    align-items: center; /* vertical centering */
+    justify-content: center;
+    padding: 0 .75rem; /* tighten padding for 50px height */
+    background: rgba(9, 30, 62, 0.45);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity .18s ease, transform .18s ease, visibility .15s;
+    z-index: 1050;
+    overflow: hidden;
+}
+
+/* When dropdown is shown (via hover or click) make overlay visible */
+.resource-dropdown.show .dropdown-menu.resource-menu,
+.resource-dropdown .dropdown-menu.resource-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.resource-menu {
+    display: flex !important;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.resource-menu .dropdown-item {
+    color: var(--primary) !important;
+    background: transparent !important;
+    padding: .65rem 1rem !important;
+    display: inline-block !important;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.resource-menu .dropdown-item:hover,
+.resource-menu .dropdown-item:focus {
+    color: #ffffff !important;
+    background: rgba(232,119,24,0.16) !important;
+    border-radius: 6px;
+}
+
+@media (max-width: 991.98px) {
+    /* On mobile keep the menu inside the navbar flow and stacked */
+    .resource-dropdown .dropdown-menu.resource-menu {
+        position: static;
+        height: auto;
+        background: #ffffff !important;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        padding: .5rem 0.5rem !important;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+    }
+    .resource-menu {
+        display: block !important;
+    }
+    .resource-menu .dropdown-item {
+        display: block !important;
+        width: 100%;
+        padding: .65rem 1rem !important;
+        color: var(--dark) !important;
+    }
+}
+
+/* When the navbar dropdown is expanded-all on mobile show all items cleanly */
+@media (max-width: 991.98px) {
+    .dropdown-menu.expanded-all {
+        padding: .75rem !important;
+        background: #111 !important;
+        border-radius: 4px;
+    }
+    .dropdown-menu.expanded-all .menu-column {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: .4rem !important;
+    }
+    .dropdown-menu.expanded-all .menu-column .dropdown-item {
+        display: block !important;
+        padding: .6rem 1rem !important;
+        text-align: left !important;
+        color: #fff !important;
+    }
+}
+
+/* Compact footer for mobile - keep desktop unchanged */
+@media (max-width: 767.98px) {
+    /* Reduce overall vertical padding and make footer columns compact */
+    #footer-placeholder .container-fluid.text-light.mt-5 {
+        padding-top: 8px !important;
+        padding-bottom: 6px !important;
+    }
+
+    /* Footer about column: shrink logo & padding and clamp description */
+    #footer-placeholder .footer-about .d-flex {
+        padding: .6rem !important;
+        gap: .5rem;
+    }
+
+    #footer-placeholder .footer-about img { height: 34px; }
+    #footer-placeholder .footer-about p {
+        margin-bottom: .5rem;
+        color: #222;
+        /* Line clamping for supported browsers */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
+        font-size: .9rem;
+        line-height: 1.15rem;
+    }
+
+    /* Smaller signup input and button */
+    #footer-placeholder .footer-about .input-group .form-control { padding: .45rem .5rem; font-size: .88rem; }
+    #footer-placeholder .footer-about .btn { padding: .45rem .6rem; font-size: .88rem; }
+
+     /* Keep section titles compact on small screens and always show content
+         (no hide/show toggles). We remove hide/show buttons and instead reduce
+         spacing and font sizes so the footer is short but all items are visible. */
+     #footer-placeholder .section-title { padding: 6px 0; margin-bottom: 6px; }
+     #footer-placeholder .section-title h3 { display: inline-block; font-size: 1rem; margin: 0; }
+
+     /* Ensure lists and contact rows are visible on mobile but condensed */
+     #footer-placeholder .link-animated { display: block; }
+     #footer-placeholder .col-lg-4 .d-flex.mb-2 { display: flex; }
+
+    /* Tidy spacing between columns on mobile */
+    #footer-placeholder .col-lg-4, #footer-placeholder .col-lg-8 { padding-top: .35rem; padding-bottom: .35rem; }
+
+    /* Reduce the orange copyright bar height */
+    .container-fluid.text-white[style*="#e87718"] { display: block !important; }
+    .container-fluid.text-white[style*="#e87718"] .d-flex { height: 50px !important; }
+    .container-fluid.text-white[style*="#e87718"] p { font-size: .88rem; }
+}
+
+/* Footer toggle icon rotation */
+@media (max-width: 767.98px) {
+    #footer-placeholder .footer-toggle i { transition: transform .18s ease; font-size: 1.05rem; }
+    #footer-placeholder .footer-toggle[aria-expanded="true"] i { transform: rotate(180deg); }
+}
+
+/* Services dropdown: overlay sized to content with a mobile fallback */
+.service-dropdown .dropdown-menu.service-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: auto; /* size to content instead of full viewport */
+    min-height: 50px; /* ensure visible bar even for small content */
+    max-height: 70vh; /* prevent overly large menus */
+    display: flex !important;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1.25rem 1rem; /* reduced padding so overlay height is content-driven */
+    background: rgba(9, 30, 62, 0.45);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity .22s ease, transform .22s ease, visibility .2s;
+    z-index: 1050;
+    overflow: auto;
+}
+
+/* show state */
+.service-dropdown.show .dropdown-menu.service-menu,
+.service-dropdown .dropdown-menu.service-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.service-menu .row {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.service-menu .col-4 {
+    color: #ffffff;
+}
+
+.service-menu .btn-link {
+    color: var(--primary) !important;
+}
+
+@media (max-width: 991.98px) {
+    /* On mobile keep the mega menu inline and stacked */
+    .service-dropdown .dropdown-menu.service-menu {
+        position: static;
+        height: auto;
+        background: #ffffff !important;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        padding: .5rem 0.5rem !important;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+    }
+    .service-menu {
+        display: block !important;
+    }
+    .service-menu .col-4 {
+        color: var(--dark);
+    }
+}

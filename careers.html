@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Careers | Niftel</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+    /* Service page spec
+
+    <style>
+        :root {
+            --primary: #F37021;
+            --light-bg: #f9f9f9;
+            --dark: #111111;
+            --white: #ffffff;
+            --grey-bg: #f4f6f8;
+        }
+
+        body { font-family: 'Rubik', sans-serif; color: #555; background-color: #fff; }
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; font-weight: 700; color: var(--dark); }
+
+        /* HERO SECTION */
+        .hero-header {
+            position: relative;
+            height: 100vh; /* Bigger Hero */
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            overflow: hidden;
+        }
+        .hero-header video.video-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.5;
+        }
+        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; padding: 0 15px; }
+        .hero-content h1 { font-size: 4.5rem; color: #fff; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 2px; }
+        .hero-content .lead { color: #eee; font-size: 1.5rem; font-weight: 300; margin-bottom: 2rem; }
+        
+        .btn-hero {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            border: 2px solid var(--primary);
+        }
+        .btn-hero:hover { background-color: transparent; color: var(--primary); }
+
+        /* SECTION TITLES */
+        .section-title1 {
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+        .section-title1::after {
+            content: "";
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            display: block;
+            margin: 10px auto 0;
+        }
+
+        /* LIFE AT NIFTEL */
+        .life-section { padding: 100px 0; }
+        .life-img { border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        .life-img img { transition: 0.5s; width: 100%; }
+        .life-img:hover img { transform: scale(1.05); }
+
+        /* BENEFITS CARDS */
+        .benefit-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            height: 100%;
+            border-top: 5px solid transparent;
+        }
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-top: 5px solid var(--primary);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .benefit-icon {
+            width: 70px; height: 70px;
+            background: var(--light-bg);
+            color: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; margin-bottom: 25px; font-size: 28px;
+            transition: 0.3s;
+        }
+        .benefit-card:hover .benefit-icon { background: var(--primary); color: #fff; }
+
+        /* HIRING PROCESS */
+        .process-step {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+        }
+        .step-num {
+            width: 50px; height: 50px;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+        .step-line::after {
+            content: ''; position: absolute; top: 45px; left: 50%; width: 100%; height: 2px; background: #ddd; z-index: 1;
+        }
+        .process-step:last-child .step-line::after { display: none; }
+
+        /* JOB LISTINGS */
+        .job-card {
+            background: #fff;
+            border-left: 5px solid var(--primary);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .job-card:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.1); transform: translateX(5px); }
+        .job-info h3 { margin-bottom: 10px; font-size: 1.5rem; }
+        .job-meta span { margin-right: 20px; font-size: 0.95rem; color: #777; }
+        .job-meta i { color: var(--primary); margin-right: 5px; }
+        .btn-apply-small {
+            background: var(--dark); color: #fff; padding: 10px 30px; border-radius: 5px; text-decoration: none; transition: 0.3s;
+        }
+        .btn-apply-small:hover { background: var(--primary); color: #fff; }
+
+        /* TESTIMONIALS */
+        .testimonial-card {
+            background: var(--light-bg); padding: 30px; border-radius: 10px; text-align: center; margin: 10px;
+        }
+        .testimonial-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid var(--primary); }
+
+        /* MODAL */
+        .modal-header { background: var(--primary); color: #fff; }
+        .btn-close { filter: invert(1); opacity: 1; }
+    </style>
+     <style>
+        /* --- CUSTOM DROPDOWN STYLING --- */
+        
+        /* Open on Hover (Desktop) */
+        @media (min-width: 992px) {
+            .nav-item.dropdown:hover .dropdown-menu {
+                display: block;
+                margin-top: 0;
+                animation: fadeIn 0.3s;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px) translateX(-50%); }
+            to { opacity: 1; transform: translateY(0) translateX(-50%); }
+        }
+
+        /* Center the dropdown box */
+        .box-menu {
+            left: 50% !important;
+            transform: translateX(-50%) !important; /* Centers it perfectly */
+            width: max-content;
+            max-width: 90vw;
+            padding: 20px;
+            margin-top: 0px !important;
+            border-top: 3px solid var(--primary); /* Orange Top Border */
+            
+            /* Dark Theme Background */
+            background-color: #111111; 
+            border-radius: 0 0 8px 8px !important;
+        }
+
+        /* Specific widths for different menus */
+        .service-box {
+            min-width: 600px;
+        }
+        
+      
+
+        /* Styles for columns inside the dropdown */
+        .menu-column {
+            flex: 1;
+            min-width: 160px;
+            padding: 0 15px;
+        }
+
+        /* Header for each section */
+        .menu-header {
+            color: var(--primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333; /* Darker border for dark theme */
+        }
+
+        /* Link Styling - White Text */
+        .dropdown-item {
+            padding: 8px 10px;
+            font-size: 0.95rem;
+            color: #ffffff !important; /* White Text */
+            border-radius: 4px;
+            transition: 0.2s;
+            background-color: transparent;
+        }
+
+        /* Hover Effect - Orange Background */
+        .dropdown-item:hover {
+            background-color: var(--primary); /* Orange Hover */
+            color: #ffffff !important;
+            padding-left: 15px; /* Slide effect */
+        }
+
+        /* Add borders between columns on Desktop only */
+        @media (min-width: 992px) {
+            .border-start-lg {
+                border-left: 1px solid #333; /* Dark border separator */
+            }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 991px) {
+            .box-menu {
+                left: 0 !important;
+                transform: none !important;
+                width: 100%;
+                min-width: auto;
+                position: static;
+                background-color: #222; /* Slightly lighter for mobile contrast */
+            }
+            .menu-column {
+                margin-bottom: 20px;
+            }
+            /* Reset animation for mobile */
+            .nav-item.dropdown:hover .dropdown-menu {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER PLACEHOLDER -->
+    <!-- Header fragment: topbar, spinner, and navbar -->
+
+    <!-- Spinner Start -->
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div> -->
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid px-5 d-none d-lg-block" style="background-color: var(--primary);">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i> A Block, 3rd Floor, Sooraj Deep complex, Joppling Road, Lucknow(UP)-226001 India</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i><a href="tel:+919236454872" style="color: white;">+91-923 645 4872</a></small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i><a href="mailto:hr@niftel.com" style="color: white;">hr@niftel.com</a></small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/NiftelComPvtLtd"><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/share/1A8VXoV5Rh/?mibextid=wwXIfr"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/niftelcommunications?igsh=aTdmbWhrcXI5YzN3"><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://youtube.com/@niftelcommunications?si=b5Q2yq4gk_hAF5ae"><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+   <!-- Navbar Start -->
+<div class="container-fluid position-relative p-0"  style="z-index: 1030;">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <img src="img/logo.png" alt="Niftel" style="height: 60px; object-fit:contain;">
+        </a>
+        <!-- On mobile open the offcanvas menu so the right-side panel appears with all tabs -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                
+                <!-- SERVICE DROPDOWN (Box Type, Centered, Dark Theme) -->
+                <div class="nav-item dropdown">
+                    <a href="service.html" class="nav-link dropdown-toggle">Services</a>
+                    
+                    <div class="dropdown-menu m-0 shadow-sm rounded-3 box-menu service-box">
+                        <div class="d-flex flex-wrap justify-content-between">
+                            
+                            <!-- Section 1: BPO -->
+                            <div class="menu-column">
+                                <h6 class="menu-header">BPO Services</h6>
+                                <a href="services-page/bpo service/back-office.html" class="dropdown-item">Back Office</a>
+                                <a href="services-page/bpo service/front-office.html" class="dropdown-item">Front Office</a>
+                                <a href="services-page/bpo service/invoice.html" class="dropdown-item">Invoice Management</a>
+                                <a href="services-page/bpo service/finance.html" class="dropdown-item">Finance & Accounting</a>
+                                <a href="services-page/bpo service/ecommerce.html" class="dropdown-item">E-commerce</a>
+                            </div>
+
+                            <!-- Section 2: Data -->
+                            <div class="menu-column border-start-lg">
+                                <h6 class="menu-header">Data Support</h6>
+                                <a href="services-page/data support/lead.html" class="dropdown-item">Lead Conversion</a>
+                                <a href="services-page/data support/validation.html" class="dropdown-item">Data Validation</a>
+                                <a href="services-page/data support/migration.html" class="dropdown-item">Data Migration</a>
+                            </div>
+
+                            <!-- Section 3: Tech -->
+                            <div class="menu-column border-start-lg">
+                                <h6 class="menu-header">Call Center Services</h6>
+                                <a href="services-page/tech support/inbound.html" class="dropdown-item">Inbound Call</a>
+                                <a href="services-page/tech support/outbound.html" class="dropdown-item">Outbound Call</a>
+                                <a href="services-page/tech support/answering.html" class="dropdown-item">Answering Services</a>
+                                <a href="services-page/tech support/tech.html" class="dropdown-item">Tech Support</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="team.html" class="nav-item nav-link">Our Team</a>
+                </div>
+                
+                <!-- RESOURCES DROPDOWN (Box Type, Centered, Dark Theme) -->
+             <div class="nav-item dropdown" style="position: relative;">
+                    <a href="https://www.niftelresources.com/" class="nav-link ">Resources</a>
+                    
+                    <!-- Custom Dropdown Container with Inline Styles for Isolation -->
+                    <!-- <div class="dropdown-menu m-0 custom-resource-menu" 
+                         style="position: absolute; top: 100%; left: 0; min-width: 320px; 
+                                background-color: #0125587c; border-top: 3px solid var(--primary); 
+                                border-radius: 0 0 8px 8px; padding: 15px; z-index: 9999;
+                                box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                        
+                       
+                        
+                        <a href="about.html" class="dropdown-item" 
+                           style="color: #fff; padding: 8px 10px; font-size: 0.95rem; transition: 0.2s;">
+                           About Us
+                        </a>
+                        <a href="gallery.html" class="dropdown-item" 
+                           style="color: #fff; padding: 8px 10px; font-size: 0.95rem; transition: 0.2s;">
+                           Gallery
+                        </a>
+                    </div> -->
+                </div>
+                <a href="https://www.niftelresources.com/apply-for-job" class="nav-item nav-link">Career</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile off-canvas menu: right side panel that will be populated from the navbar -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileMenuOffcanvasLabel">Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <!-- main content will be injected by js (cloned from the desktop navbar) -->
+            <div id="mobile-offcanvas-content" class="p-3"></div>
+        </div>
+    </div>
+
+   
+</div>
+<!-- Navbar End -->
+
+    <!-- HERO SECTION -->
+    <div class="hero-header">
+        <video class="video-bg" autoplay muted loop playsinline>
+            <source src="img/career.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1 class="animated slideInDown">Build Your Future</h1>
+            <p class="lead animated fadeIn">Join a team of innovators, problem solvers, and creative thinkers. At Niftel, we don't just offer jobs; we build careers that define the future of business solutions.</p>
+            <a href="#openings" class="btn-hero animated zoomIn">View Open Positions</a>
+        </div>
+    </div>
+
+    <!-- LIFE AT NIFTEL SECTION -->
+    <div class="container-fluid life-section bg-white">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+                    <div class="life-img">
+                        <img src="img/career1.jpg" alt="Team at Work">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
+                    <h5 class="section-title1">Life at Niftel</h5>
+                    <h1 class="mb-4 display-5">More Than Just a Workplace</h1>
+                    <p class="mb-4">We believe that a great company is built by great people. At Niftel, we foster a culture of collaboration, innovation, and continuous learning. We are a diverse group of professionals united by a single goal: to deliver excellence.</p>
+                    <p class="mb-4">Our work environment is designed to inspire. From open workspaces that encourage communication to regular team-building events that strengthen our bonds, we ensure that every team member feels valued and motivated.</p>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fa fa-check-circle text-primary me-3 fs-4"></i>
+                                <span class="fw-bold">Inclusive Culture</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fa fa-check-circle text-primary me-3 fs-4"></i>
+                                <span class="fw-bold">Flexible Hours</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fa fa-check-circle text-primary me-3 fs-4"></i>
+                                <span class="fw-bold">Growth Opportunities</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fa fa-check-circle text-primary me-3 fs-4"></i>
+                                <span class="fw-bold">Global Exposure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BENEFITS GRID -->
+    <div class="container-fluid py-5 bg-grey">
+        <div class="container py-5">
+            <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                <h5 class="section-title1">Why Join Us?</h5>
+                <h1 class="mb-0 display-5">Perks & Benefits Designed for You</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fa fa-chart-line"></i></div>
+                        <h4>Accelerated Growth</h4>
+                        <p>We prioritize internal promotions. Your career path is clear, with regular performance reviews and mentorship programs to help you climb the ladder.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fa fa-heartbeat"></i></div>
+                        <h4>Health & Wellness</h4>
+                        <p>Comprehensive health insurance for you and your family, along with wellness programs to ensure a healthy work-life balance.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fa fa-graduation-cap"></i></div>
+                        <h4>Learning & Development</h4>
+                        <p>Access to paid courses, workshops, and certifications. We invest in your skills because your growth is our growth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fa fa-users"></i></div>
+                        <h4>Vibrant Community</h4>
+                        <p>Join a diverse team that celebrates festivals, organizes sports days, and enjoys regular outings. Work hard, play harder.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fa fa-money-bill-wave"></i></div>
+                        <h4>Competitive Compensation</h4>
+                        <p>We offer industry-leading salaries, performance-based bonuses, and annual increments that recognize your hard work.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fa fa-laptop-house"></i></div>
+                        <h4>Modern Infrastructure</h4>
+                        <p>Work in a state-of-the-art office equipped with the latest technology, ergonomic furniture, and recreational zones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HIRING PROCESS -->
+    <div class="container-fluid py-5 bg-white">
+        <div class="container py-5">
+            <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                <h5 class="section-title1">Our Hiring Process</h5>
+                <h1 class="mb-0">Your Journey Starts Here</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-3 col-md-6 process-step step-line">
+                    <div class="step-num">1</div>
+                    <h4>Application</h4>
+                    <p class="text-muted">Submit your resume and details online. Our team reviews every application carefully.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 process-step step-line">
+                    <div class="step-num">2</div>
+                    <h4>Screening</h4>
+                    <p class="text-muted">A brief call to understand your background and see if we are a good cultural fit.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 process-step step-line">
+                    <div class="step-num">3</div>
+                    <h4>Interview</h4>
+                    <p class="text-muted">Deep-dive technical and managerial rounds to assess your skills and potential.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 process-step">
+                    <div class="step-num">4</div>
+                    <h4>Onboarding</h4>
+                    <p class="text-muted">Welcome aboard! Receive your offer and begin your exciting journey with Niftel.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JOB OPENINGS -->
+    <div id="openings" class="container-fluid py-5 bg-grey">
+        <div class="container py-5">
+            <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                <h5 class="section-title1">Current Openings</h5>
+                <h1 class="mb-0 display-5">Explore Opportunities</h1>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    
+                    <!-- Job 1 -->
+                    <div class="job-card wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="job-info">
+                            <h3>Customer Support Executive (International)</h3>
+                            <div class="job-meta">
+                                <span><i class="fa fa-map-marker-alt"></i> Lucknow, India</span>
+                                <span><i class="fa fa-clock"></i> Full Time (Night Shift)</span>
+                                <span><i class="fa fa-briefcase"></i> 0-2 Years Exp</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 mt-md-0">
+                            <button class="btn-apply-small" data-bs-toggle="modal" data-bs-target="#applyModal" onclick="setJobTitle('Customer Support Executive')">Apply Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="job-card wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="job-info">
+                            <h3>Senior Data Analyst</h3>
+                            <div class="job-meta">
+                                <span><i class="fa fa-map-marker-alt"></i> Lucknow, India</span>
+                                <span><i class="fa fa-clock"></i> Full Time</span>
+                                <span><i class="fa fa-briefcase"></i> 3-5 Years Exp</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 mt-md-0">
+                            <button class="btn-apply-small" data-bs-toggle="modal" data-bs-target="#applyModal" onclick="setJobTitle('Senior Data Analyst')">Apply Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Job 3 -->
+                    <div class="job-card wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="job-info">
+                            <h3>Business Development Manager</h3>
+                            <div class="job-meta">
+                                <span><i class="fa fa-map-marker-alt"></i> Remote / Hybrid</span>
+                                <span><i class="fa fa-clock"></i> Full Time</span>
+                                <span><i class="fa fa-briefcase"></i> 5+ Years Exp</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 mt-md-0">
+                            <button class="btn-apply-small" data-bs-toggle="modal" data-bs-target="#applyModal" onclick="setJobTitle('Business Development Manager')">Apply Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Job 4 -->
+                    <div class="job-card wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="job-info">
+                            <h3>HR Executive</h3>
+                            <div class="job-meta">
+                                <span><i class="fa fa-map-marker-alt"></i> Lucknow, India</span>
+                                <span><i class="fa fa-clock"></i> Full Time</span>
+                                <span><i class="fa fa-briefcase"></i> 1-3 Years Exp</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 mt-md-0">
+                            <button class="btn-apply-small" data-bs-toggle="modal" data-bs-target="#applyModal" onclick="setJobTitle('HR Executive')">Apply Now</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPLICATION MODAL -->
+    <div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="applyModalLabel">Apply for Position</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="jobTitleInput" class="form-label fw-bold">Position Applied For</label>
+                            <input type="text" class="form-control bg-light" id="jobTitleInput" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" required placeholder="Enter your name">
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" required placeholder="name@example.com">
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" required placeholder="+91...">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Upload Resume (PDF/Doc)</label>
+                            <input type="file" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Cover Letter (Optional)</label>
+                            <textarea class="form-control" rows="3" placeholder="Why are you a good fit?"></textarea>
+                        </div>
+                        <button type="submit" class="btn w-100 text-white fw-bold" style="background-color: var(--primary);">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER PLACEHOLDER -->
+   
+
+<div class="container-fluid text-light mt-5 wow fadeInUp" data-wow-delay="0.1s" style="background-color: #0b2f46;">
+    <div class="container">
+        <div class="row gx-4">
+            
+            <div class="col-lg-4 col-md-6 footer-about">
+                <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 p-4" style="background-color:white; color: black;">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Niftel" style="height:40px; object-fit:contain;">
+                    </a>
+                    <p class="mt-3 mb-4">
+                        Your trusted partner for BPO, Data Management, and Digital Marketing. We provide quality infrastructure and expert support to help your business leave competitors behind.
+                    </p>
+                    <form action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control border-black p-3" placeholder="Your Email">
+                            <button class="btn btn-dark">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-6">
+                <div class="row gx-4">
+                    
+                    <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                             <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Get In Touch</h3>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-geo-alt text-white me-2"></i>
+                            <p class="mb-0">A Block, 3rd Floor, Sooraj Deep Complex, Lucknow, India</p>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-envelope-open text-white me-2"></i>
+                            <p class="mb-0">hr@niftel.com</p>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-telephone text-white me-2"></i>
+                            <p class="mb-0">+91-923 645 4872</p>
+                        </div>
+                        <div class="d-flex mt-4">
+                            <a class="btn btn-square border-white me-2" href="https://x.com/NiftelComPvtLtd" style="background-color: #e87718; color: white;"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-square border-white me-2" href="https://www.facebook.com/share/1A8VXoV5Rh/?mibextid=wwXIfr" style="background-color: #e87718; color: white;"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-square border-white me-2" href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/" style="background-color: #e87718; color: white;"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-square border-white me-2" href="https://www.instagram.com/niftelcommunications?igsh=aTdmbWhrcXI5YzN3" style="background-color: #e87718; color: white;"><i class="fab fa-instagram fw-normal"></i></a>
+                             <a class="btn btn-square border-white" href="https://youtube.com/@niftelcommunications?si=b5Q2yq4gk_hAF5ae" style="background-color: #e87718; color: white;"><i class="fab fa-youtube fw-normal"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-12 pt-5 mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                             <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Quick Links</h3>
+                        </div>
+                        <div class="link-animated d-flex flex-column justify-content-start">
+                            <a class="text-light mb-2" href="index.html"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                            <a class="text-light mb-2" href="about.html"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
+                            <a class="text-light mb-2" href="service.html"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
+                            <a class="text-light mb-2" href="https://www.niftelresources.com/apply-for-job"><i class="bi bi-arrow-right text-white me-2"></i>Careers</a>
+                            <a class="text-light mb-2" href="gallery.html"><i class="bi bi-arrow-right text-white me-2"></i>Gallery</a>
+                            <a class="text-light" href="contact.html"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-md-12 pt-5 mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Our Services</h3>
+                        </div>
+                        
+                        <div class="link-animated" style="font-size: 15px;">
+                            
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/back-office.html"><i class="bi bi-arrow-right text-white me-2"></i>Back Office</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/front-office.html"><i class="bi bi-arrow-right text-white me-2"></i>Front Office</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/invoice.html"><i class="bi bi-arrow-right text-white me-2"></i>Invoice Mgmt</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/finance.html"><i class="bi bi-arrow-right text-white me-2"></i>Finance & Acct</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/ecommerce.html"><i class="bi bi-arrow-right text-white me-2"></i>E-commerce</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/data support/lead.html"><i class="bi bi-arrow-right text-white me-2"></i>Lead Conv.</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/data support/validation.html"><i class="bi bi-arrow-right text-white me-2"></i>Data Valid.</a>
+                                </div>
+                               
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/inbound.html"><i class="bi bi-arrow-right text-white me-2"></i>Inbound Call</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/outbound.html"><i class="bi bi-arrow-right text-white me-2"></i>Outbound Call</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/answering.html"><i class="bi bi-arrow-right text-white me-2"></i>Answering Svcs</a>
+                                </div>
+                            </div>
+
+                             <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/tech.html"><i class="bi bi-arrow-right text-white me-2"></i>Tech Support</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                     <div class="col-6  pe-2"  !important;">
+                                    <a class="text-light text-nowrap" href="services-page/data support/migration.html"><i class="bi bi-arrow-right text-white me-2"></i>Data Migration</a>
+                                </div>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid text-white" style="background:#e87718;">
+    <div class="container text-center">
+        <div class="row justify-content-end">
+            <div class="col-lg-8 col-md-6">
+                <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
+                    <p class="mb-0">
+                        &copy; <a class="text-white border-bottom" href="#">Niftel</a>. All Rights Reserved. 
+                        <span class="d-none d-sm-inline">| ISO/IEC 27001:2022 & ISO 9001:2015 Certified</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="btn btn-lg btn-dark btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
+    <!-- Scripts (Simple Loading) -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    // Load Header
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            // If main.js already defined init function, run it so dropdowns initialize on inject
+            if (window.initDropdownUI) { try { window.initDropdownUI(); } catch(e) { console.warn(e); } }
+        });
+
+    // Load Footer
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+
+    <script>
+    (async function loadFragmentsAndScripts(){
+        // Load header and footer fragments sequentially
+        async function fetchFragment(url, id){
+            const res = await fetch(url);
+            if(!res.ok) throw new Error('Failed to load '+url+' ('+res.status+')');
+            const text = await res.text();
+            document.getElementById(id).innerHTML = text;
+        }
+
+        try{
+            await fetchFragment('header.html', 'header-placeholder');
+            await fetchFragment('footer.html', 'footer-placeholder');
+        }catch(err){
+            console.error('Fragment load error:', err);
+            return;
+        }
+
+        // Helper to load scripts in order
+        function loadScript(src){
+            return new Promise((resolve, reject)=>{
+                const s = document.createElement('script');
+                s.src = src;
+                s.onload = resolve;
+                s.onerror = reject;
+                document.body.appendChild(s);
+            });
+        }
+
+        // Load vendor scripts then our main.js
+        try{
+            await loadScript('https://code.jquery.com/jquery-3.4.1.min.js');
+            await loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js');
+            await loadScript('lib/wow/wow.min.js');
+            await loadScript('lib/easing/easing.min.js');
+            await loadScript('lib/waypoints/waypoints.min.js');
+            await loadScript('lib/counterup/counterup.min.js');
+            await loadScript('lib/owlcarousel/owl.carousel.min.js');
+            await loadScript('js/main.js');
+            // Ensure dropdown UI is initialized after main.js has loaded (helps pages where header was injected earlier)
+            if (window.initDropdownUI) { try { window.initDropdownUI(); } catch(e) { console.warn(e); } }
+        }catch(err){
+            console.error('Script load error:', err);
+        }
+    })();
+    </script>
+
+</body>
+</html>
+

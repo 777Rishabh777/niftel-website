@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Our Services | Niftel BPO</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet (Reduced for Speed) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Use the local Bootstrap to avoid version conflicts with other pages -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+    /* Service page specific overrides and improvements */
+
+    /* Hero header full viewport height and vertical center content */
+    /* 1. Make the Dropdown open on HOVER (so you don't have to click) */
+
+    .hero-header {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .hero-header video.video-bg {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+    .hero-header .hero-overlay {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(9, 30, 62, 0.6);
+        z-index: 1;
+    }
+    .hero-header .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+    .hero-header .hero-content h4.hero-small-title {
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.15em;
+    }
+    .hero-header .hero-content h1 {
+        font-size: 4.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: #fff;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.7);
+    }
+    .hero-header .hero-content p.lead {
+        color: #ddd;
+        font-size: 1.25rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Section backgrounds alternating */
+    .bg-white {
+        background-color: #ffffff;
+        color: #091E3E;
+    }
+    .bg-lightgrey {
+        background-color: #f7f8fa;
+        color: #091E3E;
+    }
+    .bg-grey {
+        background-color: #e0e0e0;
+        color: #091E3E;
+    }
+
+    /* Large vertical spacing between section headings */
+    .category-section {
+        padding: 4rem 2rem;
+    }
+    .category-section .section-title {
+        position: relative;
+        font-weight: 600;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        letter-spacing: 0.07em;
+    }
+
+    /* Service items improvements */
+    .service-item {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%; /* remove fixed height */
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    .service-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+
+    /* Image styling inside service */
+    .service-item img {
+        border-radius: 6px;
+        object-fit: cover;
+        max-height: 160px;
+        width: 100%;
+        margin-bottom: 1.2rem;
+    }
+
+    /* Service text with spacing */
+    .service-text {
+        flex-grow: 1;
+    }
+    .service-text h4 {
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+    .service-text p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+    }
+
+    /* Move read more button inside service-text and style */
+    .service-text a.btn {
+        display: inline-block;
+        padding: 0.6rem 1.25rem;
+        background-color: var(--primary);
+        color: #fff;
+        font-weight: 700;
+        border-radius: 30px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        box-shadow: 0 6px 12px rgba(232,119,24,0.3);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+    }
+    .service-text a.btn:hover {
+        background-color: var(--secondary);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(52,173,84,0.4);
+    }
+
+    /* Remove old absolute positioned buttons */
+    .service-item a.btn {
+        position: static !important;
+        width: auto !important;
+        margin-left: 0 !important;
+        opacity: 1 !important;
+        bottom: auto !important;
+        left: auto !important;
+        padding: 0.6rem 1.25rem !important;
+    }
+
+    /* Stats bar light background and padding */
+    .stats-bar {
+        background-color: var(--dark);
+        color: white;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    .stats-bar h1.display-4 {
+        font-weight: 900;
+        margin-bottom: 5px;
+    }
+    .stats-bar span {
+        font-weight: 600;
+    }
+    .stats-bar .col-sm-6 {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Responsive adjustments */
+    /* --- Explained Services Section Styles --- */
+
+/* Color Variables (Ensure these exist in your :root) */
+:root {
+    --primary: #e87718; /* Your main orange */
+    --primary-light: #fff0e6; /* Very light orange background */ /* Softer orange for effects */
+    --dark: #091E3E;
+    --soft-primary: #f9dace; /* Soft orange for gradients and backgrounds */
+}
+
+/* Helper Classes */
+.text-orange { color: var(--primary) !important; }
+.text-orange-light { color: var(--primary-soft) !important; }
+.text-dark { color: var(--dark) !important; }
+.ls-2 { letter-spacing: 2px; }
+
+/* Icon Box Styling */
+.icon-box-orange {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(232, 119, 24, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Image Wrapper with unique orange frame effect */
+.img-wrapper-orange {
+    position: relative;
+    padding: 15px;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+/* The orange frame behind the image */
+.img-wrapper-orange::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-soft), var(--primary));
+    opacity: 0.2;
+    border-radius: 15px;
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+/* Image Styling */
+.img-wrapper-orange img {
+    border-radius: 10px;
+    max-height: 350px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: all 0.5s ease;
+}
+
+/* Unique Tilting Effects */
+.img-wrapper-orange.left-tilt::before {
+    transform: rotate(-3deg) scale(1.02);
+}
+.img-wrapper-orange.right-tilt::before {
+    transform: rotate(3deg) scale(1.02);
+}
+
+/* Hover Animations */
+.feature-row:hover .icon-box-orange {
+    transform: translateY(-5px) rotate(5deg);
+    box-shadow: 0 12px 25px rgba(232, 119, 24, 0.4);
+}
+
+.feature-row:hover .img-wrapper-orange img {
+    transform: scale(1.03);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.feature-row:hover .img-wrapper-orange.left-tilt::before {
+    transform: rotate(-5deg) scale(1.05);
+    opacity: 0.3;
+}
+
+.feature-row:hover .img-wrapper-orange.right-tilt::before {
+    transform: rotate(5deg) scale(1.05);
+    opacity: 0.3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    .feature-row {
+        text-align: center;
+    }
+    .feature-row .d-flex {
+        justify-content: center;
+    }
+    .img-wrapper-orange {
+        margin-bottom: 2rem;
+        padding: 10px;
+    }
+    .img-wrapper-orange.left-tilt::before,
+    .img-wrapper-orange.right-tilt::before {
+        transform: rotate(0) scale(1); /* Remove tilt on mobile for cleaner look */
+    }
+}
+    </style>
+    <!-- Page-specific styles were removed so the global `css/style.css` controls layout.
+         This avoids duplication and version conflicts. If you need a small page-only tweak,
+         we can add a scoped stylesheet later. -->
+         
+    <style>
+        /* --- CUSTOM DROPDOWN STYLING --- */
+        
+        /* Open on Hover (Desktop) */
+        @media (min-width: 992px) {
+            .nav-item.dropdown:hover .dropdown-menu {
+                display: block;
+                margin-top: 0;
+                animation: fadeIn 0.3s;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px) translateX(-50%); }
+            to { opacity: 1; transform: translateY(0) translateX(-50%); }
+        }
+
+        /* Center the dropdown box */
+        .box-menu {
+            left: 50% !important;
+            transform: translateX(-50%) !important; /* Centers it perfectly */
+            width: max-content;
+            max-width: 90vw;
+            padding: 20px;
+            margin-top: 0px !important;
+            border-top: 3px solid var(--primary); /* Orange Top Border */
+            
+            /* Dark Theme Background */
+            background-color: #111111; 
+            border-radius: 0 0 8px 8px !important;
+        }
+
+        /* Specific widths for different menus */
+        .service-box {
+            min-width: 600px;
+        }
+        
+      
+
+        /* Styles for columns inside the dropdown */
+        .menu-column {
+            flex: 1;
+            min-width: 160px;
+            padding: 0 15px;
+        }
+
+        /* Header for each section */
+        .menu-header {
+            color: var(--primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333; /* Darker border for dark theme */
+        }
+
+        /* Link Styling - White Text */
+        .dropdown-item {
+            padding: 8px 10px;
+            font-size: 0.95rem;
+            color: #ffffff !important; /* White Text */
+            border-radius: 4px;
+            transition: 0.2s;
+            background-color: transparent;
+        }
+
+        /* Hover Effect - Orange Background */
+        .dropdown-item:hover {
+            background-color: var(--primary); /* Orange Hover */
+            color: #ffffff !important;
+            padding-left: 15px; /* Slide effect */
+        }
+
+        /* Add borders between columns on Desktop only */
+        @media (min-width: 992px) {
+            .border-start-lg {
+                border-left: 1px solid #333; /* Dark border separator */
+            }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 991px) {
+            .box-menu {
+                left: 0 !important;
+                transform: none !important;
+                width: 100%;
+                min-width: auto;
+                position: static;
+                background-color: #222; /* Slightly lighter for mobile contrast */
+            }
+            .menu-column {
+                margin-bottom: 20px;
+            }
+            /* Reset animation for mobile */
+            .nav-item.dropdown:hover .dropdown-menu {
+                animation: none;
+            }
+        }
+        /* Mobile Offcanvas Menu Styles */
+.offcanvas-section {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.offcanvas-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.section-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.offcanvas-section-toggle {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #666;
+}
+
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.offcanvas-section.expanded .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.offcanvas-subitems {
+    display: none;
+    padding-left: 20px;
+}
+
+.offcanvas-section.expanded .offcanvas-subitems {
+    display: block;
+}
+
+.dropdown-group {
+    margin-bottom: 10px;
+}
+
+.offcanvas-group-header {
+    font-weight: bold;
+    color: #e87718;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.dropdown-group .dropdown-item {
+    padding: 5px 10px;
+    display: none;
+}
+
+.dropdown-group.expanded .dropdown-item {
+    display: block;
+}
+
+.mobile-nav-items .dropdown-item {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 8px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-nav-items .dropdown-item:hover {
+    background-color: #e87718;
+    color: white;
+}
+/* --- CUSTOM DROPDOWN STYLING (Desktop) --- */
+/* --- MOBILE MENU & ACTIVE STATE STYLES --- */
+
+    /* 1. Desktop Active State (Orange Text) */
+    .navbar-dark .navbar-nav .nav-link.active,
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: #e87718 !important;
+    }
+
+    /* 2. Mobile Menu Styling */
+    #mobile-offcanvas-content .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+
+    #mobile-offcanvas-content .nav-link {
+        color: #333 !important;
+        font-weight: 700;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #eee;
+        padding: 12px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Active State in Mobile */
+    #mobile-offcanvas-content .nav-link.active {
+        color: #e87718 !important;
+    }
+
+    /* Remove default Bootstrap arrow so we can use our own */
+    #mobile-offcanvas-content .dropdown-toggle::after {
+        display: none !important;
+    }
+
+    /* 3. The Custom Arrow Button */
+    .mobile-toggle-btn {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid #f0f0f0;
+        margin-left: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+        color: #666;
+    }
+
+    /* Rotate Arrow When Open */
+    .mobile-toggle-btn.open {
+        transform: rotate(180deg);
+        color: #e87718;
+    }
+
+    /* 4. Mobile Dropdown Menu */
+    #mobile-offcanvas-content .dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        background: #f9f9f9 !important;
+        border: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        box-shadow: none !important;
+        display: none; /* Hidden by default */
+    }
+
+    /* Fix the Mega Menu columns for Mobile */
+    #mobile-offcanvas-content .d-flex.flex-wrap {
+        display: block !important;
+    }
+    #mobile-offcanvas-content .menu-column {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    #mobile-offcanvas-content .menu-header {
+        color: #e87718;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    /* Sub-menu Links */
+    #mobile-offcanvas-content .dropdown-item {
+        color: #555 !important;
+        padding: 8px 10px;
+        font-size: 0.95rem;
+    }
+    #mobile-offcanvas-content .dropdown-item:hover,
+    #mobile-offcanvas-content .dropdown-item.active {
+        color: #e87718 !important;
+        background: transparent;
+        padding-left: 15px;
+    }
+
+    /* --- VENDOR MARQUEE STYLES --- */
+    .vendor-marquee { overflow: hidden; white-space: nowrap; background: #ffffff; padding: 30px 0; }
+    .marquee-track { display: inline-block; animation: scroll-left 30s linear infinite; }
+    .marquee-track img { height: 60px; width: auto; margin: 0 40px; display: inline-block; vertical-align: middle; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
+    .marquee-track img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
+    @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header fragment: topbar, spinner, and navbar -->
+
+    <!-- Spinner Start -->
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div> -->
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid px-5 d-none d-lg-block" style="background-color: var(--primary);">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i> A Block, 3rd Floor, Sooraj Deep complex, Joppling Road, Lucknow(UP)-226001 India</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i><a href="tel:+919236454872" style="color: white;">+91-923 645 4872</a></small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i><a href="mailto:hr@niftel.com" style="color: white;">hr@niftel.com</a></small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/NiftelComPvtLtd"><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/share/1A8VXoV5Rh/?mibextid=wwXIfr"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/niftelcommunications?igsh=aTdmbWhrcXI5YzN3"><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://youtube.com/@niftelcommunications?si=b5Q2yq4gk_hAF5ae"><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+   <!-- Navbar Start -->
+<div class="container-fluid position-relative p-0"  style="z-index: 1030;">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <img src="img/logo.png" alt="Niftel" style="height: 60px; object-fit:contain;">
+        </a>
+        <!-- On mobile open the offcanvas menu so the right-side panel appears with all tabs -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                
+                <!-- SERVICE DROPDOWN (Box Type, Centered, Dark Theme) -->
+                <div class="nav-item dropdown">
+                    <a href="service.html" class="nav-link dropdown-toggle">Services</a>
+                    
+                    <div class="dropdown-menu m-0 shadow-sm rounded-3 box-menu service-box">
+                        <div class="d-flex flex-wrap justify-content-between">
+                            
+                            <!-- Section 1: BPO -->
+                            <div class="menu-column">
+                                <h6 class="menu-header">BPO Services</h6>
+                                <a href="services-page/bpo service/back-office.html" class="dropdown-item">Back Office</a>
+                                <a href="services-page/bpo service/front-office.html" class="dropdown-item">Front Office</a>
+                                <a href="services-page/bpo service/invoice.html" class="dropdown-item">Invoice Management</a>
+                                <a href="services-page/bpo service/finance.html" class="dropdown-item">Finance & Accounting</a>
+                                <a href="services-page/bpo service/ecommerce.html" class="dropdown-item">E-commerce</a>
+                            </div>
+
+                            <!-- Section 2: Data -->
+                            <div class="menu-column border-start-lg">
+                                <h6 class="menu-header">Data Support</h6>
+                                <a href="services-page/data support/lead.html" class="dropdown-item">Lead Conversion</a>
+                                <a href="services-page/data support/validation.html" class="dropdown-item">Data Validation</a>
+                                <a href="services-page/data support/migration.html" class="dropdown-item">Data Migration</a>
+                            </div>
+
+                            <!-- Section 3: Tech -->
+                            <div class="menu-column border-start-lg">
+                                <h6 class="menu-header">Call Center Services</h6>
+                                <a href="services-page/tech support/inbound.html" class="dropdown-item">Inbound Call</a>
+                                <a href="services-page/tech support/outbound.html" class="dropdown-item">Outbound Call</a>
+                                <a href="services-page/tech support/answering.html" class="dropdown-item">Answering Services</a>
+                                <a href="services-page/tech support/tech.html" class="dropdown-item">Tech Support</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="team.html" class="nav-item nav-link">Our Team</a>
+                </div>
+                
+                <!-- RESOURCES DROPDOWN (Box Type, Centered, Dark Theme) -->
+             <div class="nav-item dropdown" style="position: relative;">
+                    <a href="https://www.niftelresources.com/" class="nav-link ">Resources</a>
+                    
+                    <!-- Custom Dropdown Container with Inline Styles for Isolation -->
+                    <!-- <div class="dropdown-menu m-0 custom-resource-menu" 
+                         style="position: absolute; top: 100%; left: 0; min-width: 320px; 
+                                background-color: #0125587c; border-top: 3px solid var(--primary); 
+                                border-radius: 0 0 8px 8px; padding: 15px; z-index: 9999;
+                                box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                        
+                       
+                        
+                        <a href="about.html" class="dropdown-item" 
+                           style="color: #fff; padding: 8px 10px; font-size: 0.95rem; transition: 0.2s;">
+                           About Us
+                        </a>
+                        <a href="gallery.html" class="dropdown-item" 
+                           style="color: #fff; padding: 8px 10px; font-size: 0.95rem; transition: 0.2s;">
+                           Gallery
+                        </a>
+                    </div> -->
+                </div>
+                <a href="https://www.niftelresources.com/apply-for-job" class="nav-item nav-link">Career</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile off-canvas menu: right side panel that will be populated from the navbar -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileMenuOffcanvasLabel">Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <!-- main content will be injected by js (cloned from the desktop navbar) -->
+            <div id="mobile-offcanvas-content" class="p-3"></div>
+        </div>
+    </div>
+
+</div>
+<!-- Navbar End -->
+
+    <!-- Hero Video Section -->
+    <div class="hero-header">
+        <video class="video-bg" autoplay muted loop playsinline preload="metadata" poster="img/service.jpg">
+            <source src="img/service.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <h4 class="text-uppercase text-light mb-3 hero-small-title">Our Expertise</h4>
+            <h1 class="display-1 text-white mb-3">All Services</h1>
+            <p class="lead text-white px-5 d-none d-lg-block">We provide end-to-end BPO, data, and technical support services that scale with your business.</p>
+        </div>
+    </div>
+
+    <!-- Explained Services (Big and Styled Full Width with Images & Animation) -->
+    
+    <!-- Service Grid -->
+    <div class="container-fluid service pt-4 px-0">
+            
+            <!-- CATEGORY 1: BPO SERVICES -->
+            <div class="category-section bg-white">
+                <div class="container">
+                <div class="text-center mb-5">
+                    <h5 class="section-title">BPO Services</h5>
+                </div>
+                <div class="row g-5">
+                    <!-- Back Office -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/bpo1.webp" alt="Back Office">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">Back Office</h4>
+                                    <p>Data entry, document processing, and admin support.</p>
+                                    <a class="btn" href="services-page/bpo service/back-office.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Front Office -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/bpo2.webp" alt="Front Office">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">Front Office</h4>
+                                    <p>Inbound/outbound call center and customer support.</p>
+                                    <a class="btn" href="services-page/bpo service/front-office.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Invoice Management -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/bpo3.jpg" alt="Invoice">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">Invoice Management</h4>
+                                    <p>Timely and accurate invoice generation and tracking.</p>
+                                    <a class="btn" href="services-page/bpo service/invoice.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Finance & Accounting -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/bpo4.jpeg" alt="Finance">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">Finance & Accounting</h4>
+                                    <p>Bookkeeping, payroll, and financial reporting services.</p>
+                                    <a class="btn" href="services-page/bpo service/finance.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- E-commerce Support -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/bpo5.jpg" alt="Ecommerce">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">E-commerce Support</h4>
+                                    <p>Order processing, inventory management, and support.</p>
+                                    <a class="btn" href="services-page/bpo service/ecommerce.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- CATEGORY 2: DATA SUPPORT -->
+            <div class="category-section bg-lightgrey">
+                <div class="container">
+                <div class="text-center mb-5">
+                    <h5 class="section-title">Data Support</h5>
+                </div>
+                <div class="row g-5">
+                    <!-- Lead Conversion -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/data1.webp" alt="Lead Conversion">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">Lead Conversion</h4>
+                                    <p>Turning prospects into customers via data strategies.</p>
+                                    <a class="btn" href="services-page/data support/lead.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Data Validation -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/data2.jpg" alt="Data Validation">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">Data Validation</h4>
+                                    <p>Cleaning and verifying data for accuracy.</p>
+                                    <a class="btn" href="services-page/data support/validation.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Data Migration -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/data3.jpg" alt="Data Migration">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">Data Migration</h4>
+                                    <p>Secure transfer of critical business data systems.</p>
+                                    <a class="btn" href="services-page/data support/migration.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- CATEGORY 3: CALL CENTER SERVICES -->
+            <div class="category-section bg-grey">
+                <div class="container">
+                <div class="text-center mb-5">
+                    <h5 class="section-title">Call Center Services</h5>
+                </div>
+                <div class="row g-5">
+                    <!-- Inbound Call Support -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/ccs1.webp" alt="Inbound">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">Inbound Call Support</h4>
+                                    <p>Handling incoming queries and service requests.</p>
+                                    <a class="btn" href="services-page/tech support/inbound.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Outbound Call Support -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/css2.webp" alt="Outbound">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">Outbound Call Support</h4>
+                                    <p>Proactive calls for sales, surveys, and leads.</p>
+                                    <a class="btn" href="services-page/tech support/outbound.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Answering Services -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/css3.jpg" alt="Answering">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">Answering Services</h4>
+                                    <p>Professional reception and message taking services.</p>
+                                    <a class="btn" href="services-page/tech support/answering.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tech Support -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <img class="img-fluid" src="img/ccs4.jpg" alt="Tech Support">
+                                <div class="service-text">
+                                    <h4 class="text-uppercase mb-3">Tech Support</h4>
+                                    <p>Resolving hardware and software technical issues.</p>
+                                    <a class="btn" href="services-page/tech support/tech.html">Read More <i class="bi bi-chevron-double-right ms-1"></i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+
+<!-- Explained Services Section -->
+    <div id="explained-services" class="container-fluid py-5 position-relative overflow-hidden" style="background: linear-gradient(135deg, #fff0e6 0%, #ffffff 100%);">
+    <!-- <div class="position-absolute top-0 start-0 translate-middle text-orange-light opacity-25 wow zoomIn" data-wow-delay="0.1s" style="z-index: 0;">
+        <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,81.6,-45.8C91.4,-32.5,98,-16.3,97.6,-0.2C97.2,15.8,89.9,31.7,80.5,45.4C71.1,59.1,59.6,70.7,45.8,78.8C32,86.9,16,91.6,-0.4,92.3C-16.8,93,-33.6,89.7,-48.3,82.1C-63,74.5,-75.6,62.5,-84.6,48.3C-93.6,34.1,-99.1,17,-98.6,0.3C-98.1,-16.4,-91.6,-32.9,-82.3,-46.9C-73,-60.9,-60.9,-72.5,-47.3,-80.3C-33.7,-88.1,-16.8,-92.1,-0.2,-91.7C16.3,-91.4,32.7,-87.4,44.7,-76.4Z" transform="translate(100 100)" />
+        </svg>
+    </div>
+    <div class="position-absolute bottom-0 end-0 translate-middle text-orange-light opacity-25 wow zoomIn" data-wow-delay="0.3s" style="z-index: 0;">
+         <svg width="500" height="500" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M39.9,-65.7C51.9,-60.9,62.2,-50.1,70.8,-37.3C79.4,-24.4,86.3,-9.6,85.4,4.7C84.5,19,75.8,32.8,66.1,45.8C56.3,58.8,45.5,71,32.3,78.3C19.1,85.6,3.5,88,-12.3,86.3C-28.1,84.6,-44.1,78.8,-56.6,68.4C-69.1,58,-78.1,43,-83.8,27.1C-89.5,11.2,-91.9,-5.6,-87.8,-20.9C-83.7,-36.2,-73.1,-50.1,-60.2,-59.5C-47.2,-68.9,-32,-73.8,-17.5,-76.2C-3,-78.7,10.8,-78.7,24.2,-75.3C37.6,-71.9,50.5,-65.1,39.9,-65.7Z" transform="translate(100 100)" />
+        </svg>
+    </div> -->
+        <div class="container px-5 position-relative" style="z-index: 1;">
+        <div class="row mb-5">
+            <div class="col-12 text-center wow fadeInDown" data-wow-delay="0.25s" data-wow-duration="1.2s">
+                <h6 class="text-orange text-uppercase fw-bold mb-2 ls-2">Our Expertise</h6>
+                <h2 class="display-3 fw-bold text-dark mb-4">What we do?</h2>
+                <div class="mx-auto mb-4" style="width: 100px; height: 4px; background: var(--primary); border-radius: 2px;"></div>
+                <p class="lead fs-5 lh-lg mx-auto text-muted" style="max-width: 750px; letter-spacing: 0.015em;">
+                    Niftel combines people, process and platforms to deliver outcomes: cost-efficient operations, high-quality data services and customer-centric support.
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <div class="row align-items-center mb-5 feature-row wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.3s">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="img-wrapper-orange left-tilt wow fadeInLeft" data-wow-delay="0.4s">
+                        <img src="img/people.jpg" alt="People" class="img-fluid rounded shadow-lg w-100">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.5s">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-box-orange me-3">
+                            <i class="fa fa-users fa-2x text-white"></i>
+                        </div>
+                        <h4 class="fw-bold mb-0 text-dark">People</h4>
+                    </div>
+                    <p class="fs-5 text-muted">Experienced professionals dedicated to providing exceptional service and support, leveraging skills and expertise for your business success.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center mb-5 feature-row wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1.3s">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                    <div class="img-wrapper-orange right-tilt wow fadeInRight" data-wow-delay="0.5s">
+                        <img src="img/process.jpg" alt="Process" class="img-fluid rounded shadow-lg w-100">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay="0.6s">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-box-orange me-3">
+                            <i class="fa fa-cogs fa-2x text-white"></i>
+                        </div>
+                        <h4 class="fw-bold mb-0 text-dark">Process</h4>
+                    </div>
+                    <p class="fs-5 text-muted">Optimized workflows and robust methodologies to ensure high efficiency, consistency, and quality in operations.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center feature-row wow fadeInUp" data-wow-delay="0.5s" data-wow-duration="1.3s">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="img-wrapper-orange left-tilt wow fadeInLeft" data-wow-delay="0.6s">
+                        <img src="img/css3.jpg" alt="Platforms" class="img-fluid rounded shadow-lg w-100">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.7s">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-box-orange me-3">
+                            <i class="fa fa-rocket fa-2x text-white"></i>
+                        </div>
+                        <h4 class="fw-bold mb-0 text-dark">Platforms</h4>
+                    </div>
+                    <p class="fs-5 text-muted">Cutting-edge technology platforms crafted for scalability, reliability, and seamless integration to enhance business outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Stats Section (Simple Background) -->
+    <div class="container-fluid  stats-bar">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-sm-6 col-lg-3 text-center"><h1 class="display-4 text-white">1200+</h1><span class="fs-5 text-white">Projects</span></div>
+                <div class="col-sm-6 col-lg-3 text-center"><h1 class="display-4 text-white">100+</h1><span class="fs-5 text-white">Experts</span></div>
+                <div class="col-sm-6 col-lg-3 text-center"><h1 class="display-4 text-white">500+</h1><span class="fs-5 text-white">Clients</span></div>
+                <div class="col-sm-6 col-lg-3 text-center"><h1 class="display-4 text-white">24/7</h1><span class="fs-5 text-white">Support</span></div>
+            </div>
+        </div>
+    </div>
+
+    
+
+<div class="container-fluid text-light mt-5 wow fadeInUp" data-wow-delay="0.1s" style="background-color: #0b2f46;">
+    <div class="container">
+        <div class="row gx-4">
+            
+            <div class="col-lg-4 col-md-6 footer-about">
+                <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 p-4" style="background-color:white; color: black;">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Niftel" style="height:40px; object-fit:contain;">
+                    </a>
+                    <p class="mt-3 mb-4">
+                        Your trusted partner for BPO, Data Management, and Digital Marketing. We provide quality infrastructure and expert support to help your business leave competitors behind.
+                    </p>
+                    <form action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control border-black p-3" placeholder="Your Email">
+                            <button class="btn btn-dark">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-6">
+                <div class="row gx-4">
+                    
+                    <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                             <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Get In Touch</h3>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-geo-alt text-white me-2"></i>
+                            <p class="mb-0">A Block, 3rd Floor, Sooraj Deep Complex, Lucknow, India</p>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-envelope-open text-white me-2"></i>
+                            <p class="mb-0">hr@niftel.com</p>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-telephone text-white me-2"></i>
+                            <p class="mb-0">+91-923 645 4872</p>
+                        </div>
+                        <div class="d-flex mt-4">
+                            <a class="btn btn-square border-white me-2" href="https://x.com/NiftelComPvtLtd" style="background-color: #e87718; color: white;"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-square border-white me-2" href="https://www.facebook.com/share/1A8VXoV5Rh/?mibextid=wwXIfr" style="background-color: #e87718; color: white;"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-square border-white me-2" href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/" style="background-color: #e87718; color: white;"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-square border-white me-2" href="https://www.instagram.com/niftelcommunications?igsh=aTdmbWhrcXI5YzN3" style="background-color: #e87718; color: white;"><i class="fab fa-instagram fw-normal"></i></a>
+                             <a class="btn btn-square border-white" href="https://youtube.com/@niftelcommunications?si=b5Q2yq4gk_hAF5ae" style="background-color: #e87718; color: white;"><i class="fab fa-youtube fw-normal"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-12 pt-5 mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                             <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Quick Links</h3>
+                        </div>
+                        <div class="link-animated d-flex flex-column justify-content-start">
+                            <a class="text-light mb-2" href="index.html"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                            <a class="text-light mb-2" href="about.html"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
+                            <a class="text-light mb-2" href="service.html"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
+                            <a class="text-light mb-2" href="https://www.niftelresources.com/apply-for-job"><i class="bi bi-arrow-right text-white me-2"></i>Careers</a>
+                            <a class="text-light mb-2" href="gallery.html"><i class="bi bi-arrow-right text-white me-2"></i>Gallery</a>
+                            <a class="text-light" href="contact.html"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-md-12 pt-5 mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Our Services</h3>
+                        </div>
+                        
+                        <div class="link-animated" style="font-size: 15px;">
+                            
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/back-office.html"><i class="bi bi-arrow-right text-white me-2"></i>Back Office</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/front-office.html"><i class="bi bi-arrow-right text-white me-2"></i>Front Office</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/invoice.html"><i class="bi bi-arrow-right text-white me-2"></i>Invoice Mgmt</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/finance.html"><i class="bi bi-arrow-right text-white me-2"></i>Finance & Acct</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/ecommerce.html"><i class="bi bi-arrow-right text-white me-2"></i>E-commerce</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/data support/lead.html"><i class="bi bi-arrow-right text-white me-2"></i>Lead Conv.</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/data support/validation.html"><i class="bi bi-arrow-right text-white me-2"></i>Data Valid.</a>
+                                </div>
+                               
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/inbound.html"><i class="bi bi-arrow-right text-white me-2"></i>Inbound Call</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/outbound.html"><i class="bi bi-arrow-right text-white me-2"></i>Outbound Call</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/answering.html"><i class="bi bi-arrow-right text-white me-2"></i>Answering Svcs</a>
+                                </div>
+                            </div>
+
+                             <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/tech.html"><i class="bi bi-arrow-right text-white me-2"></i>Tech Support</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                     <div class="col-6  pe-2"  !important;">
+                                    <a class="text-light text-nowrap" href="services-page/data support/migration.html"><i class="bi bi-arrow-right text-white me-2"></i>Data Migration</a>
+                                </div>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid text-white" style="background:#e87718;">
+    <div class="container text-center">
+        <div class="row justify-content-end">
+            <div class="col-lg-8 col-md-6">
+                <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
+                    <p class="mb-0">
+                        &copy; <a class="text-white border-bottom" href="#">Niftel</a>. All Rights Reserved. 
+                        <span class="d-none d-sm-inline">| ISO/IEC 27001:2022 & ISO 9001:2015 Certified</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="btn btn-lg btn-dark btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
+    <!-- Scripts (Simple Loading) -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    // Load Header
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            // If main.js already defined init function, run it so dropdowns initialize on inject
+            if (window.initDropdownUI) { try { window.initDropdownUI(); } catch(e) { console.warn(e); } }
+        });
+
+    // Load Footer
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+
+    <script>
+    (async function loadFragmentsAndScripts(){
+        // Load header and footer fragments sequentially
+        async function fetchFragment(url, id){
+            const res = await fetch(url);
+            if(!res.ok) throw new Error('Failed to load '+url+' ('+res.status+')');
+            const text = await res.text();
+            document.getElementById(id).innerHTML = text;
+        }
+
+        try{
+            await fetchFragment('header.html', 'header-placeholder');
+            await fetchFragment('footer.html', 'footer-placeholder');
+        }catch(err){
+            console.error('Fragment load error:', err);
+            return;
+        }
+
+        // Helper to load scripts in order
+        function loadScript(src){
+            return new Promise((resolve, reject)=>{
+                const s = document.createElement('script');
+                s.src = src;
+                s.onload = resolve;
+                s.onerror = reject;
+                document.body.appendChild(s);
+            });
+        }
+
+        // Load vendor scripts then our main.js
+        try{
+            await loadScript('https://code.jquery.com/jquery-3.4.1.min.js');
+            await loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js');
+            await loadScript('lib/wow/wow.min.js');
+            await loadScript('lib/easing/easing.min.js');
+            await loadScript('lib/waypoints/waypoints.min.js');
+            await loadScript('lib/counterup/counterup.min.js');
+            await loadScript('lib/owlcarousel/owl.carousel.min.js');
+            await loadScript('js/main.js');
+            // Ensure dropdown UI is initialized after main.js has loaded (helps pages where header was injected earlier)
+            if (window.initDropdownUI) { try { window.initDropdownUI(); } catch(e) { console.warn(e); } }
+        }catch(err){
+            console.error('Script load error:', err);
+        }
+    })();
+    </script>
+
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- 1. SETUP MOBILE MENU (Split Button Logic) ---
+        const desktopNav = document.querySelector('.navbar-nav');
+        const mobileContainer = document.getElementById('mobile-offcanvas-content');
+
+        if (desktopNav && mobileContainer) {
+            // Clone the desktop navigation
+            const mobileNav = desktopNav.cloneNode(true);
+            mobileNav.classList.remove('ms-auto', 'py-0');
+            
+            // Find all dropdowns in the cloned menu
+            const dropdowns = mobileNav.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                const menu = dropdown.querySelector('.dropdown-menu');
+                
+                if (link && menu) {
+                    // Create the separate Arrow Button
+                    const toggleBtn = document.createElement('span');
+                    toggleBtn.className = 'mobile-toggle-btn';
+                    toggleBtn.innerHTML = '<i class="fa fa-chevron-down"></i>';
+                    
+                    // Append Arrow to the text link
+                    link.appendChild(toggleBtn);
+                    
+                    // Add Click Event ONLY to the Arrow Button
+                    toggleBtn.addEventListener('click', function(e) {
+                        e.preventDefault(); // Stop link
+                        e.stopPropagation(); // Stop bubbling
+                        
+                        // Toggle Menu Visibility
+                        if (menu.style.display === 'block') {
+                            menu.style.display = 'none';
+                            toggleBtn.classList.remove('open');
+                        } else {
+                            menu.style.display = 'block';
+                            toggleBtn.classList.add('open');
+                        }
+                    });
+
+                    // Remove 'dropdown-toggle' class from the main link 
+                    // This allows the text "Services" to work as a normal link to service.html
+                    link.classList.remove('dropdown-toggle');
+                }
+            });
+
+            // Inject the modified menu into the mobile sidebar
+            mobileContainer.innerHTML = '';
+            mobileContainer.appendChild(mobileNav);
+        }
+
+        // --- 2. ACTIVE MENU LOGIC ---
+        function setActiveMenu() {
+            // Get current page name (e.g. "service.html")
+            var path = window.location.pathname;
+            var page = path.split("/").pop();
+
+            // Handle Root URL
+            if (page === "" || page === "/") {
+                page = "index.html";
+            }
+
+            // Function to check and highlight links
+            function highlightLinks(container) {
+                const links = container.querySelectorAll('a.nav-link, a.dropdown-item');
+                
+                links.forEach(link => {
+                    const href = link.getAttribute('href');
+                    
+                    if (href) {
+                        const cleanHref = href.split('/').pop(); // Get just the filename
+
+                        if (cleanHref === page) {
+                            // Highlight the link itself
+                            link.classList.add('active');
+
+                            // If it's inside a dropdown, highlight the parent too
+                            const parentDropdown = link.closest('.dropdown');
+                            if (parentDropdown) {
+                                const parentLink = parentDropdown.querySelector('.nav-link');
+                                if (parentLink) parentLink.classList.add('active');
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Run on Desktop Menu
+            if(desktopNav) highlightLinks(desktopNav);
+            
+            // Run on Mobile Menu
+            if(mobileContainer) highlightLinks(mobileContainer);
+        }
+
+        // Execute Active Logic
+        setActiveMenu();
+
+        // Initialize Offcanvas
+        var myOffcanvas = document.getElementById('mobileMenuOffcanvas');
+        var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
+    });
+</script>
+</body>
+--- IGNORE ---
+</html>
+
+

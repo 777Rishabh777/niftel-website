@@ -1,0 +1,14 @@
+{
+  "name": "niftel-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local dev environment for Niftel Website",
+  "scripts": {
+    "start": "http-server -a localhost -p 3000 -c-1 .",
+    "dev": "http-server -a localhost -p 3000 -c-1 ."
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "http-server": "^14.1.1"
+  }
+}

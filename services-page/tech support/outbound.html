@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Outbound Call Support | Niftel</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #F37021;
+            --secondary: #091E3E;
+            --blue-accent: #06A3DA;
+            --light-blue: #F0F8FF;
+            --dark: #111111;
+            --white: #ffffff;
+        }
+
+        body { font-family: 'Rubik', sans-serif; color: #555; background-color: #fcfcfc; overflow-x: hidden; }
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; font-weight: 800; color: var(--secondary); }
+
+        /* --- HERO SECTION --- */
+        .hero-header {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: 0; opacity: 0.5; filter: contrast(1.1) saturate(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(9, 30, 62, 0.8), rgba(0, 0, 0, 0.6)); z-index: 1;
+        }
+
+        .hero-content { position: relative; z-index: 2; text-align: center; }
+        .hero-title { font-size: 4.5rem; text-shadow: 0px 4px 15px rgba(0,0,0,0.5); letter-spacing: 2px; }
+
+        /* --- MOBILE HERO ADJUSTMENT (Full Screen) --- */
+        @media (max-width: 991px) {
+            .hero-header { height: 100vh !important; min-height: 100vh !important; }
+            .hero-title { font-size: 3rem; }
+        }
+
+        /* --- CONTENT STYLING --- */
+        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+        .main-image-container {
+            overflow: hidden; border-radius: 15px; box-shadow: 0 15px 40px rgba(9, 30, 62, 0.15);
+        }
+        .main-image-container img { transition: transform 0.8s ease; }
+        .main-image-container:hover img { transform: scale(1.05); }
+        .text-justified { text-align: justify; font-size: 1.15rem; line-height: 1.9; }
+
+        /* --- FEATURE CARDS --- */
+        .feature-card {
+            background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.4s ease; border-bottom: 5px solid var(--secondary); height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px); box-shadow: 0 20px 40px rgba(243, 112, 33, 0.2);
+            border-bottom: 5px solid var(--primary);
+        }
+        .feature-icon-box {
+            width: 65px; height: 65px; background: var(--light-blue); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
+            color: var(--secondary); font-size: 1.6rem; transition: 0.3s;
+        }
+        .feature-card:hover .feature-icon-box { background: var(--primary); color: #fff; }
+
+        /* --- SIDEBAR --- */
+        .sidebar-sticky { position: sticky; top: 100px; }
+        .sidebar-card {
+            background: var(--white); padding: 35px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 30px; border: 1px solid rgba(0,0,0,0.03);
+        }
+        .sidebar-card.blue-mode { background: var(--secondary); color: #fff; position: relative; overflow: hidden; }
+        .sidebar-card.blue-mode::after {
+            content: ''; position: absolute; top: -50px; right: -50px; width: 150px; height: 150px;
+            background: rgba(255,255,255,0.05); border-radius: 50%;
+        }
+        .check-list li {
+            list-style: none; padding: 12px 0; border-bottom: 1px solid #eee; display: flex; align-items: center;
+            font-weight: 600; color: var(--secondary);
+        }
+        .check-list li i {
+            color: var(--primary); margin-right: 15px; font-size: 1.2rem;
+            background: rgba(243, 112, 33, 0.1); padding: 5px; border-radius: 50%;
+        }
+        .check-list li:last-child { border-bottom: none; }
+
+        /* --- BUTTONS --- */
+        .btn-primary-custom {
+            background-color: var(--primary); color: white; border: none; transition: 0.3s;
+        }
+        .btn-primary-custom:hover { background-color: #d65c12; color: white; transform: translateY(-2px); }
+        .btn-outline-custom {
+            border: 2px solid var(--white); color: var(--white); transition: 0.3s;
+        }
+        .btn-outline-custom:hover { background: var(--primary); border-color: var(--primary); color: white; }
+
+        /* --- NAVIGATION & MOBILE MENU STYLES --- */
+        
+        /* Desktop Active State */
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .nav-link:hover { color: #e87718 !important; }
+
+        /* Desktop Dropdown Animation */
+        @media (min-width: 992px) {
+            .nav-item.dropdown:hover .dropdown-menu { display: block; margin-top: 0; animation: fadeIn 0.3s; }
+            .border-start-lg { border-left: 1px solid #333; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px) translateX(-50%); }
+            to { opacity: 1; transform: translateY(0) translateX(-50%); }
+        }
+
+        /* Desktop Mega Menu Box */
+        .box-menu {
+            left: 50% !important; transform: translateX(-50%) !important; width: max-content; max-width: 90vw;
+            padding: 20px; margin-top: 0px !important; border-top: 3px solid var(--primary);
+            background-color: #111111; border-radius: 0 0 8px 8px !important;
+        }
+        .service-box { min-width: 600px; }
+        .menu-column { flex: 1; min-width: 160px; padding: 0 15px; }
+        .menu-header {
+            color: var(--primary); font-weight: 800; text-transform: uppercase; font-size: 0.85rem;
+            margin-bottom: 12px; padding-bottom: 5px; border-bottom: 1px solid #333;
+        }
+        .dropdown-item {
+            padding: 8px 10px; font-size: 0.95rem; color: #ffffff !important; border-radius: 4px; transition: 0.2s; background-color: transparent;
+        }
+        .dropdown-item:hover, .dropdown-item.active { background-color: var(--primary); padding-left: 15px; }
+
+        /* --- MOBILE MENU STYLES --- */
+        #mobile-offcanvas-content .navbar-nav { flex-direction: column; width: 100%; gap: 0; }
+        #mobile-offcanvas-content .nav-link {
+            color: #333 !important; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid #eee;
+            padding: 12px 10px; display: flex; justify-content: space-between; align-items: center;
+        }
+        #mobile-offcanvas-content .nav-link.active { color: #e87718 !important; }
+        #mobile-offcanvas-content .dropdown-toggle::after { display: none !important; }
+
+        /* Mobile Arrow Button */
+        .mobile-toggle-btn {
+            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
+            border-left: 1px solid #f0f0f0; margin-left: 10px; cursor: pointer; transition: 0.3s; color: #666;
+        }
+        .mobile-toggle-btn.open { transform: rotate(180deg); color: #e87718; }
+
+        /* Mobile Dropdown */
+        #mobile-offcanvas-content .dropdown-menu {
+            position: static !important; transform: none !important; background: #f9f9f9 !important;
+            border: none; padding: 0; margin: 0; width: 100%; box-shadow: none !important; display: none;
+        }
+        #mobile-offcanvas-content .d-flex.flex-wrap { display: block !important; }
+        #mobile-offcanvas-content .menu-column { padding: 15px; border-bottom: 1px solid #eee; }
+        #mobile-offcanvas-content .menu-header { color: #e87718; font-size: 0.9rem; margin-bottom: 10px; }
+        #mobile-offcanvas-content .dropdown-item { color: #555 !important; padding: 8px 10px; font-size: 0.95rem; }
+        #mobile-offcanvas-content .dropdown-item:hover, 
+        #mobile-offcanvas-content .dropdown-item.active { color: #e87718 !important; background: transparent; padding-left: 15px; }
+
+        @media (max-width: 991px) {
+            .box-menu { width: 100%; background-color: #222; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid px-5 d-none d-lg-block" style="background-color: var(--primary);">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i> A Block, 3rd Floor, Sooraj Deep complex, Joppling Road, Lucknow(UP)-226001 India</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i><a href="tel:+919236454872" style="color: white;">+91-923 645 4872</a></small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i><a href="mailto:hr@niftel.com" style="color: white;">hr@niftel.com</a></small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/NiftelComPvtLtd"><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/share/1A8VXoV5Rh/?mibextid=wwXIfr"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/niftelcommunications?igsh=aTdmbWhrcXI5YzN3"><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://youtube.com/@niftelcommunications?si=b5Q2yq4gk_hAF5ae"><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid position-relative p-0" style="z-index: 1030;">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+            <a href="../../index.html" class="navbar-brand p-0">
+                <img src="../../img/logo.png" alt="Niftel" style="height: 60px; object-fit:contain;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="../../index.html" class="nav-item nav-link">Home</a>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="../../service.html" class="nav-link dropdown-toggle">Services</a>
+                        
+                        <div class="dropdown-menu m-0 shadow-sm rounded-3 box-menu service-box">
+                            <div class="d-flex flex-wrap justify-content-between">
+                                
+                                <div class="menu-column">
+                                    <h6 class="menu-header">BPO Services</h6>
+                                    <a href="../bpo service/back-office.html" class="dropdown-item">Back Office</a>
+                                    <a href="../bpo service/front-office.html" class="dropdown-item">Front Office</a>
+                                    <a href="../bpo service/invoice.html" class="dropdown-item">Invoice Management</a>
+                                    <a href="../bpo service/finance.html" class="dropdown-item">Finance & Accounting</a>
+                                    <a href="../bpo service/ecommerce.html" class="dropdown-item">E-commerce</a>
+                                </div>
+
+                                <div class="menu-column border-start-lg">
+                                    <h6 class="menu-header">Data Support</h6>
+                                    <a href="../data support/lead.html" class="dropdown-item">Lead Conversion</a>
+                                    <a href="../data support/validation.html" class="dropdown-item">Data Validation</a>
+                                    <a href="../data support/migration.html" class="dropdown-item">Data Migration</a>
+                                </div>
+
+                                <div class="menu-column border-start-lg">
+                                    <h6 class="menu-header">Call Center Services</h6>
+                                    <a href="inbound.html" class="dropdown-item">Inbound Call</a>
+                                    <a href="outbound.html" class="dropdown-item">Outbound Call</a>
+                                    <a href="answering.html" class="dropdown-item">Answering Services</a>
+                                    <a href="tech.html" class="dropdown-item">Tech Support</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="../../team.html" class="nav-item nav-link">Our Team</a>
+                    
+                    <div class="nav-item dropdown" style="position: relative;">
+                        <a href="https://www.niftelresources.com/" class="nav-link ">Resources</a>
+                    </div>
+                    <a href="https://www.niftelresources.com/apply-for-job" class="nav-item nav-link">Career</a>
+                    <a href="../../contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuOffcanvasLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="mobileMenuOffcanvasLabel">Menu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body p-0">
+                <div id="mobile-offcanvas-content" class="p-3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-header">
+        <video class="video-bg" autoplay muted loop playsinline>
+            <source src="../../img/outbound.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <h1 class="display-3 text-white animate__animated animate__fadeInDown hero-title">Outbound <span style="color: var(--primary);">Call Support</span></h1>
+            <p class="text-white mb-4 animate__animated animate__fadeInUp animate__delay-1s lead" style="font-weight: 300; letter-spacing: 1px;">Improve Your ROI with Expert Sales Agents.</p>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase animate__animated animate__fadeInUp animate__delay-1s">
+                    <li class="breadcrumb-item"><a href="../../index.html" class="text-white-50 text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../../service.html" class="text-white-50 text-decoration-none">Services</a></li>
+                    <li class="breadcrumb-item text-white active">Outbound Call Support</li>
+                </ol>
+            </nav>
+            <a href="#details" class="btn btn-outline-custom rounded-pill py-3 px-5 mt-3 animate__animated animate__zoomIn animate__delay-2s fw-bold">Boost Your Sales</a>
+        </div>
+    </div>
+
+    <div class="container-fluid section-padding" id="details">
+        <div class="container">
+            <div class="row g-5">
+                
+                <div class="col-lg-8">
+                    <div class="main-image-container mb-5 wow animate__fadeInUp" data-wow-delay="0.1s">
+                        
+                        <img class="img-fluid w-100" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1490&q=80" alt="Outbound Sales Team" style="min-height: 400px; object-fit: cover;">
+                    </div>
+
+                    <div class="wow animate__fadeInUp" data-wow-delay="0.3s">
+                        <h2 class="mb-4 display-6">Increase <span style="color: var(--primary);">Sales & Loyalty</span></h2>
+                        <p class="text-justified text-muted">Over the years, Niftel has carved its name as a leading provider of Outbound Call Support services. Irrespective of your various needs, our team of dedicated agents is proficient in tackling them. We work closely with our clients to understand their requirements.</p>
+                        
+                        <p class="text-justified text-muted">Our core philosophy at our outbound call centers is to help you gain customers and their loyalty. At the same time, we aim to help you save costs. Our outbound call support is well-equipped to help you increase your sales, helping your business achieve and exceed its expectations.</p>
+
+                        <div class="alert alert-light border-start border-3 p-4 my-4 shadow-sm" style="border-color: var(--primary) !important; background-color: var(--light-blue);">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-chart-line mb-0 display-6 me-4" style="color: var(--secondary);"></i>
+                                <div>
+                                    <h5 class="mb-2" style="color: var(--secondary);">Performance Driven</h5>
+                                    <p class="mb-0 text-dark">We train our outbound call support agents to undertake every project with finesse and efficiency. Our training enables our agents to reach out and convince prospects, ensuring satisfaction and increased sales.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="mb-4 mt-5 wow animate__fadeInUp">Why Partner With Niftel?</h3>
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-6 wow animate__fadeInUp" data-wow-delay="0.1s">
+                            <div class="feature-card">
+                                <div class="feature-icon-box"><i class="fa fa-hand-holding-usd"></i></div>
+                                <h5>Increase Profits</h5>
+                                <p class="small text-muted m-0">Our skilled BPO staff helps you garner better quality leads and sales with a business-driven attitude.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow animate__fadeInUp" data-wow-delay="0.2s">
+                            <div class="feature-card">
+                                <div class="feature-icon-box"><i class="fa fa-wallet"></i></div>
+                                <h5>Save Costs</h5>
+                                <p class="small text-muted m-0">You spend less money partnering with us than hiring and managing in-house call centers.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow animate__fadeInUp" data-wow-delay="0.3s">
+                            <div class="feature-card">
+                                <div class="feature-icon-box"><i class="fa fa-building"></i></div>
+                                <h5>Save Resources</h5>
+                                <p class="small text-muted m-0">No need to develop separate infrastructure. Save on hiring and technical resources.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow animate__fadeInUp" data-wow-delay="0.4s">
+                            <div class="feature-card">
+                                <div class="feature-icon-box"><i class="fa fa-user-tie"></i></div>
+                                <h5>Expert Workforce</h5>
+                                <p class="small text-muted m-0">All our agents are highly skilled, saving you the costs of special recruitment drives.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow animate__fadeInUp" data-wow-delay="0.5s">
+                            <div class="feature-card">
+                                <div class="feature-icon-box"><i class="fa fa-shield-alt"></i></div>
+                                <h5>Data Security</h5>
+                                <p class="small text-muted m-0">Our data security plan guarantees that your crucial customer data stays safe and secure.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow animate__fadeInUp" data-wow-delay="0.6s">
+                            <div class="feature-card">
+                                <div class="feature-icon-box"><i class="fa fa-tags"></i></div>
+                                <h5>Affordable Solutions</h5>
+                                <p class="small text-muted m-0">Super affordable plans without any compromise on quality.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sidebar-sticky">
+                        
+                        <div class="sidebar-card wow animate__fadeInRight" data-wow-delay="0.1s">
+                            <h4 class="mb-4">Our Expertise</h4>
+                            <p class="text-muted small mb-3">A decade of experience across industries.</p>
+                            <ul class="check-list ps-0 m-0">
+                                <li><i class="fa fa-check"></i> Lead Generation</li>
+                                <li><i class="fa fa-check"></i> Customer Surveys</li>
+                                <li><i class="fa fa-check"></i> Telemarketing</li>
+                                <li><i class="fa fa-check"></i> Appointment Setting</li>
+                                <li><i class="fa fa-check"></i> Product Promotion</li>
+                                <li><i class="fa fa-check"></i> Market Research</li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-card blue-mode wow animate__fadeInRight" data-wow-delay="0.3s">
+                            <h4 class="text-white mb-3">Grow Your Business</h4>
+                            <p class="text-white-50 mb-4">Start increasing your ROI today with our expert outbound agents.</p>
+                            
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width:45px; height:45px; background: var(--primary);">
+                                    <i class="fa fa-phone-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h6 class="text-white m-0">Call Us Now</h6>
+                                    <small class="text-white-50">+91-923 645 4872</small>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-center">
+                                <div class="rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width:45px; height:45px; background: var(--primary);">
+                                    <i class="fa fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h6 class="text-white m-0">Email Us</h6>
+                                    <small class="text-white-50">hr@niftel.com</small>
+                                </div>
+                            </div>
+                            
+                            <a href="../../contact.html" class="btn btn-primary-custom w-100 mt-4 rounded-pill py-2 fw-bold shadow">Start Campaign</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid text-light mt-5 wow fadeInUp" data-wow-delay="0.1s" style="background-color: #0b2f46;">
+        <div class="container">
+            <div class="row gx-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 p-4" style="background-color:white; color: black;">
+                        <a href="../../index.html" class="navbar-brand">
+                            <img src="../../img/logo.png" alt="Niftel" style="height:40px; object-fit:contain;">
+                        </a>
+                        <p class="mt-3 mb-4">Your trusted partner for BPO, Data Management, and Digital Marketing.</p>
+                        <form action="">
+                            <div class="input-group">
+                                <input type="text" class="form-control border-black p-3" placeholder="Your Email">
+                                <button class="btn btn-dark">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="row gx-4">
+                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                 <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Get In Touch</h3>
+                            </div>
+                            <div class="d-flex mb-2"><i class="bi bi-geo-alt text-white me-2"></i><p class="mb-0">Lucknow, India</p></div>
+                            <div class="d-flex mb-2"><i class="bi bi-envelope-open text-white me-2"></i><p class="mb-0">hr@niftel.com</p></div>
+                            <div class="d-flex mb-2"><i class="bi bi-telephone text-white me-2"></i><p class="mb-0">+91-923 645 4872</p></div>
+                            <div class="d-flex mt-4">
+                                <a class="btn btn-square border-white me-2" href="https://x.com/NiftelComPvtLtd" style="background-color: #e87718; color: white;"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-square border-white me-2" href="https://www.facebook.com/share/1A8VXoV5Rh/?mibextid=wwXIfr" style="background-color: #e87718; color: white;"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-square border-white me-2" href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/" style="background-color: #e87718; color: white;"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                                <a class="btn btn-square border-white me-2" href="https://www.instagram.com/niftelcommunications?igsh=aTdmbWhrcXI5YzN3" style="background-color: #e87718; color: white;"><i class="fab fa-instagram fw-normal"></i></a>
+                                 <a class="btn btn-square border-white" href="https://youtube.com/@niftelcommunications?si=b5Q2yq4gk_hAF5ae" style="background-color: #e87718; color: white;"><i class="fab fa-youtube fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 pt-5 mb-5">
+                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                 <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Quick Links</h3>
+                            </div>
+                            <div class="link-animated d-flex flex-column justify-content-start">
+                                <a class="text-light mb-2" href="../../index.html"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                                <a class="text-light mb-2" href="../../about.html"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
+                                <a class="text-light mb-2" href="../../service.html"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
+                                <a class="text-light mb-2" href="https://www.niftelresources.com/apply-for-job"><i class="bi bi-arrow-right text-white me-2"></i>Careers</a>
+                                <a class="text-light mb-2" href="../../gallery.html"><i class="bi bi-arrow-right text-white me-2"></i>Gallery</a>
+                                <a class="text-light" href="../../contact.html"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-12 pt-5 mb-5">
+                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Our Services</h3>
+                            </div>
+                            <div class="link-animated" style="font-size: 15px;">
+                                <div class="row g-0 mb-2">
+                                    <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                        <a class="text-light text-nowrap" href="../../services-page/bpo service/back-office.html"><i class="bi bi-arrow-right text-white me-2"></i>Back Office</a>
+                                    </div>
+                                    <div class="col-6 ps-2">
+                                        <a class="text-light text-nowrap" href="../../services-page/bpo service/front-office.html"><i class="bi bi-arrow-right text-white me-2"></i>Front Office</a>
+                                    </div>
+                                </div>
+                                <div class="row g-0 mb-2">
+                                    <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                        <a class="text-light text-nowrap" href="../../services-page/bpo service/invoice.html"><i class="bi bi-arrow-right text-white me-2"></i>Invoice Mgmt</a>
+                                    </div>
+                                    <div class="col-6 ps-2">
+                                        <a class="text-light text-nowrap" href="../../services-page/bpo service/finance.html"><i class="bi bi-arrow-right text-white me-2"></i>Finance & Acct</a>
+                                    </div>
+                                </div>
+                                <div class="row g-0 mb-2">
+                                    <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                        <a class="text-light text-nowrap" href="../../services-page/bpo service/ecommerce.html"><i class="bi bi-arrow-right text-white me-2"></i>E-commerce</a>
+                                    </div>
+                                    <div class="col-6 ps-2">
+                                        <a class="text-light text-nowrap" href="../../services-page/data support/lead.html"><i class="bi bi-arrow-right text-white me-2"></i>Lead Conv.</a>
+                                    </div>
+                                </div>
+                                <div class="row g-0 mb-2">
+                                    <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                        <a class="text-light text-nowrap" href="../../services-page/data support/validation.html"><i class="bi bi-arrow-right text-white me-2"></i>Data Valid.</a>
+                                    </div>
+                                    <div class="col-6 ps-2">
+                                        <a class="text-light text-nowrap" href="../../services-page/tech support/inbound.html"><i class="bi bi-arrow-right text-white me-2"></i>Inbound Call</a>
+                                    </div>
+                                </div>
+                                <div class="row g-0 mb-2">
+                                    <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                        <a class="text-light text-nowrap" href="../../services-page/tech support/outbound.html"><i class="bi bi-arrow-right text-white me-2"></i>Outbound Call</a>
+                                    </div>
+                                    <div class="col-6 ps-2">
+                                        <a class="text-light text-nowrap" href="../../services-page/tech support/answering.html"><i class="bi bi-arrow-right text-white me-2"></i>Answering Svcs</a>
+                                    </div>
+                                </div>
+                                <div class="row g-0 mb-2">
+                                    <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                        <a class="text-light text-nowrap" href="../../services-page/tech support/tech.html"><i class="bi bi-arrow-right text-white me-2"></i>Tech Support</a>
+                                    </div>
+                                    <div class="col-6 ps-2">
+                                        <a class="text-light text-nowrap" href="../../services-page/data support/migration.html"><i class="bi bi-arrow-right text-white me-2"></i>Data Migration</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid text-white" style="background:#e87718;">
+        <div class="container text-center"><div class="row justify-content-end"><div class="col-lg-8 col-md-6"><div class="d-flex align-items-center justify-content-center" style="height: 75px;"><p class="mb-0">&copy; <a class="text-white border-bottom" href="#">Niftel</a>. All Rights Reserved.</p></div></div></div></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../lib/wow/wow.min.js"></script>
+    <script src="../../lib/easing/easing.min.js"></script>
+    <script src="../../lib/waypoints/waypoints.min.js"></script>
+    <script src="../../lib/counterup/counterup.min.js"></script>
+    <script src="../../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../../js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 1. SETUP MOBILE MENU (Split Button Logic) ---
+            const desktopNav = document.querySelector('.navbar-nav');
+            const mobileContainer = document.getElementById('mobile-offcanvas-content');
+
+            if (desktopNav && mobileContainer) {
+                // Clone desktop menu
+                const mobileNav = desktopNav.cloneNode(true);
+                mobileNav.classList.remove('ms-auto', 'py-0');
+                
+                // Process Dropdowns for Mobile
+                const dropdowns = mobileNav.querySelectorAll('.dropdown');
+                
+                dropdowns.forEach(dropdown => {
+                    const link = dropdown.querySelector('.nav-link');
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    
+                    if (link && menu) {
+                        // Create Split Arrow
+                        const toggleBtn = document.createElement('span');
+                        toggleBtn.className = 'mobile-toggle-btn';
+                        toggleBtn.innerHTML = '<i class="fa fa-chevron-down"></i>';
+                        
+                        // Add Arrow to Link
+                        link.appendChild(toggleBtn);
+                        
+                        // Handle Arrow Click
+                        toggleBtn.addEventListener('click', function(e) {
+                            e.preventDefault(); 
+                            e.stopPropagation(); 
+                            if (menu.style.display === 'block') {
+                                menu.style.display = 'none';
+                                toggleBtn.classList.remove('open');
+                            } else {
+                                menu.style.display = 'block';
+                                toggleBtn.classList.add('open');
+                            }
+                        });
+
+                        // Ensure Text Link works (Goes to Services page)
+                        link.classList.remove('dropdown-toggle');
+                    }
+                });
+
+                mobileContainer.innerHTML = '';
+                mobileContainer.appendChild(mobileNav);
+            }
+
+            // --- 2. ACTIVE MENU LOGIC (Sub-Page Friendly) ---
+            function setActiveMenu() {
+                var path = window.location.pathname;
+                var page = path.split("/").pop(); // e.g. "outbound.html"
+
+                if (page === "" || page === "/") page = "index.html";
+
+                function highlightLinks(container) {
+                    const links = container.querySelectorAll('a.nav-link, a.dropdown-item');
+                    
+                    links.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            const cleanHref = href.split('/').pop(); 
+
+                            // Check for match (e.g. outbound.html)
+                            if (cleanHref === page) {
+                                // 1. Highlight the specific link
+                                link.classList.add('active');
+
+                                // 2. Highlight the parent "Services" tab
+                                const parentDropdown = link.closest('.dropdown');
+                                if (parentDropdown) {
+                                    const parentLink = parentDropdown.querySelector('.nav-link');
+                                    if (parentLink) parentLink.classList.add('active');
+                                }
+                            }
+                        }
+                    });
+                }
+
+                if(desktopNav) highlightLinks(desktopNav);
+                if(mobileContainer) highlightLinks(mobileContainer);
+            }
+
+            setActiveMenu();
+
+            var myOffcanvas = document.getElementById('mobileMenuOffcanvas');
+            var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
+        });
+    </script>
+</body>
+</html>

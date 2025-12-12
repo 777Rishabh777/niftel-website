@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Our Team | Niftel</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #F37021;
+            --light-bg: #f9f9f9;
+            --dark: #111111;
+            --white: #ffffff;
+            --grey-bg: #f4f6f8;
+            --soft-orange: #fff5ec;
+        }
+
+        body { font-family: 'Rubik', sans-serif; color: #555; background-color: #fff; }
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; font-weight: 700; color: var(--dark); }
+
+        /* --- HERO SECTION (Video Background) --- */
+        .hero-header {
+            position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        }
+        .hero-header video.video-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        .hero-header .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(9, 30, 62, 0.7); /* Dark overlay for readability */
+            z-index: 1;
+        }
+        .hero-header .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .hero-header .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.7);
+        }
+        .hero-header .hero-content p.lead {
+            color: #ddd;
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- SECTION STYLES --- */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 40px;
+        }
+        
+
+        /* --- TEAM CARD STYLING --- */
+        .team-item {
+            position: relative;
+            text-align: center;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: .5s;
+            margin-bottom: 30px;
+            border-bottom: 3px solid transparent;
+        }
+
+        .team-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .team-img {
+            position: relative;
+            overflow: hidden;
+            height: 320px; /* Fixed height for consistency */
+        }
+
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images fill the box without stretching */
+            object-position: top; /* Focus on faces */
+            transition: .5s;
+        }
+
+        .team-item:hover .team-img img {
+            transform: scale(1.1);
+        }
+
+        /* Social Icons Overlay */
+        .team-social {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(243, 112, 33, 0.7); /* Orange Overlay */
+            opacity: 0;
+            transition: .5s;
+        }
+
+        .team-item:hover .team-social {
+            opacity: 1;
+        }
+
+        .team-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            border-radius: 50%;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .team-social a:hover {
+            background: var(--dark);
+            color: #ffffff;
+        }
+
+        .team-text {
+            padding: 25px;
+        }
+
+        .team-text h4 { margin-bottom: 5px; font-size: 1.25rem; color: var(--dark); }
+        .team-text span { color: var(--primary); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+
+        /* SECTIONS BACKGROUNDS */
+        .bg-white { background-color: #ffffff !important; }
+        .bg-grey { background-color: var(--grey-bg) !important; }
+        .bg-soft-orange { background-color: var(--soft-orange) !important; }
+
+        /* Founders Special Styling */
+        .founder-card .team-img { height: 380px; } 
+        .founder-card h4 { font-size: 1.5rem; }
+
+        /* Ensure visibility of text */
+        .text-muted { color: #6c757d !important; }
+        .text-white { color: #fff !important; }
+        
+        /* Navbar Custom overrides for this page specifically to match header style */
+        .navbar-dark .navbar-nav .nav-link { color: #fff; font-weight: 500; }
+        .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active { color: var(--primary); }
+    </style>
+        <style>
+        /* --- CUSTOM DROPDOWN STYLING --- */
+        
+        /* Open on Hover (Desktop) */
+       /* --- MOBILE MENU & ACTIVE STATE STYLES --- */
+
+    /* 1. Desktop Active State (Orange Text) */
+    .navbar-dark .navbar-nav .nav-link.active,
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: #e87718 !important; /* Primary Orange */
+    }
+
+    /* 2. Mobile Menu Styling */
+    #mobile-offcanvas-content .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+
+    #mobile-offcanvas-content .nav-link {
+        color: #333 !important;
+        font-weight: 700;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #eee;
+        padding: 12px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Active State in Mobile */
+    #mobile-offcanvas-content .nav-link.active {
+        color: #e87718 !important;
+    }
+
+    /* Remove default Bootstrap arrow so we can use our own */
+    #mobile-offcanvas-content .dropdown-toggle::after {
+        display: none !important;
+    }
+
+    /* 3. The Custom Arrow Button */
+    .mobile-toggle-btn {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid #f0f0f0;
+        margin-left: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+        color: #666;
+    }
+
+    /* Rotate Arrow When Open */
+    .mobile-toggle-btn.open {
+        transform: rotate(180deg);
+        color: #e87718;
+    }
+
+    /* 4. Mobile Dropdown Menu */
+    #mobile-offcanvas-content .dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        background: #f9f9f9 !important;
+        border: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        box-shadow: none !important;
+        display: none; /* Hidden by default */
+    }
+
+    /* Fix the Mega Menu columns for Mobile */
+    #mobile-offcanvas-content .d-flex.flex-wrap {
+        display: block !important;
+    }
+    #mobile-offcanvas-content .menu-column {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    #mobile-offcanvas-content .menu-header {
+        color: #e87718;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    /* Sub-menu Links */
+    #mobile-offcanvas-content .dropdown-item {
+        color: #555 !important;
+        padding: 8px 10px;
+        font-size: 0.95rem;
+    }
+    #mobile-offcanvas-content .dropdown-item:hover,
+    #mobile-offcanvas-content .dropdown-item.active {
+        color: #e87718 !important;
+        background: transparent;
+        padding-left: 15px;
+    }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header fragment: topbar, spinner, and navbar -->
+
+    <!-- Spinner Start -->
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div> -->
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid px-5 d-none d-lg-block" style="background-color: var(--primary);">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i> A Block, 3rd Floor, Sooraj Deep complex, Joppling Road, Lucknow(UP)-226001 India</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i><a href="tel:+919236454872" style="color: white;">+91-923 645 4872</a></small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i><a href="mailto:hr@niftel.com" style="color: white;">hr@niftel.com</a></small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/NiftelComPvtLtd"><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/share/1A8VXoV5Rh/?mibextid=wwXIfr"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/niftelcommunications?igsh=aTdmbWhrcXI5YzN3"><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://youtube.com/@niftelcommunications?si=b5Q2yq4gk_hAF5ae"><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+   <!-- Navbar Start -->
+<div class="container-fluid position-relative p-0"  style="z-index: 1030;">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <img src="img/logo.png" alt="Niftel" style="height: 60px; object-fit:contain;">
+        </a>
+        <!-- On mobile open the offcanvas menu so the right-side panel appears with all tabs -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                
+                <!-- SERVICE DROPDOWN (Box Type, Centered, Dark Theme) -->
+                <div class="nav-item dropdown">
+                    <a href="service.html" class="nav-link dropdown-toggle">Services</a>
+                    
+                    <div class="dropdown-menu m-0 shadow-sm rounded-3 box-menu service-box">
+                        <div class="d-flex flex-wrap justify-content-between">
+                            
+                            <!-- Section 1: BPO -->
+                           <div class="menu-column">
+                                <h6 class="menu-header">BPO Services</h6>
+                                <a href="services-page/bpo service/back-office.html" class="dropdown-item">Back Office</a>
+                                <a href="services-page/bpo service/front-office.html" class="dropdown-item">Front Office</a>
+                                <a href="services-page/bpo service/invoice.html" class="dropdown-item">Invoice Management</a>
+                                <a href="services-page/bpo service/finance.html" class="dropdown-item">Finance & Accounting</a>
+                                <a href="services-page/bpo service/ecommerce.html" class="dropdown-item">E-commerce</a>
+                            </div>
+
+                            <!-- Section 2: Data -->
+                            <div class="menu-column border-start-lg">
+                                <h6 class="menu-header">Data Support</h6>
+                                <a href="services-page/data support/lead.html" class="dropdown-item">Lead Conversion</a>
+                                <a href="services-page/data support/validation.html" class="dropdown-item">Data Validation</a>
+                                <a href="services-page/data support/migration.html" class="dropdown-item">Data Migration</a>
+                            </div>
+
+                            <!-- Section 3: Tech -->
+                            <div class="menu-column border-start-lg">
+                                <h6 class="menu-header">Call Center Services</h6>
+                                <a href="services-page/tech support/inbound.html" class="dropdown-item">Inbound Call</a>
+                                <a href="services-page/tech support/outbound.html" class="dropdown-item">Outbound Call</a>
+                                <a href="services-page/tech support/answering.html" class="dropdown-item">Answering Services</a>
+                                <a href="services-page/tech support/tech.html" class="dropdown-item">Tech Support</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="team.html" class="nav-item nav-link">Our Team</a>
+                </div>
+                
+                <!-- RESOURCES DROPDOWN (Box Type, Centered, Dark Theme) -->
+             <div class="nav-item dropdown" style="position: relative;">
+                    <a href="https://www.niftelresources.com/" class="nav-link ">Resources</a>
+                    
+                    <!-- Custom Dropdown Container with Inline Styles for Isolation -->
+                    <!-- <div class="dropdown-menu m-0 custom-resource-menu" 
+                         style="position: absolute; top: 100%; left: 0; min-width: 320px; 
+                                background-color: #0125587c; border-top: 3px solid var(--primary); 
+                                border-radius: 0 0 8px 8px; padding: 15px; z-index: 9999;
+                                box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                        
+                       
+                        
+                        <a href="about.html" class="dropdown-item" 
+                           style="color: #fff; padding: 8px 10px; font-size: 0.95rem; transition: 0.2s;">
+                           About Us
+                        </a>
+                        <a href="gallery.html" class="dropdown-item" 
+                           style="color: #fff; padding: 8px 10px; font-size: 0.95rem; transition: 0.2s;">
+                           Gallery
+                        </a>
+                    </div> -->
+                </div>
+                <a href="https://www.niftelresources.com/apply-for-job" class="nav-item nav-link">Career</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile off-canvas menu: right side panel that will be populated from the navbar -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileMenuOffcanvasLabel">Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <!-- main content will be injected by js (cloned from the desktop navbar) -->
+            <div id="mobile-offcanvas-content" class="p-3"></div>
+        </div>
+    </div>
+
+
+</div>
+<!-- Navbar End -->
+
+    <!-- HERO SECTION (Video Background) -->
+    <div class="hero-header">
+        <video class="video-bg" autoplay muted loop playsinline preload="metadata" poster="img/team.jpg">
+            <source src="img/team.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <h4 class="text-uppercase text-light mb-3 animated slideInDown" style="letter-spacing: 3px;">The People Behind Niftel</h4>
+            <h1 class="display-1 text-white mb-3 animated zoomIn">Our Team</h1>
+            <p class="lead text-white px-5 d-none d-lg-block animated fadeIn">Meet the talented, disciplined, and result-oriented professionals driving our success.</p>
+        </div>
+    </div>
+
+    <!-- INTRO TEXT -->
+    <div class="container-fluid py-5 bg-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h5 class="section-title">Who We Are</h5>
+                    <h1 class="mb-4">Talented, Disciplined, & Result-Oriented</h1>
+                    <p class="mb-0 fs-5 text-muted">Introducing our team of achievers. Their sharp focus and innovative ideas have established Niftel as a dynamic and client-centric brand in the market. We combine experience with passion to deliver excellence.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 1: FOUNDERS (White Background) -->
+    <div class="container-fluid py-5 bg-white">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="mb-3">Our Founders</h2>
+                <p class="text-muted">The visionaries behind Niftel's success.</p>
+            </div>
+            <div class="row g-5 justify-content-center">
+                <!-- Founder 1 -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item founder-card">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/farukh.jpg" alt="Farukh Shah">
+                            <div class="team-social">
+                                <a class="btn btn-square" href="https://www.linkedin.com/in/farukh-shah-1a34596/"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-text">
+                            <h4>Farukh Shah</h4>
+                            <span>Founder</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Founder 2 -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item founder-card">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/nida-parveen.jpg" alt="Nida Parveen">
+                            <div class="team-social">
+                                <a class="btn btn-square" href="https://www.linkedin.com/in/nida-parveen-39932b278/"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-text">
+                            <h4>Nida Parveen</h4>
+                            <span>Co-founder</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SECTION 2: EXECUTIVE BOARD (Light Grey Background) -->
+    <div class="container-fluid py-5 bg-grey">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="mb-3">Executive Board</h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Director -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/kamran_anwar_shah.jpg" alt="Kamran Anwar Shah">
+                        </div>
+                        <div class="team-text">
+                            <h4>Kamran Anwar Shah</h4>
+                            <span>Director</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- CEO -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/dr-sameer-anwar-shah.jpeg" alt="Dr. Sameer Anwar Shah">
+                        </div>
+                        <div class="team-text">
+                            <h4>Dr. Sameer Anwar Shah</h4>
+                            <span>CEO</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Advisor -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/greg.jpg" alt="Greg Kular">
+                        </div>
+                        <div class="team-text">
+                            <h4>Greg Kular</h4>
+                            <span>Board Advisor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SECTION 3: SENIOR LEADERSHIP (White Background) -->
+    <div class="container-fluid py-5 bg-white">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp">
+                <h2 class="mb-3">Senior Leadership</h2>
+            </div>
+            <div class="row g-4">
+                <!-- SVP US -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/ashutosh-tiwari.jpeg" alt="Ashutosh Tiwari">
+                        </div>
+                        <div class="team-text">
+                            <h4>Ashutosh Tiwari</h4>
+                            <span>Sr. Vice President (US)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- SVP UK -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/vikrant.jpg" alt="Vikrant Singh">
+                        </div>
+                        <div class="team-text">
+                            <h4>Vikrant Singh</h4>
+                            <span>Sr. Vice President (UK)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- SVP Kanpur -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/sadaf_khalid.png" alt="Sadaf Khalid">
+                        </div>
+                        <div class="team-text">
+                            <h4>Sadaf Khalid</h4>
+                            <span>Sr. Vice President</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- SVP Green Energy -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/hitendra.jpg" alt="Hitendra Thakur">
+                        </div>
+                        <div class="team-text">
+                            <h4>Hitendra Thakur</h4>
+                            <span>SVP (Green Energy)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- VP Data -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/rehan.png" alt="Rehan Ansari">
+                        </div>
+                        <div class="team-text">
+                            <h4>Rehan Ansari</h4>
+                            <span>VP (Data Mgmt)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Asst VP US -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/faraz.jpeg" alt="Faraaz Ahmad">
+                        </div>
+                        <div class="team-text">
+                            <h4>Faraaz Ahmad</h4>
+                            <span>Asst. VP (US)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SECTION 4: DEPARTMENT HEADS & MANAGERS (Soft Orange Background) -->
+    <div class="container-fluid py-5 bg-soft-orange">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp">
+                <h2 class="mb-3">Department Heads & Managers</h2>
+            </div>
+            <div class="row g-4">
+                
+                <!-- CTO -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/Gajendra.png" alt="Gajendra Mishra">
+                        </div>
+                        <div class="team-text">
+                            <h4>Gajendra Mishra</h4>
+                            <span>Chief Technology Officer</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- CFO -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/sachin.png" alt="Sachin Mishra">
+                        </div>
+                        <div class="team-text">
+                            <h4>Sachin Mishra</h4>
+                            <span>Chief Finance Officer</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accounts -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/vinod.png" alt="Vinod Kumar">
+                        </div>
+                        <div class="team-text">
+                            <h4>Vinod Kumar</h4>
+                            <span>Accounts Head</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Digital Marketing -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/uvaish.jpg" alt="Uvaish Warsi">
+                        </div>
+                        <div class="team-text">
+                            <h4>Uvaish Warsi</h4>
+                            <span>Digital Marketing Head</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Manager -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/vishal.jpg" alt="Vishal Singh">
+                        </div>
+                        <div class="team-text">
+                            <h4>Vishal Singh</h4>
+                            <span>PM (Software Dev)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- External HR -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/karishma-suri.jpg" alt="Karishma Suri">
+                        </div>
+                        <div class="team-text">
+                            <h4>Karishma Suri</h4>
+                            <span>Asst. Manager (Ext HR)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Internal HR -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/sakshi.jpg" alt="Sakshi Singh">
+                        </div>
+                        <div class="team-text">
+                            <h4>Sakshi Singh</h4>
+                            <span>Asst. Manager (Int HR)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Drafter -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/saumya.png" alt="Saumya Singh">
+                        </div>
+                        <div class="team-text">
+                            <h4>Saumya Singh</h4>
+                            <span>Drafter (UK)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- QA Manager -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img class="img-fluid" src="img/satabdee.png" alt="Satabdee Phukan">
+                        </div>
+                        <div class="team-text">
+                            <h4>Satabdee Phukan</h4>
+                            <span>QA Manager</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER (Embedded to avoid fetch errors) -->
+    
+
+<div class="container-fluid text-light mt-5 wow fadeInUp" data-wow-delay="0.1s" style="background-color: #0b2f46;">
+    <div class="container">
+        <div class="row gx-4">
+            
+            <div class="col-lg-4 col-md-6 footer-about">
+                <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 p-4" style="background-color:white; color: black;">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Niftel" style="height:40px; object-fit:contain;">
+                    </a>
+                    <p class="mt-3 mb-4">
+                        Your trusted partner for BPO, Data Management, and Digital Marketing. We provide quality infrastructure and expert support to help your business leave competitors behind.
+                    </p>
+                    <form action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control border-black p-3" placeholder="Your Email">
+                            <button class="btn btn-dark">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-6">
+                <div class="row gx-4">
+                    
+                    <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                             <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Get In Touch</h3>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-geo-alt text-white me-2"></i>
+                            <p class="mb-0">A Block, 3rd Floor, Sooraj Deep Complex, Lucknow, India</p>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-envelope-open text-white me-2"></i>
+                            <p class="mb-0">hr@niftel.com</p>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-telephone text-white me-2"></i>
+                            <p class="mb-0">+91-923 645 4872</p>
+                        </div>
+                        <div class="d-flex mt-4">
+                            <a class="btn btn-square border-white me-2" href="https://x.com/NiftelComPvtLtd" style="background-color: #e87718; color: white;"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-square border-white me-2" href="https://www.facebook.com/share/1A8VXoV5Rh/?mibextid=wwXIfr" style="background-color: #e87718; color: white;"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-square border-white me-2" href="https://www.linkedin.com/company/niftel-communications-pvt-ltd/" style="background-color: #e87718; color: white;"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-square border-white me-2" href="https://www.instagram.com/niftelcommunications?igsh=aTdmbWhrcXI5YzN3" style="background-color: #e87718; color: white;"><i class="fab fa-instagram fw-normal"></i></a>
+                             <a class="btn btn-square border-white" href="https://youtube.com/@niftelcommunications?si=b5Q2yq4gk_hAF5ae" style="background-color: #e87718; color: white;"><i class="fab fa-youtube fw-normal"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-12 pt-5 mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                             <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Quick Links</h3>
+                        </div>
+                        <div class="link-animated d-flex flex-column justify-content-start">
+                            <a class="text-light mb-2" href="index.html"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                            <a class="text-light mb-2" href="about.html"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
+                            <a class="text-light mb-2" href="service.html"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
+                            <a class="text-light mb-2" href="https://www.niftelresources.com/apply-for-job"><i class="bi bi-arrow-right text-white me-2"></i>Careers</a>
+                            <a class="text-light mb-2" href="gallery.html"><i class="bi bi-arrow-right text-white me-2"></i>Gallery</a>
+                            <a class="text-light" href="contact.html"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-md-12 pt-5 mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Our Services</h3>
+                        </div>
+                        
+                        <div class="link-animated" style="font-size: 15px;">
+                            
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/back-office.html"><i class="bi bi-arrow-right text-white me-2"></i>Back Office</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/front-office.html"><i class="bi bi-arrow-right text-white me-2"></i>Front Office</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/invoice.html"><i class="bi bi-arrow-right text-white me-2"></i>Invoice Mgmt</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/finance.html"><i class="bi bi-arrow-right text-white me-2"></i>Finance & Acct</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/bpo service/ecommerce.html"><i class="bi bi-arrow-right text-white me-2"></i>E-commerce</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/data support/lead.html"><i class="bi bi-arrow-right text-white me-2"></i>Lead Conv.</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/data support/validation.html"><i class="bi bi-arrow-right text-white me-2"></i>Data Valid.</a>
+                                </div>
+                               
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/inbound.html"><i class="bi bi-arrow-right text-white me-2"></i>Inbound Call</a>
+                                </div>
+                            </div>
+
+                            <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/outbound.html"><i class="bi bi-arrow-right text-white me-2"></i>Outbound Call</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/answering.html"><i class="bi bi-arrow-right text-white me-2"></i>Answering Svcs</a>
+                                </div>
+                            </div>
+
+                             <div class="row g-0 mb-2">
+                                <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
+                                    <a class="text-light text-nowrap" href="services-page/tech support/tech.html"><i class="bi bi-arrow-right text-white me-2"></i>Tech Support</a>
+                                </div>
+                                <div class="col-6 ps-2">
+                                     <div class="col-6  pe-2"  !important;">
+                                    <a class="text-light text-nowrap" href="services-page/data support/migration.html"><i class="bi bi-arrow-right text-white me-2"></i>Data Migration</a>
+                                </div>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid text-white" style="background:#e87718;">
+    <div class="container text-center">
+        <div class="row justify-content-end">
+            <div class="col-lg-8 col-md-6">
+                <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
+                    <p class="mb-0">
+                        &copy; <a class="text-white border-bottom" href="#">Niftel</a>. All Rights Reserved. 
+                        <span class="d-none d-sm-inline">| ISO/IEC 27001:2022 & ISO 9001:2015 Certified</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="btn btn-lg btn-dark btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Load Header
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            // If main.js already defined init function, run it so dropdowns initialize on inject
+            if (window.initDropdownUI) { try { window.initDropdownUI(); } catch(e) { console.warn(e); } }
+        });
+
+    // Load Footer
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+
+    <script>
+    (async function loadFragmentsAndScripts(){
+        // Load header and footer fragments sequentially
+        async function fetchFragment(url, id){
+            const res = await fetch(url);
+            if(!res.ok) throw new Error('Failed to load '+url+' ('+res.status+')');
+            const text = await res.text();
+            document.getElementById(id).innerHTML = text;
+        }
+
+        try{
+            await fetchFragment('header.html', 'header-placeholder');
+            await fetchFragment('footer.html', 'footer-placeholder');
+        }catch(err){
+            console.error('Fragment load error:', err);
+            return;
+        }
+
+        // Helper to load scripts in order
+        function loadScript(src){
+            return new Promise((resolve, reject)=>{
+                const s = document.createElement('script');
+                s.src = src;
+                s.onload = resolve;
+                s.onerror = reject;
+                document.body.appendChild(s);
+            });
+        }
+
+        // Load vendor scripts then our main.js
+        try{
+            await loadScript('https://code.jquery.com/jquery-3.4.1.min.js');
+            await loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js');
+            await loadScript('lib/wow/wow.min.js');
+            await loadScript('lib/easing/easing.min.js');
+            await loadScript('lib/waypoints/waypoints.min.js');
+            await loadScript('lib/counterup/counterup.min.js');
+            await loadScript('lib/owlcarousel/owl.carousel.min.js');
+            await loadScript('js/main.js');
+            // Ensure dropdown UI is initialized after main.js has loaded (helps pages where header was injected earlier)
+            if (window.initDropdownUI) { try { window.initDropdownUI(); } catch(e) { console.warn(e); } }
+        }catch(err){
+            console.error('Script load error:', err);
+        }
+    })();
+        // // Simple Script Loader (No fetch calls for HTML fragments anymore)
+        // (async function loadScripts(){
+        //     function loadScript(src){
+        //         return new Promise((resolve, reject)=>{
+        //             const s = document.createElement('script');
+        //             s.src = src;
+        //             s.onload = resolve;
+        //             s.onerror = reject;
+        //             document.body.appendChild(s);
+        //         });
+        //     }
+
+        //     try{
+        //         await loadScript('https://code.jquery.com/jquery-3.4.1.min.js');
+        //         await loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js');
+        //         await loadScript('lib/wow/wow.min.js');
+        //         await loadScript('lib/easing/easing.min.js');
+        //         await loadScript('lib/waypoints/waypoints.min.js');
+        //         await loadScript('lib/counterup/counterup.min.js');
+        //         await loadScript('lib/owlcarousel/owl.carousel.min.js');
+        //         await loadScript('js/main.js');
+
+        //         // Initialize WOW.js
+        //         if (window.WOW) new WOW().init();
+
+        //     }catch(err){
+        //         console.error('Script load error:', err);
+        //     }
+        // })();
+    </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- 1. SETUP MOBILE MENU (Split Button Logic) ---
+        const desktopNav = document.querySelector('.navbar-nav');
+        const mobileContainer = document.getElementById('mobile-offcanvas-content');
+
+        if (desktopNav && mobileContainer) {
+            // Clone the desktop navigation
+            const mobileNav = desktopNav.cloneNode(true);
+            mobileNav.classList.remove('ms-auto', 'py-0');
+            
+            // Find all dropdowns in the cloned menu
+            const dropdowns = mobileNav.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                const menu = dropdown.querySelector('.dropdown-menu');
+                
+                if (link && menu) {
+                    // Create the separate Arrow Button
+                    const toggleBtn = document.createElement('span');
+                    toggleBtn.className = 'mobile-toggle-btn';
+                    toggleBtn.innerHTML = '<i class="fa fa-chevron-down"></i>';
+                    
+                    // Append Arrow to the text link
+                    link.appendChild(toggleBtn);
+                    
+                    // Add Click Event ONLY to the Arrow Button
+                    toggleBtn.addEventListener('click', function(e) {
+                        e.preventDefault(); // Stop link navigation
+                        e.stopPropagation(); // Stop bubbling
+                        
+                        // Toggle Menu Visibility
+                        if (menu.style.display === 'block') {
+                            menu.style.display = 'none';
+                            toggleBtn.classList.remove('open');
+                        } else {
+                            menu.style.display = 'block';
+                            toggleBtn.classList.add('open');
+                        }
+                    });
+
+                    // Remove 'dropdown-toggle' class from the main link 
+                    // This allows the text (e.g. "Services") to work as a normal link
+                    link.classList.remove('dropdown-toggle');
+                }
+            });
+
+            // Inject the modified menu into the mobile sidebar
+            mobileContainer.innerHTML = '';
+            mobileContainer.appendChild(mobileNav);
+        }
+
+        // --- 2. ACTIVE MENU LOGIC ---
+        function setActiveMenu() {
+            // Get current page name (e.g. "team.html")
+            var path = window.location.pathname;
+            var page = path.split("/").pop();
+
+            // Handle Root URL
+            if (page === "" || page === "/") {
+                page = "index.html";
+            }
+
+            // Function to check and highlight links
+            function highlightLinks(container) {
+                const links = container.querySelectorAll('a.nav-link, a.dropdown-item');
+                
+                links.forEach(link => {
+                    const href = link.getAttribute('href');
+                    
+                    if (href) {
+                        const cleanHref = href.split('/').pop(); // Get just the filename
+
+                        if (cleanHref === page) {
+                            // Highlight the link itself
+                            link.classList.add('active');
+
+                            // If it's inside a dropdown, highlight the parent too
+                            const parentDropdown = link.closest('.dropdown');
+                            if (parentDropdown) {
+                                const parentLink = parentDropdown.querySelector('.nav-link');
+                                if (parentLink) parentLink.classList.add('active');
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Run on Desktop Menu
+            if(desktopNav) highlightLinks(desktopNav);
+            
+            // Run on Mobile Menu
+            if(mobileContainer) highlightLinks(mobileContainer);
+        }
+
+        // Execute Active Logic
+        setActiveMenu();
+
+        // Initialize Offcanvas
+        var myOffcanvas = document.getElementById('mobileMenuOffcanvas');
+        var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
+    });
+</script>
+
+
