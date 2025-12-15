@@ -332,93 +332,77 @@
         color: #e87718 !important; /* Primary Orange */
     }
 
-    /* 2. Mobile Menu Styling */
-    #mobile-offcanvas-content .navbar-nav {
-        flex-direction: column;
-        width: 100%;
-        gap: 0;
-    }
+    /* --- 3. MOBILE MENU & ARROW FIXES --- */
+        
+        /* Mobile Dropdown Container - BLACK BACKGROUND */
+        #mobile-offcanvas-content .dropdown-menu {
+            position: static !important;
+            transform: none !important;
+            background: #091E3E !important; /* BLACK BACKGROUND */
+            border: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            box-shadow: none !important;
+            display: none; 
+        }
 
-    #mobile-offcanvas-content .nav-link {
-        color: #333 !important;
-        font-weight: 700;
-        font-size: 1.1rem;
-        border-bottom: 1px solid #eee;
-        padding: 12px 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        /* Mobile Menu Links (Main) */
+        #mobile-offcanvas-content .nav-link {
+            display: flex !important;
+            justify-content: space-between !important; /* Text Left, Arrow Right */
+            align-items: center !important;
+            width: 100% !important;
+            color: #ffffff !important; /* WHITE TEXT */
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #ffffff; /* Darker border */
+            padding: 12px 10px;
+        }
 
-    /* Active State in Mobile */
-    #mobile-offcanvas-content .nav-link.active {
-        color: #e87718 !important;
-    }
+        /* Mobile Menu Active State */
+        #mobile-offcanvas-content .nav-link.active {
+            color: #e87718 !important; /* Orange Active Text */
+        }
 
-    /* Remove default Bootstrap arrow so we can use our own */
-    #mobile-offcanvas-content .dropdown-toggle::after {
-        display: none !important;
-    }
+        /* Mobile Sub-menu Items */
+        #mobile-offcanvas-content .dropdown-item {
+            color: #ffffff !important; /* WHITE TEXT */
+            padding: 8px 10px;
+            font-size: 0.95rem;
+        }
+        
+        #mobile-offcanvas-content .dropdown-item:hover {
+            color: #e87718 !important;
+            background: transparent;
+            padding-left: 15px; 
+        }
 
-    /* 3. The Custom Arrow Button */
-    .mobile-toggle-btn {
-        width: 45px;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-left: 1px solid #f0f0f0;
-        margin-left: 10px;
-        cursor: pointer;
-        transition: 0.3s;
-        color: #666;
-    }
+        /* The Arrow Button */
+        .mobile-toggle-btn {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 1px solid #333;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #ffffff; /* WHITE ARROW */
+        }
 
-    /* Rotate Arrow When Open */
-    .mobile-toggle-btn.open {
-        transform: rotate(180deg);
-        color: #e87718;
-    }
+        /* Rotate arrow when open */
+        .mobile-toggle-btn.open {
+            transform: rotate(90deg); /* Rotates right-arrow to down */
+            color: #e87718;
+        }
 
-    /* 4. Mobile Dropdown Menu */
-    #mobile-offcanvas-content .dropdown-menu {
-        position: static !important;
-        transform: none !important;
-        background: #f9f9f9 !important;
-        border: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        box-shadow: none !important;
-        display: none; /* Hidden by default */
-    }
+        /* Mobile Mega Menu Fixes */
+        #mobile-offcanvas-content .d-flex.flex-wrap { display: block !important; }
+        #mobile-offcanvas-content .menu-column { padding: 15px; border-bottom: 1px solid #333; }
+        #mobile-offcanvas-content .menu-header { color: #e87718; font-size: 0.9rem; margin-bottom: 10px; }
 
-    /* Fix the Mega Menu columns for Mobile */
-    #mobile-offcanvas-content .d-flex.flex-wrap {
-        display: block !important;
-    }
-    #mobile-offcanvas-content .menu-column {
-        padding: 15px;
-        border-bottom: 1px solid #eee;
-    }
-    #mobile-offcanvas-content .menu-header {
-        color: #e87718;
-        font-size: 0.9rem;
-        margin-bottom: 10px;
-    }
-
-    /* Sub-menu Links */
-    #mobile-offcanvas-content .dropdown-item {
-        color: #555 !important;
-        padding: 8px 10px;
-        font-size: 0.95rem;
-    }
-    #mobile-offcanvas-content .dropdown-item:hover,
-    #mobile-offcanvas-content .dropdown-item.active {
-        color: #e87718 !important;
-        background: transparent;
-        padding-left: 15px;
-    }
     </style>
 </head>
 
@@ -991,6 +975,16 @@
             console.error('Script load error:', err);
         }
     })();
+     // --- STICKY NAVBAR LOGIC ---
+    window.addEventListener('scroll', function () {
+        var navbar = document.querySelector('.navbar');
+        // If scrolled down more than 45px
+        if (window.scrollY > 45) {
+            navbar.classList.add('sticky-top');
+        } else {
+            navbar.classList.remove('sticky-top');
+        }
+    });
     </script>
 </body>
 </html>

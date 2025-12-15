@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Niftel | Performance Speaks</title>
@@ -7,108 +8,63 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-    <!-- Favicon -->
     <link href="img/n.png" rel="icon">
 
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/animate/animate.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
-        /* --- CUSTOM DROPDOWN STYLING --- */
+        /* --- 1. STICKY NAVBAR STYLING --- */
         
-        /* Open on Hover (Desktop) */
-        /* --- 1. FORCE HERO FULL SCREEN ON MOBILE --- */
- /* --- FORCE FULL SCREEN HERO ON MOBILE --- */
-    @media (max-width: 991px) {
-        .hero-header { 
-            height: 100vh !important; 
-            min-height: 100vh !important; 
+        /* Default Navbar (Transparent background, White text) */
+        .navbar {
+            transition: all 0.3s ease-in-out;
         }
         
-        /* Optional: Adjust title size for smaller screens so it fits */
-        .hero-title { 
-            font-size: 3rem; 
-        }
-    }
-    /* --- FORCE HOMEPAGE CAROUSEL FULL SCREEN ON MOBILE --- */
-    @media (max-width: 991px) {
-        #header-carousel,
-        #header-carousel .carousel-item {
-            height: 100vh !important;
-            min-height: 100vh !important;
+        /* Force White text at top */
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff !important;
+            font-weight: 700;
+            transition: color 0.3s ease;
         }
 
-        #header-carousel video {
-            height: 100% !important;
-            width: 100% !important;
-            object-fit: cover !important; /* Ensures video fills screen without stretching */
+        /* Sticky State (White background, Black text) */
+        .navbar.sticky-top {
+            background-color: #ffffff !important;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
         }
-        
-        /* Optional: Adjust text position on mobile */
-        #header-carousel .carousel-caption {
-            padding-bottom: 80px; /* Moves text up slightly so it's not hidden by browser bars */
-        }
-    }
 
-    /* --- 2. MOBILE MENU ARROW & ACTIVE STATE --- */
-    /* Remove default Bootstrap arrow */
-    /* --- FORCE FULL SCREEN HERO ON MOBILE --- */
-    @media (max-width: 991px) {
-        .hero-header { 
-            height: 100vh !important; 
-            min-height: 100vh !important; 
+        .navbar.sticky-top .navbar-nav .nav-link {
+            color: #111111 !important; /* Force Dark when scrolled */
         }
-        
-        /* Optional: Adjust title size for smaller screens so it fits */
-        .hero-title { 
-            font-size: 3rem; 
+
+        /* Active/Hover State (Orange) - Works in both modes */
+        .navbar.sticky-top .navbar-nav .nav-link.active,
+        .navbar.sticky-top .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link:hover, 
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: #e87718 !important;
         }
-    }
-    #mobile-offcanvas-content .dropdown-toggle::after {
-        display: none !important;
-    }
 
-    /* Custom Arrow Button */
-    .mobile-toggle-btn {
-        width: 45px;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-left: 1px solid #f0f0f0;
-        margin-left: 10px;
-        cursor: pointer;
-        transition: 0.3s;
-        color: #666;
-    }
-    
-    /* Rotate Arrow when open */
-    .mobile-toggle-btn.open {
-        transform: rotate(180deg);
-        color: #e87718;
-    }
+        /* Change Hamburger Icon Color on Scroll */
+        .navbar.sticky-top .navbar-toggler {
+            border-color: #333;
+        }
+        .navbar.sticky-top .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
 
-    /* Highlight Active Links in Orange */
-    #mobile-offcanvas-content .nav-link.active,
-    .navbar-dark .navbar-nav .nav-link.active,
-    .dropdown-item.active {
-        color: #e87718 !important;
-    }
+        /* --- 2. DESKTOP DROPDOWN STYLING --- */
         @media (min-width: 992px) {
             .nav-item.dropdown:hover .dropdown-menu {
                 display: block;
@@ -116,7 +72,7 @@
                 animation: fadeIn 0.3s;
             }
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px) translateX(-50%); }
             to { opacity: 1; transform: translateY(0) translateX(-50%); }
@@ -125,33 +81,19 @@
         /* Center the dropdown box */
         .box-menu {
             left: 50% !important;
-            transform: translateX(-50%) !important; /* Centers it perfectly */
+            transform: translateX(-50%) !important;
             width: max-content;
             max-width: 90vw;
             padding: 20px;
             margin-top: 0px !important;
-            border-top: 3px solid var(--primary); /* Orange Top Border */
-            
-            /* Dark Theme Background */
+            border-top: 3px solid var(--primary);
             background-color: #111111; 
             border-radius: 0 0 8px 8px !important;
         }
 
-        /* Specific widths for different menus */
-        .service-box {
-            min-width: 600px;
-        }
+        .service-box { min-width: 600px; }
+        .menu-column { flex: 1; min-width: 160px; padding: 0 15px; }
         
-      
-
-        /* Styles for columns inside the dropdown */
-        .menu-column {
-            flex: 1;
-            min-width: 160px;
-            padding: 0 15px;
-        }
-
-        /* Header for each section */
         .menu-header {
             color: var(--primary);
             font-weight: 800;
@@ -159,395 +101,192 @@
             font-size: 0.85rem;
             margin-bottom: 12px;
             padding-bottom: 5px;
-            border-bottom: 1px solid #333; /* Darker border for dark theme */
+            border-bottom: 1px solid #333;
         }
 
         /* Link Styling - White Text */
         .dropdown-item {
             padding: 8px 10px;
             font-size: 0.95rem;
-            color: #ffffff !important; /* White Text */
+            color: #ffffff !important;
             border-radius: 4px;
             transition: 0.2s;
             background-color: transparent;
         }
 
-        /* Hover Effect - Orange Background */
         .dropdown-item:hover {
-            background-color: var(--primary); /* Orange Hover */
+            background-color: var(--primary);
             color: #ffffff !important;
-            padding-left: 15px; /* Slide effect */
+            padding-left: 15px;
         }
 
-        /* Add borders between columns on Desktop only */
         @media (min-width: 992px) {
-            .border-start-lg {
-                border-left: 1px solid #333; /* Dark border separator */
-            }
+            .border-start-lg { border-left: 1px solid #333; }
         }
 
-        /* Mobile Adjustments */
+        /* --- 3. MOBILE MENU & ARROW FIXES --- */
+        
+        /* Mobile Dropdown Container - BLACK BACKGROUND */
+        #mobile-offcanvas-content .dropdown-menu {
+            position: static !important;
+            transform: none !important;
+            background: #091E3E !important; /* BLACK BACKGROUND */
+            border: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            box-shadow: none !important;
+            display: none; 
+        }
+
+        /* Mobile Menu Links (Main) */
+        #mobile-offcanvas-content .nav-link {
+            display: flex !important;
+            justify-content: space-between !important; /* Text Left, Arrow Right */
+            align-items: center !important;
+            width: 100% !important;
+            color: #ffffff !important; /* WHITE TEXT */
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #ffffff; /* Darker border */
+            padding: 12px 10px;
+        }
+
+        /* Mobile Menu Active State */
+        #mobile-offcanvas-content .nav-link.active {
+            color: #e87718 !important; /* Orange Active Text */
+        }
+
+        /* Mobile Sub-menu Items */
+        #mobile-offcanvas-content .dropdown-item {
+            color: #ffffff !important; /* WHITE TEXT */
+            padding: 8px 10px;
+            font-size: 0.95rem;
+        }
+        
+        #mobile-offcanvas-content .dropdown-item:hover {
+            color: #e87718 !important;
+            background: transparent;
+            padding-left: 15px; 
+        }
+
+        /* The Arrow Button */
+        .mobile-toggle-btn {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 1px solid #333;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #ffffff; /* WHITE ARROW */
+        }
+
+        /* Rotate arrow when open */
+        .mobile-toggle-btn.open {
+            transform: rotate(90deg); /* Rotates right-arrow to down */
+            color: #e87718;
+        }
+
+        /* Mobile Mega Menu Fixes */
+        #mobile-offcanvas-content .d-flex.flex-wrap { display: block !important; }
+        #mobile-offcanvas-content .menu-column { padding: 15px; border-bottom: 1px solid #333; }
+        #mobile-offcanvas-content .menu-header { color: #e87718; font-size: 0.9rem; margin-bottom: 10px; }
+
+        /* --- 4. RESPONSIVE HERO & TEAM FIXES --- */
         @media (max-width: 991px) {
-            .box-menu {
-                left: 0 !important;
-                transform: none !important;
-                width: 100%;
-                min-width: auto;
-                position: static;
-                background-color: #222; /* Slightly lighter for mobile contrast */
+            .hero-header, #header-carousel, #header-carousel .carousel-item { 
+                height: 100vh !important; 
+                min-height: 100vh !important; 
             }
-            .menu-column {
-                margin-bottom: 20px;
+            .hero-title { font-size: 3rem; }
+            #header-carousel video {
+                height: 100% !important;
+                width: 100% !important;
+                object-fit: cover !important;
             }
-            /* Reset animation for mobile */
+            #header-carousel .carousel-caption {
+                padding-bottom: 80px; 
+            }
             .nav-item.dropdown:hover .dropdown-menu {
                 animation: none;
             }
+            /* Dark background for mobile offcanvas */
+            .offcanvas-body {
+                background-color: #222;
+            }
         }
-        /* --- VENDOR MARQUEE STYLES --- */
-.vendor-marquee {
-    overflow: hidden;       /* Hides the images when they scroll off screen */
-    white-space: nowrap;    /* Keeps images in a single horizontal line */
-    background: #ffffff;    /* White background */
-    padding: 30px 0;        /* Space top and bottom */
-}
 
-.marquee-track {
-    display: inline-block;
-    /* Adjust '30s' to make it faster or slower */
-    animation: scroll-left 30s linear infinite; 
-}
-
-/* IMAGE STYLING (Makes them small) */
-.marquee-track img {
-    height: 60px;           /* FORCE SMALL SIZE */
-    width: auto;            /* Maintain aspect ratio */
-    margin: 0 40px;         /* Space between logos */
-    display: inline-block;
-    vertical-align: middle;
-    filter: grayscale(100%); /* Optional: Makes them gray until hovered */
-    opacity: 0.6;
-    transition: 0.3s;
-}
-
-/* Hover Effect */
-.marquee-track img:hover {
-    filter: grayscale(0%);   /* Color on hover */
-    opacity: 1;
-    transform: scale(1.1);   /* Slight zoom */
-}
-
-/* ANIMATION LOGIC */
-@keyframes scroll-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Moves exactly half-way */
-}
-
-/* Mobile Offcanvas Menu Styles */
-.offcanvas-section {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-}
-
-.offcanvas-section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-.section-link {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    flex-grow: 1;
-}
-
-.offcanvas-section-toggle {
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    color: #666;
-}
-
-.toggle-icon {
-    transition: transform 0.3s;
-}
-
-.offcanvas-section.expanded .toggle-icon {
-    transform: rotate(180deg);
-}
-
-.offcanvas-subitems {
-    display: none;
-    padding-left: 20px;
-}
-
-.offcanvas-section.expanded .offcanvas-subitems {
-    display: block;
-}
-
-.dropdown-group {
-    margin-bottom: 10px;
-}
-
-.offcanvas-group-header {
-    font-weight: bold;
-    color: #e87718;
-    padding: 5px 0;
-    cursor: pointer;
-}
-
-.dropdown-group .dropdown-item {
-    padding: 5px 10px;
-    display: none;
-}
-
-.dropdown-group.expanded .dropdown-item {
-    display: block;
-}
-
-.mobile-nav-items .dropdown-item {
-    color: #333;
-    text-decoration: none;
-    display: block;
-    padding: 8px 15px;
-    border-bottom: 1px solid #eee;
-}
-
-.mobile-nav-items .dropdown-item:hover {
-    background-color: #e87718;
-    color: white;
-}
-/* --- CUSTOM DROPDOWN STYLING (Desktop) --- */
-    @media (min-width: 992px) {
-        .nav-item.dropdown:hover .dropdown-menu {
-            display: block;
-            margin-top: 0;
-            animation: fadeIn 0.3s;
+        /* --- 5. VENDOR MARQUEE --- */
+        .vendor-marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #ffffff;
+            padding: 30px 0;
         }
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px) translateX(-50%); }
-        to { opacity: 1; transform: translateY(0) translateX(-50%); }
-    }
+        .marquee-track {
+            display: inline-block;
+            animation: scroll-left 30s linear infinite;
+        }
+        .marquee-track img {
+            height: 60px;
+            width: auto;
+            margin: 0 40px;
+            display: inline-block;
+            vertical-align: middle;
+            filter: grayscale(0%);
+            opacity: 1;
+            transition: 0.3s;
+        }
+        .marquee-track img:hover {
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
 
-    /* Desktop Box Menu */
-    .box-menu {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: max-content;
-        max-width: 90vw;
-        padding: 20px;
-        margin-top: 0px !important;
-        border-top: 3px solid var(--primary);
-        background-color: #111111; 
-        border-radius: 0 0 8px 8px !important;
-    }
-
-    .service-box { min-width: 600px; }
-    .menu-column { flex: 1; min-width: 160px; padding: 0 15px; }
-    
-    .menu-header {
-        color: var(--primary);
-        font-weight: 800;
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        margin-bottom: 12px;
-        padding-bottom: 5px;
-        border-bottom: 1px solid #333;
-    }
-
-    /* Desktop Links */
-    .dropdown-item {
-        padding: 8px 10px;
-        font-size: 0.95rem;
-        color: #ffffff !important;
-        border-radius: 4px;
-        transition: 0.2s;
-        background-color: transparent;
-    }
-    .dropdown-item:hover {
-        background-color: var(--primary);
-        padding-left: 15px;
-    }
-
-    @media (min-width: 992px) {
-        .border-start-lg { border-left: 1px solid #333; }
-    }
-
-    /* --- MOBILE MENU SPECIFIC CSS --- */
-    #mobile-offcanvas-content .navbar-nav {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-    }
-
-    #mobile-offcanvas-content .nav-link {
-        color: #333 !important;
-        font-weight: 700;
-        font-size: 1.1rem;
-        border-bottom: 1px solid #eee;
-        padding: 10px 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative; /* For positioning */
-    }
-    
-    /* Remove default bootstrap arrow on mobile so we can add our own */
-    #mobile-offcanvas-content .dropdown-toggle::after {
-        display: none !important;
-    }
-
-    /* The new Toggle Button (Arrow) */
-    .mobile-toggle-btn {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-left: 1px solid #eee;
-        cursor: pointer;
-        transition: 0.3s;
-        color: #666;
-    }
-
-    /* Rotate arrow when open */
-    .mobile-toggle-btn.open {
-        transform: rotate(180deg);
-        color: #e87718;
-    }
-
-   /* Desktop Active State */
-.navbar-dark .navbar-nav .nav-link.active,
-.navbar-dark .navbar-nav .nav-link:hover {
-    color: #e87718 !important; /* Orange */
-}
-
-/* Mobile Active State */
-#mobile-offcanvas-content .nav-link.active {
-    color: #e87718 !important; /* Orange */
-}
-
-/* Sub-menu Item Active State */
-.dropdown-item.active {
-    background-color: #e87718 !important;
-    color: #fff !important;
-}
-
-    /* Mobile Dropdown Menu */
-    #mobile-offcanvas-content .dropdown-menu {
-        position: static !important;
-        transform: none !important;
-        background: #f8f9fa !important;
-        border: none;
-        padding: 0 0 0 15px;
-        margin: 0;
-        width: 100%;
-        box-shadow: none !important;
-        display: none; 
-    }
-    
-    #mobile-offcanvas-content .d-flex.flex-wrap {
-        display: block !important;
-    }
-
-    #mobile-offcanvas-content .menu-column {
-        padding: 10px 0;
-        border: none !important;
-    }
-
-    #mobile-offcanvas-content .menu-header {
-        color: #e87718;
-        margin-top: 10px;
-        border-bottom: none;
-    }
-
-    #mobile-offcanvas-content .dropdown-item {
-        color: #555 !important;
-        padding: 8px 0;
-    }
-    
-    #mobile-offcanvas-content .dropdown-item:hover {
-        color: #e87718 !important;
-        background: transparent;
-        padding-left: 5px;
-    }
-
-    /* --- VENDOR MARQUEE STYLES --- */
-    .vendor-marquee { overflow: hidden; white-space: nowrap; background: #ffffff; padding: 30px 0; }
-    .marquee-track { display: inline-block; animation: scroll-left 30s linear infinite; }
-    .marquee-track img { height: 60px; width: auto; margin: 0 40px; display: inline-block; vertical-align: middle; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
-    .marquee-track img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
-    @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    /* --- TEAM SECTION STYLING --- */
-    .team-item {
-        background: #ffffff;
-        box-shadow: 0 0 30px rgba(0, 0, 0, .08);
-        border-radius: 8px;
-        overflow: hidden;
-        transition: .5s;
-        /* Ensure the card itself is centered if it doesn't take full width */
-        margin: 0 auto; 
-    }
-
-    .team-item:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 40px rgba(0, 0, 0, .15);
-    }
-
-    .team-img {
-        position: relative;
-        width: 100%;
-        height: 350px; /* Default Height for Desktop */
-        overflow: hidden;
-    }
-
-    .team-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures image covers the box without stretching */
-        object-position: top center; /* CRITICAL: Keeps faces centered */
-        transition: .5s;
-    }
-
-    .team-item:hover .team-img img {
-        transform: scale(1.05); /* Gentle zoom on hover */
-    }
-
-    /* --- RESPONSIVE ADJUSTMENTS --- */
-    @media (max-width: 768px) {
-        /* On Mobile, make the image slightly shorter so it fits better */
+        /* --- 6. TEAM STYLING --- */
+        .team-item {
+            background: #ffffff;
+            box-shadow: 0 0 30px rgba(0, 0, 0, .08);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: .5s;
+            margin: 0 auto; 
+        }
+        .team-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .15);
+        }
         .team-img {
-            height: 300px;
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
         }
-        
-        /* Ensure columns are centered */
-        .row.g-5 {
-            justify-content: center !important;
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: .5s;
         }
-    }
+        .team-item:hover .team-img img {
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .team-img { height: 300px; }
+            .row.g-5 { justify-content: center !important; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header Carousel Start -->
-    <!-- Header fragment: topbar, spinner, and navbar -->
-
-    <!-- Spinner Start -->
-    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner"></div>
-    </div> -->
-    <!-- Spinner End -->
-
-
-    <!-- Topbar Start -->
     <div class="container-fluid px-5 d-none d-lg-block" style="background-color: var(--primary);">
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
@@ -568,119 +307,84 @@
             </div>
         </div>
     </div>
-    <!-- Topbar End -->
-
-
-   <!-- Navbar Start -->
-<div class="container-fluid position-relative p-0"  style="z-index: 1030;">
-    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand p-0">
-            <img src="img/logo.png" alt="Niftel" style="height: 60px; object-fit:contain;">
-        </a>
-        <!-- On mobile open the offcanvas menu so the right-side panel appears with all tabs -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas">
-            <span class="fa fa-bars"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                
-                <!-- SERVICE DROPDOWN (Box Type, Centered, Dark Theme) -->
-                <div class="nav-item dropdown">
-                    <a href="service.html" class="nav-link dropdown-toggle">Services</a>
+    <div class="container-fluid position-relative p-0"  style="z-index: 1030;">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <img src="img/logo.png" alt="Niftel" style="height: 60px; object-fit:contain;">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas">
+                <span class="fa fa-bars"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
                     
-                    <div class="dropdown-menu m-0 shadow-sm rounded-3 box-menu service-box">
-                        <div class="d-flex flex-wrap justify-content-between">
-                            
-                            <!-- Section 1: BPO -->
-                            <div class="menu-column">
-                                <h6 class="menu-header">BPO Services</h6>
-                                <a href="services-page/bpo service/back-office.html" class="dropdown-item">Back Office</a>
-                                <a href="services-page/bpo service/front-office.html" class="dropdown-item">Front Office</a>
-                                <a href="services-page/bpo service/invoice.html" class="dropdown-item">Invoice Management</a>
-                                <a href="services-page/bpo service/finance.html" class="dropdown-item">Finance & Accounting</a>
-                                <a href="services-page/bpo service/ecommerce.html" class="dropdown-item">E-commerce</a>
+                    <div class="nav-item dropdown">
+                        <a href="service.html" class="nav-link dropdown-toggle">Services</a>
+                        
+                        <div class="dropdown-menu m-0 shadow-sm rounded-3 box-menu service-box">
+                            <div class="d-flex flex-wrap justify-content-between">
+                                
+                                <div class="menu-column">
+                                    <h6 class="menu-header">BPO Services</h6>
+                                    <a href="services-page/bpo service/back-office.html" class="dropdown-item">Back Office</a>
+                                    <a href="services-page/bpo service/front-office.html" class="dropdown-item">Front Office</a>
+                                    <a href="services-page/bpo service/invoice.html" class="dropdown-item">Invoice Management</a>
+                                    <a href="services-page/bpo service/finance.html" class="dropdown-item">Finance & Accounting</a>
+                                    <a href="services-page/bpo service/ecommerce.html" class="dropdown-item">E-commerce</a>
+                                </div>
+
+                                <div class="menu-column border-start-lg">
+                                    <h6 class="menu-header">Data Support</h6>
+                                    <a href="services-page/data support/lead.html" class="dropdown-item">Lead Conversion</a>
+                                    <a href="services-page/data support/validation.html" class="dropdown-item">Data Validation</a>
+                                    <a href="services-page/data support/migration.html" class="dropdown-item">Data Migration</a>
+                                </div>
+
+                                <div class="menu-column border-start-lg">
+                                    <h6 class="menu-header">Call Center Services</h6>
+                                    <a href="services-page/tech support/inbound.html" class="dropdown-item">Inbound Call</a>
+                                    <a href="services-page/tech support/outbound.html" class="dropdown-item">Outbound Call</a>
+                                    <a href="services-page/tech support/answering.html" class="dropdown-item">Answering Services</a>
+                                    <a href="services-page/tech support/tech.html" class="dropdown-item">Tech Support</a>
+                                </div>
                             </div>
-
-                            <!-- Section 2: Data -->
-                            <div class="menu-column border-start-lg">
-                                <h6 class="menu-header">Data Support</h6>
-                                <a href="services-page/data support/lead.html" class="dropdown-item">Lead Conversion</a>
-                                <a href="services-page/data support/validation.html" class="dropdown-item">Data Validation</a>
-                                <a href="services-page/data support/migration.html" class="dropdown-item">Data Migration</a>
-                            </div>
-
-                            <!-- Section 3: Tech -->
-                            <div class="menu-column border-start-lg">
-                                <h6 class="menu-header">Call Center Services</h6>
-                                <a href="services-page/tech support/inbound.html" class="dropdown-item">Inbound Call</a>
-                                <a href="services-page/tech support/outbound.html" class="dropdown-item">Outbound Call</a>
-                                <a href="services-page/tech support/answering.html" class="dropdown-item">Answering Services</a>
-                                <a href="services-page/tech support/tech.html" class="dropdown-item">Tech Support</a>
-                            </div>
-
-
                         </div>
                     </div>
-                </div>
 
-                <div>
-                    <a href="team.html" class="nav-item nav-link">Our Team</a>
-                </div>
-                
-                <!-- RESOURCES DROPDOWN (Box Type, Centered, Dark Theme) -->
-             <div class="nav-item dropdown" style="position: relative;">
-                    <a href="https://www.niftelresources.com/" class="nav-link ">Resources</a>
+                    <div>
+                        <a href="team.html" class="nav-item nav-link">Our Team</a>
+                    </div>
                     
-                    <!-- Custom Dropdown Container with Inline Styles for Isolation -->
-                    <!-- <div class="dropdown-menu m-0 custom-resource-menu" 
-                         style="position: absolute; top: 100%; left: 0; min-width: 320px; 
-                                background-color: #0125587c; border-top: 3px solid var(--primary); 
-                                border-radius: 0 0 8px 8px; padding: 15px; z-index: 9999;
-                                box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                        
-                       
-                        
-                        <a href="about.html" class="dropdown-item" 
-                           style="color: #fff; padding: 8px 10px; font-size: 0.95rem; transition: 0.2s;">
-                           About Us
-                        </a>
-                        <a href="gallery.html" class="dropdown-item" 
-                           style="color: #fff; padding: 8px 10px; font-size: 0.95rem; transition: 0.2s;">
-                           Gallery
-                        </a>
-                    </div> -->
+                    <div class="nav-item dropdown" style="position: relative;">
+                        <a href="https://www.niftelresources.com/" class="nav-link ">Resources</a>
+                    </div>
+                    <a href="https://www.niftelresources.com/apply-for-job" class="nav-item nav-link">Career</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="https://www.niftelresources.com/apply-for-job" class="nav-item nav-link">Career</a>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </nav>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuOffcanvasLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="mobileMenuOffcanvasLabel">Menu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body p-0">
+                <div id="mobile-offcanvas-content" class="p-3"></div>
             </div>
         </div>
-    </nav>
-
-    <!-- Mobile off-canvas menu: right side panel that will be populated from the navbar -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuOffcanvasLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="mobileMenuOffcanvasLabel">Menu</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body p-0">
-            <!-- main content will be injected by js (cloned from the desktop navbar) -->
-            <div id="mobile-offcanvas-content" class="p-3"></div>
-        </div>
     </div>
-</div>
-<!-- Navbar End -->
-    <!--header end-->
-
     <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <video class="w-100 h-100" autoplay muted loop playsinline preload="metadata" poster="img/carousel-1.jpg"
-                style="object-fit:cover; width:100%; height:100%; display:block;">
-                <source src="img/carousel-1.mp4" type="video/mp4">
-            </video>
-            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                <!-- <div class="p-3" style="max-width: 900px;"> -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <video class="w-100 h-100" autoplay muted loop playsinline preload="metadata" poster="img/carousel-1.jpg"
+                    style="object-fit:cover; width:100%; height:100%; display:block;">
+                    <source src="img/carousel-1.mp4" type="video/mp4">
+                </video>
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <h5 class="text-white text-uppercase mb-3 animated slideInDown align-items-left">BEST BPO COMPANY</h5>
                     <h1 class="display-1 text-white mb-md-4 animated zoomIn">Quality BPO, Data &
                         Digital Marketing for businesses.</h1>
@@ -692,510 +396,458 @@
             </div>
         </div>
     </div>
-</div>
-<!-- Full Screen Search Start -->
-<div class="modal fade" id="searchModal" tabindex="-1">
-    <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
-            <div class="modal-header border-0">
-                <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex align-items-center justify-content-center">
-                <div class="input-group" style="max-width: 600px;">
-                    <input type="text" class="form-control bg-transparent border-primary p-3"
-                        placeholder="Type search keyword">
-                    <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div><BR></BR>
-<!-- Full Screen Search End -->
 
-
-<!-- Facts Start -->
-<div class="container-fluid facts py-5 pt-lg-0">
-    <div class="container py-5 pt-lg-0">
-        <div class="row gx-0">
-            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
-                <div class="shadow d-flex align-items-center justify-content-center p-4"
-                    style="height: 150px; background-color: #e87718;">
-                    <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2"
-                        style="width: 60px; height: 60px;">
-                        <i class="fa fa-users" style="color: #e87718;"></i>
-                    </div>
-                    <div class="ps-4">
-                        <h5 class="text-white mb-0">Happy Clients</h5>
-                        <h1 class="text-white mb-0">10000+</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
-                <div class="bg-light shadow d-flex align-items-center justify-content-center p-4"
-                    style="height: 150px;">
-                    <div class="d-flex align-items-center justify-content-center rounded mb-2"
-                        style="width: 60px; height: 60px; background-color: #e87718;">
-                        <i class="fa fa-check text-white"></i>
-                    </div>
-                    <div class="ps-4">
-                        <h5 class=" mb-0" style="color: #e87718;">Projects Done</h5>
-                        <h1 class="mb-0">500+</h1>
+    <div class="container-fluid facts py-5 pt-lg-0">
+        <div class="container py-5 pt-lg-0">
+            <div class="row gx-0">
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="shadow d-flex align-items-center justify-content-center p-4"
+                        style="height: 150px; background-color: #e87718;">
+                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-users" style="color: #e87718;"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-white mb-0">Happy Clients</h5>
+                            <h1 class="text-white mb-0">10000+</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
-                <div class="shadow d-flex align-items-center justify-content-center p-4"
-                    style="height: 150px; background-color: #e87718;">
-                    <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2"
-                        style="width: 60px; height: 60px;">
-                        <i class="fa fa-award " style="color: #e87718;"></i>
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4"
+                        style="height: 150px;">
+                        <div class="d-flex align-items-center justify-content-center rounded mb-2"
+                            style="width: 60px; height: 60px; background-color: #e87718;">
+                            <i class="fa fa-check text-white"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class=" mb-0" style="color: #e87718;">Projects Done</h5>
+                            <h1 class="mb-0">500+</h1>
+                        </div>
                     </div>
-                    <div class="ps-4">
-                        <h5 class="text-white mb-0">Win Awards</h5>
-                        <h1 class="text-white mb-0">1200+</h1>
+                </div>
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
+                    <div class="shadow d-flex align-items-center justify-content-center p-4"
+                        style="height: 150px; background-color: #e87718;">
+                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-award " style="color: #e87718;"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-white mb-0">Win Awards</h5>
+                            <h1 class="text-white mb-0">1200+</h1>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Facts Start -->
-
-
-<!-- About Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-7">
-                <div class="section-title position-relative pb-3 mb-5">
-                    <h5 class="fw-bold text-uppercase" style="color: #e87718;">IMPROVE YOUR PRODUCTIVITY</h5>
-                    <h1 class="mb-0">Better & productive leads to increase sales figures.</h1>
-                </div>
-                <p class="mb-4">Get the best leads through our business process outsourcing (BPO), data management and
-                    digital marketing services and propel your business to new heights online & offline.</p>
-                <div class="row g-0 mb-3">
-                    <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                        <h5 class="mb-3"><i class="fa fa-check me-3" style="color: #e87718;"></i>Award Winning</h5>
-                        <h5 class="mb-3"><i class="fa fa-check me-3" style="color: #e87718;"></i>Professional Staff</h5>
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="section-title position-relative pb-3 mb-5">
+                        <h5 class="fw-bold text-uppercase" style="color: #e87718;">IMPROVE YOUR PRODUCTIVITY</h5>
+                        <h1 class="mb-0">Better & productive leads to increase sales figures.</h1>
                     </div>
-                    <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-                        <h5 class="mb-3"><i class="fa fa-check me-3" style="color: #e87718;"></i>24/7 Support</h5>
-                        <h5 class="mb-3"><i class="fa fa-check me-3" style="color: #e87718;"></i>Fair Prices</h5>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">
-                    <div class="d-flex align-items-center justify-content-center rounded"
-                        style="width: 60px; height: 60px; background-color: #e87718;">
-                        <i class="fa fa-phone-alt text-white"></i>
-                    </div>
-                    <div class="ps-4">
-                        <h5 class="mb-2">Call to ask any question</h5>
-                        <h4 class=" mb-0" style="color: #e87718;">+91-923 645 4872</h4>
-                    </div>
-                </div>
-                <a href="quote.html" class="btn py-3 px-5 mt-3 wow zoomIn"
-                    style="background-color: #e87718; color: white;" data-wow-delay="0.9s">Request A Quote</a>
-            </div>
-            <div class="col-lg-5" style="min-height: 500px;">
-                <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s"
-                        src="img/about.jpg" style="object-fit: cover;">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- About End -->
-
-
-<!-- Features Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-            <h5 class="fw-bold text-uppercase" style="color: #e87718;">Why Choose Us</h5>
-            <h1 class="mb-0">Build a profitable business balance sheet
-                with our expertise & experience.</h1>
-        </div>
-        <div class="row g-5">
-            <div class="col-lg-4">
-                <div class="row g-5">
-                    <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
-                        <div class=" rounded d-flex align-items-center justify-content-center mb-3"
-                            style="width: 60px; height: 60px; background-color: #e87718;">
-                            <i class="fa fa-bullseye text-white"></i>
+                    <p class="mb-4">Get the best leads through our business process outsourcing (BPO), data management and
+                        digital marketing services and propel your business to new heights online & offline.</p>
+                    <div class="row g-0 mb-3">
+                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
+                            <h5 class="mb-3"><i class="fa fa-check me-3" style="color: #e87718;"></i>Award Winning</h5>
+                            <h5 class="mb-3"><i class="fa fa-check me-3" style="color: #e87718;"></i>Professional Staff</h5>
                         </div>
-                        <h4>Target Audience</h4>
-                        <p class="mb-0">Convert your target audience and close the deal.</p>
-                    </div>
-                    <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
-                        <div class=" rounded d-flex align-items-center justify-content-center mb-3"
-                            style="width: 60px; height: 60px; background-color: #e87718;">
-                            <i class="fa fa-eye text-white"></i>
+                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
+                            <h5 class="mb-3"><i class="fa fa-check me-3" style="color: #e87718;"></i>24/7 Support</h5>
+                            <h5 class="mb-3"><i class="fa fa-check me-3" style="color: #e87718;"></i>Fair Prices</h5>
                         </div>
-                        <h4>Visibility & Credibility</h4>
-                        <p class="mb-0">Drive interest and traffic from high-quality prospects.</p>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
-                <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s"
-                        src="img/feature.jpg" style="object-fit: cover;">
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="row g-5">
-                    <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
-                        <div class=" rounded d-flex align-items-center justify-content-center mb-3"
-                            style="width: 60px; height: 60px; background-color: #e87718;">
-                            <i class="fa fa-users text-white"></i>
-                        </div>
-                        <h4>Revenue & Business</h4>
-                        <p class="mb-0">Increase the lifetime value of your paying customer.</p>
-                    </div>
-                    <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
-                        <div class="rounded d-flex align-items-center justify-content-center mb-3"
+                    <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">
+                        <div class="d-flex align-items-center justify-content-center rounded"
                             style="width: 60px; height: 60px; background-color: #e87718;">
                             <i class="fa fa-phone-alt text-white"></i>
                         </div>
-                        <h4>24/7 Support</h4>
-                        <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Features Start -->
-
-
-<!-- Service Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-            <h5 class="fw-bold text-uppercase" style="color:#e87718;">Our Services</h5>
-            <h1 class="mb-0">Custom IT Solutions for Your Successful Business</h1>
-        </div>
-        <div class="row g-5">
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                <div
-                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-shield-alt text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Highly Trained Team</h4>
-                    <p class="m-0">Get a team that understands best industry practices and procedures</p>
-                    <a class="btn btn-lg rounded" style="color: white; background-color: #e87718;" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                <div
-                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-chart-pie text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Better Local Engagement</h4>
-                    <p class="m-0">Get engagement with your business audience in the local tone and language.</p>
-                    <a class="btn btn-lg rounded" style="color: white; background-color: #e87718;" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-                <div
-                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-code text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Affordable Solutions</h4>
-                    <p class="m-0">Get cost-effective affordable pricing that makes financial sense.</p>
-                    <a class="btn btn-lg rounded" style="color: white; background-color: #e87718;" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                <div
-                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fab fa-android text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Results First Approach</h4>
-                    <p class="m-0">We believe in numbers and results that showcase our promises.</p>
-                    <a class="btn btn-lg rounded" style="color: white; background-color: #e87718;" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                <div
-                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-search text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Honesty & Transparency</h4>
-                    <p class="m-0">We offer honest effort that builds stronger businesses.</p>
-                    <a class="btn btn-lg rounded" style="color: white; background-color: #e87718;" " href="">
-                            <i class=" bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                <div
-                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-search text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Quality Infrastructure</h4>
-                    <p class="m-0">Get state-of-the-art infrastructure with near zero systems breakdown.</p>
-                    <a class="btn btn-lg btn rounded" style="color: white; background-color: #e87718;" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Service End -->
-
-
-<!-- Pricing Plan Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-            <h5 class="fw-bold text-uppercase" style="color:#e87718;">BEST LEADS</h5>
-            <h1 class="mb-0">Build a profitable business balance sheet
-                with our expertise & experience.</h1>
-        </div>
-        <div class="row g-0">
-            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-                <div class="bg-light rounded">
-                    <div class="border-bottom py-4 px-5 mb-4">
-                        <h3 class="mb-1" style="color: #e87718;">Better BPO services for non-core business needs</h3>
-                        <small>Outsource your business requirements to us for cost-effective solutions</small>
-                    </div>
-                    <div class="p-5 pt-0" style="color: black;">
-                        <div class="d-flex justify-content-between mb-3"><span>Get trained, friendly and professional
-                                call centre support.</span></div>
-                        <div class="d-flex justify-content-between mb-3"><span>Get ecommerce & HR support
-                                services.</span></div>
-                        <div class="d-flex justify-content-between mb-3"><span>Get back office & front office support
-                                services.</span></div>
-                        <div class="d-flex justify-content-between mb-2"><span>Get invoice factoring support,
-                                underwriting and accounts & finance services</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                <div class="bg-white rounded shadow position-relative" style="z-index: 1;">
-                    <div class="border-bottom py-4 px-5 mb-4">
-                        <h3 class="mb-1" style="color: #e87718;">Better data management services to increase business
-                            efficiency</h3>
-                        <small>Outsource your data management efforts to us for expert supervision</small>
-                    </div>
-                    <div class="p-5 pt-0" style="color: black;">
-                        <div class="d-flex justify-content-between mb-3"><span>Get data processing done to save
-                                time.</span></div>
-                        <div class="d-flex justify-content-between mb-3"><span>Get data cleansing done to retain and
-                                save quality data.</span></div>
-                        <div class="d-flex justify-content-between mb-3"><span>Get data verification & extraction done
-                                for help in business decision making.</span></div>
-                        <div class="d-flex justify-content-between mb-2"><span>Get data conversion done for easy storage
-                                and retrieval.</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                <div class="bg-light rounded">
-                    <div class="border-bottom py-4 px-5 mb-4">
-                        <h3 class="mb-1" style="color: #e87718;">Better digital marketing services to promote services &
-                            products</h3>
-                        <small>Outsource your digital marketing to specialists with years of experience</small>
-                    </div>
-                    <div class="p-5 pt-0" style="color: black;">
-                        <div class="d-flex justify-content-between mb-3"><span>Get website development at affordable
-                                rates & attractive designs.</span></div>
-                        <div class="d-flex justify-content-between mb-3"><span>Get search engine optimization (SEO) to
-                                rank your business website.</span></div>
-                        <div class="d-flex justify-content-between mb-3"><span>Get email marketing and content marketing
-                                to engage your audience.</span></div>
-                        <div class="d-flex justify-content-between mb-2"><span>Get organic and paid social media
-                                marketing for best results.</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Pricing Plan End -->
-
-
-<!-- Quote Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-7">
-                <div class="section-title position-relative pb-3 mb-5">
-                    <h5 class="fw-bold text-uppercase" style="color: #e87718;">Request A Quote</h5>
-                    <h1 class="mb-0">Need A Free Quote? Please Feel Free to Contact Us</h1>
-                </div>
-                <div class="row gx-3">
-                    <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                        <h5 class="mb-4"><i class="fa fa-reply  me-3" style="color: #e87718;"></i>Reply within 24 hours
-                        </h5>
-                    </div>
-                    <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-                        <h5 class="mb-4"><i class="fa fa-phone-alt  me-3" style="color: #e87718;"></i>24 hrs telephone
-                            support</h5>
-                    </div>
-                </div>
-                <p class="mb-4">Ready to streamline your operations? At Niftel, we provide top-tier BPO, Data
-                    Management, and Digital Marketing solutions tailored to your goals. From 24/7 call center support to
-                    expert data handling and SEO strategies, we deliver affordable, results-driven services to help your
-                    business grow.</p>
-                <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
-                    <div class=" d-flex align-items-center justify-content-center rounded"
-                        style="width: 60px; height: 60px; background-color: #e87718;">
-                        <i class="fa fa-phone-alt text-white"></i>
-                    </div>
-                    <div class="ps-4">
-                        <h5 class="mb-2">Call to ask any question</h5>
-                        <h4 class=" mb-0" style="color: #e87718;">+91-923 645 4872</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="rounded h-100 d-flex align-items-center p-5 wow zoomIn" style="background-color: #e87718;"
-                    data-wow-delay="0.9s">
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-xl-12">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Your Name"
-                                    style="height: 55px;">
-                            </div>
-                            <div class="col-12">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email"
-                                    style="height: 55px;">
-                            </div>
-                            <div class="col-12">
-                                <select class="form-select bg-light border-0" style="height: 55px;">
-                                    <option selected>Select A Service</option>
-                                    <option value="1">BPO Services</option>
-                                    <option value="2">Data Support</option>
-                                    <option value="3">Call Center Services</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control bg-light border-0" rows="3"
-                                    placeholder="Message"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-dark w-100 py-3" type="submit">Request A Quote</button>
-                            </div>
+                        <div class="ps-4">
+                            <h5 class="mb-2">Call to ask any question</h5>
+                            <h4 class=" mb-0" style="color: #e87718;">+91-923 645 4872</h4>
                         </div>
-                    </form>
+                    </div>
+                    <a href="quote.html" class="btn py-3 px-5 mt-3 wow zoomIn"
+                        style="background-color: #e87718; color: white;" data-wow-delay="0.9s">Request A Quote</a>
+                </div>
+                <div class="col-lg-5" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s"
+                            src="img/about.jpg" style="object-fit: cover;">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Quote End -->
-<!-- Team Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container pt-5">
-        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto " style="max-width: 600px; ">
-            <h5 class="fw-bold text-uppercase" style="color: #e87718;">Our Leadership</h5>
-            <h1 class="mb-0">Professional Team Ready to Help Your Business</h1>
-        </div>
-        <div class="row g-5 justify-content-center">
-
-            <div class="col-lg-3 col-md-6 wow slideInUp " data-wow-delay="0.3s">
-                <div class="team-item bg-light rounded overflow-hidden">
-                    <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/farukh-shah.png" alt="Farukh Shah">
-                    </div>
-                    <div class="text-center py-4">
-                        <h4 style="color: #e87718;">Farukh Shah</h4>
-                        <p class="text-uppercase m-0">Founder</p>
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-uppercase" style="color: #e87718;">Why Choose Us</h5>
+                <h1 class="mb-0">Build a profitable business balance sheet
+                    with our expertise & experience.</h1>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="row g-5">
+                        <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
+                            <div class=" rounded d-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px; background-color: #e87718;">
+                                <i class="fa fa-bullseye text-white"></i>
+                            </div>
+                            <h4>Target Audience</h4>
+                            <p class="mb-0">Convert your target audience and close the deal.</p>
+                        </div>
+                        <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
+                            <div class=" rounded d-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px; background-color: #e87718;">
+                                <i class="fa fa-eye text-white"></i>
+                            </div>
+                            <h4>Visibility & Credibility</h4>
+                            <p class="mb-0">Drive interest and traffic from high-quality prospects.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 wow slideInUp" data-wow-delay="0.6s">
-                <div class="team-item bg-light rounded overflow-hidden">
-                    <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/nida-parveen.jpg" alt="Nida Parveen">
-                    </div>
-                    <div class="text-center py-4">
-                        <h4 style="color: #e87718;">Nida Parveen</h4>
-                        <p class="text-uppercase m-0">Co-founder</p>
+                <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s"
+                            src="img/feature.jpg" style="object-fit: cover;">
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 wow slideInUp" data-wow-delay="0.9s">
-                <div class="team-item bg-light rounded overflow-hidden">
-                    <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/kamran_anwar_shah.jpg" alt="Kamran Anwar Shah">
-                    </div>
-                    <div class="text-center py-4">
-                        <h4 style="color: #e87718;">Kamran Anwar Shah</h4>
-                        <p class="text-uppercase m-0">Director</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 wow slideInUp" data-wow-delay="1.2s">
-                <div class="team-item bg-light rounded overflow-hidden">
-                    <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/dr-sameer-anwar-shah.jpeg" alt="New Member">
-                    </div>
-                    <div class="text-center py-4">
-                        <h4 style="color: #e87718;">Dr. Sameer Anwar Shah</h4>
-                        <p class="text-uppercase m-0">CEO</p>
+                <div class="col-lg-4">
+                    <div class="row g-5">
+                        <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
+                            <div class=" rounded d-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px; background-color: #e87718;">
+                                <i class="fa fa-users text-white"></i>
+                            </div>
+                            <h4>Revenue & Business</h4>
+                            <p class="mb-0">Increase the lifetime value of your paying customer.</p>
+                        </div>
+                        <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
+                            <div class="rounded d-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px; background-color: #e87718;">
+                                <i class="fa fa-phone-alt text-white"></i>
+                            </div>
+                            <h4>24/7 Support</h4>
+                            <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- VIEW MORE BUTTON ADDED HERE -->
-        <div class="row gx-0">
-            <div class="col-12 text-center">
-                 <a href="team.html" class="btn text-white py-3 px-5 wow zoomIn" style="background-color: #e87718;" data-wow-delay="0.9s">View More Members</a>
             </div>
         </div>
     </div>
-</div>
-<!-- Team End -->
-<!-- Vendor Start -->
-<div class="container-fluid py-5">
-    <div class="container py-5 mb">
-        <div class="vendor-marquee">
-            <div class="marquee-track">
-                <img src="img/vendor1.jpg" alt="Swiggy">
-                <img src="img/vendor2.jpg" alt="Zomato">
-                <img src="img/vendor3.jpg" alt="Blinkit">
-                <img src="img/vendor4.jpg" alt="Amazon">
-                <img src="img/vendor5.jpg" alt="Indiamart">
-                
-                <img src="img/vendor1.jpg" alt="Swiggy">
-                <img src="img/vendor2.jpg" alt="Zomato">
-                <img src="img/vendor3.jpg" alt="Blinkit">
-                <img src="img/vendor4.jpg" alt="Amazon">
-                <img src="img/vendor5.jpg" alt="Indiamart">
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-uppercase" style="color:#e87718;">Our Services</h5>
+                <h1 class="mb-0">Custom IT Solutions for Your Successful Business</h1>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
+                    <div
+                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-shield-alt text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Highly Trained Team</h4>
+                        <p class="m-0">Get a team that understands best industry practices and procedures</p>
+                        <a class="btn btn-lg rounded" style="color: white; background-color: #e87718;" href="">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                    <div
+                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-chart-pie text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Better Local Engagement</h4>
+                        <p class="m-0">Get engagement with your business audience in the local tone and language.</p>
+                        <a class="btn btn-lg rounded" style="color: white; background-color: #e87718;" href="">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
+                    <div
+                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-code text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Affordable Solutions</h4>
+                        <p class="m-0">Get cost-effective affordable pricing that makes financial sense.</p>
+                        <a class="btn btn-lg rounded" style="color: white; background-color: #e87718;" href="">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
+                    <div
+                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fab fa-android text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Results First Approach</h4>
+                        <p class="m-0">We believe in numbers and results that showcase our promises.</p>
+                        <a class="btn btn-lg rounded" style="color: white; background-color: #e87718;" href="">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                    <div
+                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-search text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Honesty & Transparency</h4>
+                        <p class="m-0">We offer honest effort that builds stronger businesses.</p>
+                        <a class="btn btn-lg rounded" style="color: white; background-color: #e87718;" " href="">
+                                <i class=" bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                    <div
+                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-search text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Quality Infrastructure</h4>
+                        <p class="m-0">Get state-of-the-art infrastructure with near zero systems breakdown.</p>
+                        <a class="btn btn-lg btn rounded" style="color: white; background-color: #e87718;" href="">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Vendor End -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-uppercase" style="color:#e87718;">BEST LEADS</h5>
+                <h1 class="mb-0">Build a profitable business balance sheet
+                    with our expertise & experience.</h1>
+            </div>
+            <div class="row g-0">
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
+                    <div class="bg-light rounded">
+                        <div class="border-bottom py-4 px-5 mb-4">
+                            <h3 class="mb-1" style="color: #e87718;">Better BPO services for non-core business needs</h3>
+                            <small>Outsource your business requirements to us for cost-effective solutions</small>
+                        </div>
+                        <div class="p-5 pt-0" style="color: black;">
+                            <div class="d-flex justify-content-between mb-3"><span>Get trained, friendly and professional
+                                    call centre support.</span></div>
+                            <div class="d-flex justify-content-between mb-3"><span>Get ecommerce & HR support
+                                    services.</span></div>
+                            <div class="d-flex justify-content-between mb-3"><span>Get back office & front office support
+                                    services.</span></div>
+                            <div class="d-flex justify-content-between mb-2"><span>Get invoice factoring support,
+                                    underwriting and accounts & finance services</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                    <div class="bg-white rounded shadow position-relative" style="z-index: 1;">
+                        <div class="border-bottom py-4 px-5 mb-4">
+                            <h3 class="mb-1" style="color: #e87718;">Better data management services to increase business
+                                efficiency</h3>
+                            <small>Outsource your data management efforts to us for expert supervision</small>
+                        </div>
+                        <div class="p-5 pt-0" style="color: black;">
+                            <div class="d-flex justify-content-between mb-3"><span>Get data processing done to save
+                                    time.</span></div>
+                            <div class="d-flex justify-content-between mb-3"><span>Get data cleansing done to retain and
+                                    save quality data.</span></div>
+                            <div class="d-flex justify-content-between mb-3"><span>Get data verification & extraction done
+                                    for help in business decision making.</span></div>
+                            <div class="d-flex justify-content-between mb-2"><span>Get data conversion done for easy storage
+                                    and retrieval.</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="bg-light rounded">
+                        <div class="border-bottom py-4 px-5 mb-4">
+                            <h3 class="mb-1" style="color: #e87718;">Better digital marketing services to promote services &
+                                products</h3>
+                            <small>Outsource your digital marketing to specialists with years of experience</small>
+                        </div>
+                        <div class="p-5 pt-0" style="color: black;">
+                            <div class="d-flex justify-content-between mb-3"><span>Get website development at affordable
+                                    rates & attractive designs.</span></div>
+                            <div class="d-flex justify-content-between mb-3"><span>Get search engine optimization (SEO) to
+                                    rank your business website.</span></div>
+                            <div class="d-flex justify-content-between mb-3"><span>Get email marketing and content marketing
+                                    to engage your audience.</span></div>
+                            <div class="d-flex justify-content-between mb-2"><span>Get organic and paid social media
+                                    marketing for best results.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="section-title position-relative pb-3 mb-5">
+                        <h5 class="fw-bold text-uppercase" style="color: #e87718;">Request A Quote</h5>
+                        <h1 class="mb-0">Need A Free Quote? Please Feel Free to Contact Us</h1>
+                    </div>
+                    <div class="row gx-3">
+                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
+                            <h5 class="mb-4"><i class="fa fa-reply  me-3" style="color: #e87718;"></i>Reply within 24 hours
+                            </h5>
+                        </div>
+                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
+                            <h5 class="mb-4"><i class="fa fa-phone-alt  me-3" style="color: #e87718;"></i>24 hrs telephone
+                                support</h5>
+                        </div>
+                    </div>
+                    <p class="mb-4">Ready to streamline your operations? At Niftel, we provide top-tier BPO, Data
+                        Management, and Digital Marketing solutions tailored to your goals. From 24/7 call center support to
+                        expert data handling and SEO strategies, we deliver affordable, results-driven services to help your
+                        business grow.</p>
+                    <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
+                        <div class=" d-flex align-items-center justify-content-center rounded"
+                            style="width: 60px; height: 60px; background-color: #e87718;">
+                            <i class="fa fa-phone-alt text-white"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="mb-2">Call to ask any question</h5>
+                            <h4 class=" mb-0" style="color: #e87718;">+91-923 645 4872</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="rounded h-100 d-flex align-items-center p-5 wow zoomIn" style="background-color: #e87718;"
+                        data-wow-delay="0.9s">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-xl-12">
+                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name"
+                                        style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control bg-light border-0" placeholder="Your Email"
+                                        style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <select class="form-select bg-light border-0" style="height: 55px;">
+                                        <option selected>Select A Service</option>
+                                        <option value="1">BPO Services</option>
+                                        <option value="2">Data Support</option>
+                                        <option value="3">Call Center Services</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control bg-light border-0" rows="3"
+                                        placeholder="Message"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-dark w-100 py-3" type="submit">Request A Quote</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container pt-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto " style="max-width: 600px; ">
+                <h5 class="fw-bold text-uppercase" style="color: #e87718;">Our Leadership</h5>
+                <h1 class="mb-0">Professional Team Ready to Help Your Business</h1>
+            </div>
+            <div class="row g-5 justify-content-center">
 
+                <div class="col-lg-3 col-md-6 wow slideInUp " data-wow-delay="0.3s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="img/farukh-shah.png" alt="Farukh Shah">
+                        </div>
+                        <div class="text-center py-4">
+                            <h4 style="color: #e87718;">Farukh Shah</h4>
+                            <p class="text-uppercase m-0">Founder</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="container-fluid text-light mt-5 wow fadeInUp" data-wow-delay="0.1s" style="background-color: #0b2f46;">
+                <div class="col-lg-3 col-md-6 wow slideInUp" data-wow-delay="0.6s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="img/nida-parveen.jpg" alt="Nida Parveen">
+                        </div>
+                        <div class="text-center py-4">
+                            <h4 style="color: #e87718;">Nida Parveen</h4>
+                            <p class="text-uppercase m-0">Co-founder</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="img/kamran_anwar_shah.jpg" alt="Kamran Anwar Shah">
+                        </div>
+                        <div class="text-center py-4">
+                            <h4 style="color: #e87718;">Kamran Anwar Shah</h4>
+                            <p class="text-uppercase m-0">Director</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 wow slideInUp" data-wow-delay="1.2s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="img/dr-sameer-anwar-shah.jpeg" alt="New Member">
+                        </div>
+                        <div class="text-center py-4">
+                            <h4 style="color: #e87718;">Dr. Sameer Anwar Shah</h4>
+                            <p class="text-uppercase m-0">CEO</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row gx-0">
+        <div class="col-12 text-center">
+             <a href="team.html" class="btn text-white py-3 px-5 wow zoomIn" style="background-color: #e87718;" data-wow-delay="0.9s">View More Members</a>
+        </div>
+    </div>
+    <div class="container-fluid py-5">
+        <div class="container py-5 mb">
+            <div class="vendor-marquee">
+                <div class="marquee-track">
+                    <img src="img/vendor1.jpg" alt="Swiggy">
+                    <img src="img/vendor2.jpg" alt="Zomato">
+                    <img src="img/vendor3.jpg" alt="Blinkit">
+                    <img src="img/vendor4.jpg" alt="Amazon">
+                    <img src="img/vendor5.jpg" alt="Indiamart">
+                    
+                    <img src="img/vendor1.jpg" alt="Swiggy">
+                    <img src="img/vendor2.jpg" alt="Zomato">
+                    <img src="img/vendor3.jpg" alt="Blinkit">
+                    <img src="img/vendor4.jpg" alt="Amazon">
+                    <img src="img/vendor5.jpg" alt="Indiamart">
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container-fluid text-light wow fadeInUp" data-wow-delay="0.1s" style="background-color: #0b2f46;">
     <div class="container">
         <div class="row gx-4">
             
@@ -1316,8 +968,10 @@
                                     <a class="text-light text-nowrap" href="services-page/tech support/tech.html"><i class="bi bi-arrow-right text-white me-2"></i>Tech Support</a>
                                 </div>
                                 <div class="col-6 ps-2">
+                                     <div class="col-6  pe-2"  !important;">
                                     <a class="text-light text-nowrap" href="services-page/data support/migration.html"><i class="bi bi-arrow-right text-white me-2"></i>Data Migration</a>
                                 </div>
+                                    </div>
                             </div>
 
                         </div>
@@ -1346,23 +1000,20 @@
 
 <a href="#" class="btn btn-lg btn-dark btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="lib/wow/wow.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/waypoints/waypoints.min.js"></script>
-<script src="lib/counterup/counterup.min.js"></script>
-<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-<!-- Template Javascript -->
-<script src="js/main.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
     <script>
-document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         
-        // --- 1. SETUP MOBILE MENU (Split Button Logic) ---
+        // --- 1. SETUP MOBILE MENU (Right Arrow + Split Button) ---
         const desktopNav = document.querySelector('.navbar-nav');
         const mobileContainer = document.getElementById('mobile-offcanvas-content');
 
@@ -1379,32 +1030,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 const menu = dropdown.querySelector('.dropdown-menu');
                 
                 if (link && menu) {
-                    // Create Split Arrow
+                    // Create Split Arrow Button (Pointing Right initially)
                     const toggleBtn = document.createElement('span');
                     toggleBtn.className = 'mobile-toggle-btn';
-                    toggleBtn.innerHTML = '<i class="fa fa-chevron-down"></i>';
+                    toggleBtn.innerHTML = '<i class="fa fa-chevron-right"></i>'; // Chevron points right
                     
-                    // Add Arrow to Link
+                    // Append arrow to the link (Flexbox in CSS will push it to the right)
                     link.appendChild(toggleBtn);
                     
                     // Handle Arrow Click
                     toggleBtn.addEventListener('click', function(e) {
-                        e.preventDefault(); 
-                        e.stopPropagation(); 
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Toggle display
                         if (menu.style.display === 'block') {
                             menu.style.display = 'none';
-                            toggleBtn.classList.remove('open');
+                            toggleBtn.classList.remove('open'); // Rotates back
                         } else {
                             menu.style.display = 'block';
-                            toggleBtn.classList.add('open');
+                            toggleBtn.classList.add('open'); // Rotates down
                         }
                     });
 
-                    // Ensure Text Link works (Goes to page instead of toggling menu)
+                    // Remove dropdown-toggle functionality from text so it links to page
                     link.classList.remove('dropdown-toggle');
+                    link.removeAttribute('data-bs-toggle');
                 }
             });
 
+            // Inject into offcanvas
             mobileContainer.innerHTML = '';
             mobileContainer.appendChild(mobileNav);
         }
@@ -1412,24 +1067,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // --- 2. ACTIVE MENU LOGIC ---
         function setActiveMenu() {
             var path = window.location.pathname;
-            var page = path.split("/").pop(); // e.g. "tech.html"
-
+            var page = path.split("/").pop();
             if (page === "" || page === "/") page = "index.html";
 
             function highlightLinks(container) {
                 const links = container.querySelectorAll('a.nav-link, a.dropdown-item');
-                
                 links.forEach(link => {
                     const href = link.getAttribute('href');
                     if (href) {
-                        const cleanHref = href.split('/').pop(); 
-
-                        // Check for match
+                        const cleanHref = href.split('/').pop();
                         if (cleanHref === page) {
-                            // 1. Highlight the specific link (Tech Support)
                             link.classList.add('active');
-
-                            // 2. Highlight the parent "Services" tab
                             const parentDropdown = link.closest('.dropdown');
                             if (parentDropdown) {
                                 const parentLink = parentDropdown.querySelector('.nav-link');
@@ -1450,8 +1098,19 @@ document.addEventListener('DOMContentLoaded', function() {
         var myOffcanvas = document.getElementById('mobileMenuOffcanvas');
         var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
     });
+
+    // --- 3. STICKY NAVBAR LOGIC ---
+    window.addEventListener('scroll', function () {
+        var navbar = document.querySelector('.navbar');
+        if (window.scrollY > 45) {
+            navbar.classList.add('sticky-top');
+        } else {
+            navbar.classList.remove('sticky-top');
+        }
+    });
     </script>
+    
+    <script src="js/main.js"></script>
 
 </body>
 </html>
-

@@ -27,16 +27,18 @@
         body { font-family: 'Rubik', sans-serif; color: #555; background-color: #fcfcfc; overflow-x: hidden; }
         h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; font-weight: 800; color: var(--secondary); }
 
-        /* --- HERO SECTION (100% Height for Mobile) --- */
+        /* --- HERO SECTION (UPDATED FOR FULL SCREEN) --- */
         .hero-header {
             position: relative;
-            height: 60vh; /* Desktop Default */
-            min-height: 400px;
+            /* CHANGED FROM 60vh TO 100vh for Full Screen on PC */
+            height: 100vh; 
+            min-height: 100vh; 
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: #000; /* Fallback color if video fails */
+            background: #000;
+            margin-bottom: 0; /* Remove margin so it flows perfectly */
         }
 
         .video-bg {
@@ -54,6 +56,7 @@
 
         /* --- MOBILE ADJUSTMENTS --- */
         @media (max-width: 991px) {
+            /* Ensuring 100vh on mobile as well */
             .hero-header { height: 100vh !important; min-height: 100vh !important; }
             .hero-title { font-size: 3rem; }
             .box-menu { width: 100%; background-color: #222; }
@@ -146,33 +149,76 @@
         }
         .dropdown-item:hover, .dropdown-item.active { background-color: var(--primary); padding-left: 15px; }
 
-        /* --- MOBILE MENU STYLES --- */
-        #mobile-offcanvas-content .navbar-nav { flex-direction: column; width: 100%; gap: 0; }
-        #mobile-offcanvas-content .nav-link {
-            color: #333 !important; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid #eee;
-            padding: 12px 10px; display: flex; justify-content: space-between; align-items: center;
-        }
-        #mobile-offcanvas-content .nav-link.active { color: #e87718 !important; }
-        #mobile-offcanvas-content .dropdown-toggle::after { display: none !important; }
-
-        /* Mobile Arrow Button */
-        .mobile-toggle-btn {
-            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
-            border-left: 1px solid #f0f0f0; margin-left: 10px; cursor: pointer; transition: 0.3s; color: #666;
-        }
-        .mobile-toggle-btn.open { transform: rotate(180deg); color: #e87718; }
-
-        /* Mobile Dropdown */
+       /* --- 3. MOBILE MENU & ARROW FIXES --- */
+        
+        /* Mobile Dropdown Container - BLACK BACKGROUND */
         #mobile-offcanvas-content .dropdown-menu {
-            position: static !important; transform: none !important; background: #f9f9f9 !important;
-            border: none; padding: 0; margin: 0; width: 100%; box-shadow: none !important; display: none;
+            position: static !important;
+            transform: none !important;
+            background: #091E3E !important; /* BLACK BACKGROUND */
+            border: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            box-shadow: none !important;
+            display: none; 
         }
+
+        /* Mobile Menu Links (Main) */
+        #mobile-offcanvas-content .nav-link {
+            display: flex !important;
+            justify-content: space-between !important; /* Text Left, Arrow Right */
+            align-items: center !important;
+            width: 100% !important;
+            color: #ffffff !important; /* WHITE TEXT */
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #ffffff; /* Darker border */
+            padding: 12px 10px;
+        }
+
+        /* Mobile Menu Active State */
+        #mobile-offcanvas-content .nav-link.active {
+            color: #e87718 !important; /* Orange Active Text */
+        }
+
+        /* Mobile Sub-menu Items */
+        #mobile-offcanvas-content .dropdown-item {
+            color: #ffffff !important; /* WHITE TEXT */
+            padding: 8px 10px;
+            font-size: 0.95rem;
+        }
+        
+        #mobile-offcanvas-content .dropdown-item:hover {
+            color: #e87718 !important;
+            background: transparent;
+            padding-left: 15px; 
+        }
+
+        /* The Arrow Button */
+        .mobile-toggle-btn {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 1px solid #333;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #ffffff; /* WHITE ARROW */
+        }
+
+        /* Rotate arrow when open */
+        .mobile-toggle-btn.open {
+            transform: rotate(90deg); /* Rotates right-arrow to down */
+            color: #e87718;
+        }
+
+        /* Mobile Mega Menu Fixes */
         #mobile-offcanvas-content .d-flex.flex-wrap { display: block !important; }
-        #mobile-offcanvas-content .menu-column { padding: 15px; border-bottom: 1px solid #eee; }
+        #mobile-offcanvas-content .menu-column { padding: 15px; border-bottom: 1px solid #333; }
         #mobile-offcanvas-content .menu-header { color: #e87718; font-size: 0.9rem; margin-bottom: 10px; }
-        #mobile-offcanvas-content .dropdown-item { color: #555 !important; padding: 8px 10px; font-size: 0.95rem; }
-        #mobile-offcanvas-content .dropdown-item:hover, 
-        #mobile-offcanvas-content .dropdown-item.active { color: #e87718 !important; background: transparent; padding-left: 15px; }
 
         /* Force Navbar Link Colors if CSS Fails to Load */
         .navbar-dark .navbar-nav .nav-link { color: #fff; }
@@ -468,12 +514,12 @@
                                  <h3 class="text-light mb-0 border-bottom pb-2 text-nowrap">Quick Links</h3>
                             </div>
                             <div class="link-animated d-flex flex-column justify-content-start">
-                                <a class="text-light mb-2" href="index.html">Home</a>
-                                <a class="text-light mb-2" href="about.html">About Us</a>
-                                <a class="text-light mb-2" href="service.html">Our Services</a>
-                                <a class="text-light mb-2" href="https://www.niftelresources.com/apply-for-job">Careers</a>
-                                <a class="text-light mb-2" href="gallery.html">Gallery</a>
-                                <a class="text-light" href="contact.html">Contact Us</a>
+                                <a class="text-light mb-2" href="index.html"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                                <a class="text-light mb-2" href="about.html"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
+                                <a class="text-light mb-2" href="service.html"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
+                                <a class="text-light mb-2" href="https://www.niftelresources.com/apply-for-job"><i class="bi bi-arrow-right text-white me-2"></i>Careers</a>
+                                <a class="text-light mb-2" href="gallery.html"><i class="bi bi-arrow-right text-white me-2"></i>Gallery</a>
+                                <a class="text-light" href="contact.html"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-12 pt-5 mb-5">
@@ -521,7 +567,7 @@
                                         <a class="text-light text-nowrap" href="services-page/tech support/answering.html"><i class="bi bi-arrow-right text-white me-2"></i>Answering Svcs</a>
                                     </div>
                                 </div>
-                                <div class="row g-0 mb-2">
+                                 <div class="row g-0 mb-2">
                                     <div class="col-6 border-end pe-2" style="border-color: rgba(255,255,255,0.2) !important;">
                                         <a class="text-light text-nowrap" href="services-page/tech support/tech.html"><i class="bi bi-arrow-right text-white me-2"></i>Tech Support</a>
                                     </div>

@@ -30,7 +30,7 @@
         /* --- HERO SECTION --- */
         .hero-header {
             position: relative;
-            height: 60vh;
+            height: 100vh;
             min-height: 400px;
             display: flex;
             align-items: center;
@@ -114,8 +114,20 @@
         }
         .btn-outline-custom:hover { background: var(--primary); border-color: var(--primary); color: white; }
 
-        /* --- NAVIGATION & MOBILE MENU STYLES --- */
+        /* --- NAVIGATION STYLES --- */
         
+        /* 1. FORCE DESKTOP TEXT WHITE */
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff !important; /* Pure White */
+            font-weight: 600; /* Increased weight slightly for better visibility */
+        }
+        
+        /* 2. STICKY NAVBAR (Turn Dark Blue on Scroll so white text is visible) */
+        .navbar.sticky-top {
+            background-color: var(--secondary) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
         /* Desktop Active State */
         .navbar-dark .navbar-nav .nav-link.active,
         .navbar-dark .navbar-nav .nav-link:hover { color: #e87718 !important; }
@@ -147,36 +159,77 @@
         }
         .dropdown-item:hover, .dropdown-item.active { background-color: var(--primary); padding-left: 15px; }
 
-        /* --- MOBILE MENU STYLES --- */
-        #mobile-offcanvas-content .navbar-nav { flex-direction: column; width: 100%; gap: 0; }
+        /* --- MOBILE MENU STYLES (Fixed) --- */
+        
+        /* 1. OFF CANVAS CONTAINER - DARK BLUE & WHITE TEXT */
+        .offcanvas, .offcanvas-body {
+            background-color: #091E3E !important; /* Force Dark Blue */
+            color: #ffffff !important; /* Force White Text */
+        }
+        
+        .offcanvas-header {
+             border-bottom: 1px solid rgba(255,255,255,0.1);
+             background-color: #091E3E !important;
+        }
+        .offcanvas-title { color: #ffffff !important; font-weight: 800; }
+        .btn-close { filter: invert(1) !important; opacity: 1 !important; }
+
+        /* 2. MOBILE LINKS - WHITE TEXT */
+        #mobile-offcanvas-content .navbar-nav {
+            flex-direction: column; width: 100%; gap: 0; margin: 0 !important; padding: 0 !important;
+        }
+
         #mobile-offcanvas-content .nav-link {
-            color: #333 !important; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid #eee;
+            color: #ffffff !important; /* WHITE TEXT */
+            font-weight: 700; font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             padding: 12px 10px; display: flex; justify-content: space-between; align-items: center;
         }
+
+        /* Active State Mobile */
         #mobile-offcanvas-content .nav-link.active { color: #e87718 !important; }
         #mobile-offcanvas-content .dropdown-toggle::after { display: none !important; }
 
-        /* Mobile Arrow Button */
+        /* 3. ARROW BUTTON (Fixed for easy clicking) */
         .mobile-toggle-btn {
-            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
-            border-left: 1px solid #f0f0f0; margin-left: 10px; cursor: pointer; transition: 0.3s; color: #666;
+            width: 50px; height: 50px;
+            display: flex; align-items: center; justify-content: center;
+            border-left: 1px solid rgba(255,255,255,0.1);
+            margin-left: auto; cursor: pointer; transition: 0.3s;
+            color: #ffffff !important; /* White Arrow */
+            z-index: 100;
+            position: relative;
         }
-        .mobile-toggle-btn.open { transform: rotate(180deg); color: #e87718; }
+        .mobile-toggle-btn.open { transform: rotate(180deg); color: #e87718 !important; }
 
-        /* Mobile Dropdown */
+        /* 4. MOBILE DROPDOWN - TRANSPARENT BG */
         #mobile-offcanvas-content .dropdown-menu {
-            position: static !important; transform: none !important; background: #f9f9f9 !important;
-            border: none; padding: 0; margin: 0; width: 100%; box-shadow: none !important; display: none;
+            position: static !important; transform: none !important;
+            background: transparent !important; border: none;
+            padding: 0; margin: 0; width: 100%; box-shadow: none !important;
+            display: none; padding-left: 10px;
         }
+        
+        /* Mobile Mega Menu Layout */
         #mobile-offcanvas-content .d-flex.flex-wrap { display: block !important; }
-        #mobile-offcanvas-content .menu-column { padding: 15px; border-bottom: 1px solid #eee; }
-        #mobile-offcanvas-content .menu-header { color: #e87718; font-size: 0.9rem; margin-bottom: 10px; }
-        #mobile-offcanvas-content .dropdown-item { color: #555 !important; padding: 8px 10px; font-size: 0.95rem; }
-        #mobile-offcanvas-content .dropdown-item:hover, 
-        #mobile-offcanvas-content .dropdown-item.active { color: #e87718 !important; background: transparent; padding-left: 15px; }
+        #mobile-offcanvas-content .menu-column { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        #mobile-offcanvas-content .menu-header {
+            color: #e87718 !important; font-size: 0.9rem; margin-bottom: 10px; border-bottom: none;
+        }
 
+        /* 5. SUB-MENU LINKS - WHITE */
+        #mobile-offcanvas-content .dropdown-item {
+            color: #ffffff !important; /* PURE WHITE */
+            padding: 8px 10px; font-size: 0.95rem; background-color: transparent !important;
+        }
+        #mobile-offcanvas-content .dropdown-item:hover,
+        #mobile-offcanvas-content .dropdown-item.active {
+            color: #e87718 !important; background: transparent !important; padding-left: 15px;
+        }
+
+        /* IMPORTANT: HIDE PC MENU IN MOBILE TO PREVENT DUPLICATION */
         @media (max-width: 991px) {
-            .box-menu { width: 100%; background-color: #222; }
+            #navbarCollapse { display: none !important; }
         }
     </style>
 </head>
@@ -187,9 +240,9 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i> A Block, 3rd Floor, Sooraj Deep complex, Joppling Road, Lucknow(UP)-226001 India</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i><a href="tel:+919236454872" style="color: white;">+91-923 645 4872</a></small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i><a href="mailto:hr@niftel.com" style="color: white;">hr@niftel.com</a></small>
+                    <small class="me-3 text-white"><i class="fa fa-map-marker-alt me-2"></i> A Block, 3rd Floor, Sooraj Deep complex, Joppling Road, Lucknow(UP)-226001 India</small>
+                    <small class="me-3 text-white"><i class="fa fa-phone-alt me-2"></i><a href="tel:+919236454872" style="color: white;">+91-923 645 4872</a></small>
+                    <small class="text-white"><i class="fa fa-envelope-open me-2"></i><a href="mailto:hr@niftel.com" style="color: white;">hr@niftel.com</a></small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
@@ -203,15 +256,18 @@
             </div>
         </div>
     </div>
+    
     <div class="container-fluid position-relative p-0" style="z-index: 1030;">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="../../index.html" class="navbar-brand p-0">
                 <img src="../../img/logo.png" alt="Niftel" style="height: 60px; object-fit:contain;">
             </a>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas">
                 <span class="fa fa-bars"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
+            
+            <div class="collapse navbar-collapse d-none d-lg-block" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="../../index.html" class="nav-item nav-link">Home</a>
                     
@@ -270,6 +326,7 @@
             </div>
         </div>
     </div>
+
     <div class="hero-header">
         <video class="video-bg" autoplay muted loop playsinline>
             <source src="../../img/ecommerce.mp4" type="video/mp4">
@@ -406,7 +463,7 @@
         </div>
     </div>
 
-    <div class="container-fluid text-light mt-5 wow fadeInUp" data-wow-delay="0.1s" style="background-color: #0b2f46;">
+    <div class="container-fluid text-light  wow fadeInUp" data-wow-delay="0.1s" style="background-color: #0b2f46;">
         <div class="container">
             <div class="row gx-4">
                 <div class="col-lg-4 col-md-6 footer-about">
@@ -525,21 +582,35 @@
     <script src="../../lib/waypoints/waypoints.min.js"></script>
     <script src="../../lib/counterup/counterup.min.js"></script>
     <script src="../../lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="../../js/main.js"></script>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Use setTimeout to ensure this runs AFTER any default template scripts (like main.js)
+        setTimeout(function() {
             
-            // --- 1. SETUP MOBILE MENU (Split Button Logic) ---
-            const desktopNav = document.querySelector('.navbar-nav');
-            const mobileContainer = document.getElementById('mobile-offcanvas-content');
+            // --- 1. CLEANUP EXTRA MENUS (The Anti-Duplication Fix) ---
+            const junkMenus = document.querySelectorAll('.slicknav_menu, .mean-bar, .mobile-menu-container');
+            junkMenus.forEach(el => el.remove());
 
-            if (desktopNav && mobileContainer) {
-                // Clone desktop menu
+            // --- 2. SETUP MOBILE MENU ---
+            const desktopNav = document.querySelector('#navbarCollapse .navbar-nav'); 
+            const offcanvasBody = document.querySelector('.offcanvas-body');
+            
+            if (desktopNav && offcanvasBody) {
+                
+                // AGGRESSIVE CLEANUP: Clear the offcanvas body
+                offcanvasBody.innerHTML = '';
+                
+                // Create a clean wrapper for our content
+                const mobileContainer = document.createElement('div');
+                mobileContainer.id = 'mobile-offcanvas-content';
+                mobileContainer.className = 'p-3';
+                
+                // Clone the desktop navigation
                 const mobileNav = desktopNav.cloneNode(true);
                 mobileNav.classList.remove('ms-auto', 'py-0');
                 
-                // Process Dropdowns for Mobile
+                // Find all dropdowns in the cloned menu
                 const dropdowns = mobileNav.querySelectorAll('.dropdown');
                 
                 dropdowns.forEach(dropdown => {
@@ -547,15 +618,15 @@
                     const menu = dropdown.querySelector('.dropdown-menu');
                     
                     if (link && menu) {
-                        // Create Split Arrow
+                        // Create the separate Arrow Button
                         const toggleBtn = document.createElement('span');
                         toggleBtn.className = 'mobile-toggle-btn';
                         toggleBtn.innerHTML = '<i class="fa fa-chevron-down"></i>';
                         
-                        // Add Arrow to Link
+                        // Append Arrow to the text link
                         link.appendChild(toggleBtn);
                         
-                        // Handle Arrow Click
+                        // Add Click Event ONLY to the Arrow Button
                         toggleBtn.addEventListener('click', function(e) {
                             e.preventDefault(); 
                             e.stopPropagation(); 
@@ -568,19 +639,20 @@
                             }
                         });
 
-                        // Ensure Text Link works (Goes to Services page)
+                        // Remove 'dropdown-toggle' class so text link works as a normal link
                         link.classList.remove('dropdown-toggle');
                     }
                 });
 
-                mobileContainer.innerHTML = '';
+                // Append the fresh clone
                 mobileContainer.appendChild(mobileNav);
+                offcanvasBody.appendChild(mobileContainer);
             }
 
-            // --- 2. ACTIVE MENU LOGIC (Sub-Page Friendly) ---
+            // --- 3. ACTIVE MENU LOGIC (Works for Sub-Pages) ---
             function setActiveMenu() {
                 var path = window.location.pathname;
-                var page = path.split("/").pop(); // e.g. "ecommerce.html"
+                var page = path.split("/").pop(); 
 
                 if (page === "" || page === "/") page = "index.html";
 
@@ -592,12 +664,12 @@
                         if (href) {
                             const cleanHref = href.split('/').pop(); 
 
-                            // Check for match (e.g. ecommerce.html)
+                            // Check if filenames match
                             if (cleanHref === page) {
-                                // 1. Highlight the specific link
+                                // 1. Highlight the specific link (e.g., "Back Office")
                                 link.classList.add('active');
 
-                                // 2. Highlight the parent "Services" tab
+                                // 2. Highlight the parent Dropdown (e.g., "Services")
                                 const parentDropdown = link.closest('.dropdown');
                                 if (parentDropdown) {
                                     const parentLink = parentDropdown.querySelector('.nav-link');
@@ -609,14 +681,37 @@
                 }
 
                 if(desktopNav) highlightLinks(desktopNav);
-                if(mobileContainer) highlightLinks(mobileContainer);
+                // Note: mobileContainer is defined in previous scope, so we query it freshly
+                const freshMobileContainer = document.getElementById('mobile-offcanvas-content');
+                if(freshMobileContainer) highlightLinks(freshMobileContainer);
             }
 
             setActiveMenu();
 
+            // Initialize Offcanvas
             var myOffcanvas = document.getElementById('mobileMenuOffcanvas');
-            var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
-        });
+            if(myOffcanvas) {
+                var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
+            }
+
+        }, 500); // 500ms delay to beat main.js
+    });
+    
+    // --- STICKY NAVBAR LOGIC ---
+    window.addEventListener('scroll', function () {
+        var navbar = document.querySelector('.navbar');
+        // If scrolled down more than 45px
+        if (window.scrollY > 45) {
+            navbar.classList.add('sticky-top');
+        } else {
+            navbar.classList.remove('sticky-top');
+        }
+    });
+
+    // Initialize WOW.js
+    if(typeof WOW !== 'undefined') {
+        new WOW().init();
+    }
     </script>
 </body>
 </html>
